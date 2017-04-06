@@ -295,6 +295,8 @@ HTML;
         $em = $this->getDoctrine()->getManager();
         $journal = new Journal();
 
+        SUtils::trace($date);
+
 //        $identifier = $date->format();
         //todo use this somehow
         $identifier = '';
