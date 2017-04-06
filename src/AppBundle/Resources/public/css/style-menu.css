@@ -7,7 +7,10 @@
     /*background: #fff;*/
     -webkit-box-align: center;
     -webkit-align-items: center;
-    align-items: center
+    align-items: center;
+
+    height: 30px;
+    background: #331122;
 }
 
 .page-header .page-header-main-content {
@@ -702,4 +705,12 @@
 #sidemenu .menu-item-popup[data-position="bottom-right"], .menu-item-popup[data-position="bottom-right"] > .menu-level-2 {
     right: 0;
     left: auto;
+}
+
+.kiosk-bundle-title{
+    color: #eeeeee;
+    font-size: 26px;
+}
+.page-header{
+    background-color: #331122;
 }

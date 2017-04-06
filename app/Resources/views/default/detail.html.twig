@@ -3,20 +3,20 @@
 {% block body %}
 <div class="container-fluid main"  id="main">
 
-    <header class='page-header' role='banner'>
+    <header class="page-header" role="banner">
+        <div class="page-header-main-content">
+            {% image '@AppBundle/Resources/public/images/age-restriction.svg' %}
+            <img alt="Возрастное ограничение 18+" class="restriction-badge " src="{{ asset_url }}">
+            {% endimage %}
+            <div class="logo">
+                <div class="logo-link">
+                    <span class="kiosk-logo-image"></span>
+                    <div class="kiosk-bundle-title">Мужской выбор</div>
+                </div>
 
-        <div class='page-header-main-content'>
-            <img alt='Возрастное ограничение 18+' class='restriction-badge'
-                 src='{{ url('homepage') }}/images/age-restriction.svg'/>
-            <div class='logo'>
-                <a>
-                    <div class='logo-link'>
-                        <span class='logo-image'>МегаФон</span>
-                    </div>
-                </a>
             </div>
         </div>
-        <div class='page-header-aside-content'>
+        <div class="page-header-aside-content">
             <div class='page-sliding-aside-handle' role='button' tabindex='0' style="display: none;" ></div>
         </div>
     </header>
@@ -117,15 +117,13 @@
 
 
     <div class="footer">
-        <div class="newYear foot">
-            <img class="newYear nyIm nyFoot" src="/images/newYear/nyfoot.png" />
-        </div>
+
         <p class="disclaimer">
-            МегаФон.Журналы 2016-2017
+            Киоск плюс 2016-2017
         </p>
         <p class="disclaimer">
-            <a href="//kiosk.megafonpro.ru/files/offer_new.pdf">
-                Условия оказания услуги
+            <a href="yandex.ru">
+                Информация для пользователей
             </a>
         </p>
     </div>
