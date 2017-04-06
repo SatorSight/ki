@@ -289,9 +289,9 @@ HTML;
 
     public function addJournal(Request $request){
 
-        SUtils::trace($request->request->get('date'));
+//        SUtils::trace($request->request->get('date'));
 
-        $date = \DateTime::createFromFormat('m.d.Y', $request->request->get('date'));
+        $date = \DateTime::createFromFormat('Y.m.d', $request->request->get('date'));
         $em = $this->getDoctrine()->getManager();
         $journal = new Journal();
 
