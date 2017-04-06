@@ -1,0 +1,539 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Journal
+ *
+ * @ORM\Table(name="journal")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\JournalRepository")
+ * @ORM\HasLifecycleCallbacks()
+ */
+
+
+
+class Journal
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $image_main;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $url;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $date;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $title;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $number;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $identifier;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $listing;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $path;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $genre;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $publisher;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $year;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $month;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $double_number;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $double_month;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $every_week;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $number_set;
+
+
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set imageMain
+     *
+     * @param string $imageMain
+     *
+     * @return Journal
+     */
+    public function setImageMain($imageMain)
+    {
+        $this->image_main = $imageMain;
+
+        return $this;
+    }
+
+    /**
+     * Get imageMain
+     *
+     * @return string
+     */
+    public function getImageMain()
+    {
+        return $this->image_main;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return Journal
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return Journal
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Journal
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Journal
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set number
+     *
+     * @param integer $number
+     *
+     * @return Journal
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+
+        return $this;
+    }
+
+    /**
+     * Get number
+     *
+     * @return integer
+     */
+    public function getNumber()
+    {
+        return $this->number;
+    }
+
+    /**
+     * Set identifier
+     *
+     * @param string $identifier
+     *
+     * @return Journal
+     */
+    public function setIdentifier($identifier)
+    {
+        $this->identifier = $identifier;
+
+        return $this;
+    }
+
+    /**
+     * Get identifier
+     *
+     * @return string
+     */
+    public function getIdentifier()
+    {
+        return $this->identifier;
+    }
+
+    /**
+     * Set listing
+     *
+     * @param integer $listing
+     *
+     * @return Journal
+     */
+    public function setListing($listing)
+    {
+        $this->listing = $listing;
+
+        return $this;
+    }
+
+    /**
+     * Get listing
+     *
+     * @return integer
+     */
+    public function getListing()
+    {
+        return $this->listing;
+    }
+
+    /**
+     * Set path
+     *
+     * @param string $path
+     *
+     * @return Journal
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+
+        return $this;
+    }
+
+    /**
+     * Get path
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+    /**
+     * Set genre
+     *
+     * @param string $genre
+     *
+     * @return Journal
+     */
+    public function setGenre($genre)
+    {
+        $this->genre = $genre;
+
+        return $this;
+    }
+
+    /**
+     * Get genre
+     *
+     * @return string
+     */
+    public function getGenre()
+    {
+        return $this->genre;
+    }
+
+    /**
+     * Set publisher
+     *
+     * @param string $publisher
+     *
+     * @return Journal
+     */
+    public function setPublisher($publisher)
+    {
+        $this->publisher = $publisher;
+
+        return $this;
+    }
+
+    /**
+     * Get publisher
+     *
+     * @return string
+     */
+    public function getPublisher()
+    {
+        return $this->publisher;
+    }
+
+    /**
+     * Set year
+     *
+     * @param integer $year
+     *
+     * @return Journal
+     */
+    public function setYear($year)
+    {
+        $this->year = $year;
+
+        return $this;
+    }
+
+    /**
+     * Get year
+     *
+     * @return integer
+     */
+    public function getYear()
+    {
+        return $this->year;
+    }
+
+    /**
+     * Set month
+     *
+     * @param integer $month
+     *
+     * @return Journal
+     */
+    public function setMonth($month)
+    {
+        $this->month = $month;
+
+        return $this;
+    }
+
+    /**
+     * Get month
+     *
+     * @return integer
+     */
+    public function getMonth()
+    {
+        return $this->month;
+    }
+
+    /**
+     * Set doubleNumber
+     *
+     * @param boolean $doubleNumber
+     *
+     * @return Journal
+     */
+    public function setDoubleNumber($doubleNumber)
+    {
+        $this->double_number = $doubleNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get doubleNumber
+     *
+     * @return boolean
+     */
+    public function getDoubleNumber()
+    {
+        return $this->double_number;
+    }
+
+    /**
+     * Set doubleMonth
+     *
+     * @param boolean $doubleMonth
+     *
+     * @return Journal
+     */
+    public function setDoubleMonth($doubleMonth)
+    {
+        $this->double_month = $doubleMonth;
+
+        return $this;
+    }
+
+    /**
+     * Get doubleMonth
+     *
+     * @return boolean
+     */
+    public function getDoubleMonth()
+    {
+        return $this->double_month;
+    }
+
+    /**
+     * Set everyWeek
+     *
+     * @param boolean $everyWeek
+     *
+     * @return Journal
+     */
+    public function setEveryWeek($everyWeek)
+    {
+        $this->every_week = $everyWeek;
+
+        return $this;
+    }
+
+    /**
+     * Get everyWeek
+     *
+     * @return boolean
+     */
+    public function getEveryWeek()
+    {
+        return $this->every_week;
+    }
+
+
+
+    /**
+     *
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function numberSet(){
+        if($this->number)
+            $this->number_set = false;
+        else
+            $this->number_set = true;
+    }
+
+
+
+    /**
+     * Set numberSet
+     *
+     * @param boolean $numberSet
+     *
+     * @return Journal
+     */
+    public function setNumberSet($numberSet)
+    {
+        $this->number_set = $numberSet;
+
+        return $this;
+    }
+}

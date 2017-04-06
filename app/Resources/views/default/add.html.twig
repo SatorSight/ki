@@ -1,0 +1,151 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid main" id="main">
+
+
+        <h2 style="margin-top: 20px;">Добавление журнала</h2>
+        {#<div class="magazines" style="overflow: hidden; text-align: center;">#}
+
+
+        <style>
+            table{
+                width: 80%;
+                margin: 50px 100px 0;
+            }
+
+            h2{
+                margin-top: 20px;
+                text-align: center;
+                position: relative;
+                top: 30px;
+                font-size: 28px;
+            }
+
+            thead{
+                text-align: left;
+            }
+
+            td {
+                border: 1px solid gray;
+            }
+
+            #load{
+                position: absolute;
+                right: 105px;
+            }
+
+
+        </style>
+        <form action="{{ url('admin', { 'added': 'yes' }) }}" method="post">
+            <table>
+                <thead>
+                    <th>Поле</th>
+                    <th>Значение</th>
+                    <th>Примечание</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Название</td>
+                        <td><input type="text" name="name"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Изображение на главной</td>
+                        <td><input type="text" name="image_main" value="/images/{{ path }}/{{ first_dir }}/{{ img_name }}"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>url</td>
+                        <td><input type="text" name="url"/></td>
+                        <td>Строковая часть url</td>
+                    </tr>
+                    <tr>
+                        <td>Дата</td>
+                        <td><input type="date" name="date"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Номер журнала</td>
+                        <td><input type="text" value="{{ number }}" name="number"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Identifier</td>
+                        <td><input type="text" value="Пока не используется" name="identifier"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Содержание</td>
+                        <td><input type="text" name="listing"/></td>
+                        <td>Номер страницы с содержанием</td>
+                    </tr>
+                    <tr>
+                        <td>Путь</td>
+                        <td><input type="text" value="{{ path }}" name="path"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Жанр</td>
+                        <td><input type="text" value="{{ genre }}" name="genre"/></td>
+                        <td>Пока не используется</td>
+                    </tr>
+                    <tr>
+                        <td>Издатель</td>
+                        <td><input type="text" value="{{ publisher }}" name="publisher"/></td>
+                        <td>Пока не используется</td>
+                    </tr>
+                    <tr>
+                        <td>Год</td>
+                        <td><input type="text" value="{{ year }}" name="year"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Месяц</td>
+                        <td><input type="text" name="month"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Двойной номер</td>
+                        <td><input type="checkbox" name="double_number"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Двойной месяц</td>
+                        <td><input type="checkbox" name="double_month"/></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Еженедельный</td>
+                        <td><input type="checkbox" name="every_week"/></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button id="load" type="submit">Загрузить</button>
+        </form>
+
+
+
+
+        <!-- / one magazine -->
+        {#</div>#}
+        <!-- / magazines-->
+
+        <div class="footer">
+
+            <p class="disclaimer">
+                МегаФон.Журналы 2016-2017
+            </p>
+            <p class="disclaimer">
+                <a href="//kiosk.megafonpro.ru/files/offer_new.pdf">
+                    Условия оказания услуги
+                </a>
+            </p>
+        </div>
+        <!-- / footer -->
+    </div>
+{% endblock %}
+
+
+

@@ -1,0 +1,137 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container-fluid main"  id="main">
+
+    <header class='page-header' role='banner'>
+
+        <div class='page-header-main-content'>
+            <img alt='Возрастное ограничение 18+' class='restriction-badge'
+                 src='{{ url('homepage') }}/images/age-restriction.svg'/>
+            <div class='logo'>
+                <a>
+                    <div class='logo-link'>
+                        <span class='logo-image'>МегаФон</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class='page-header-aside-content'>
+            <div class='page-sliding-aside-handle' role='button' tabindex='0' style="display: none;" ></div>
+        </div>
+    </header>
+    <!-- / header -->
+
+
+    <div class="container-fluid">
+
+        <div class="previews">
+            <div class="title" style="padding: 12px 0;">
+                <h2 class="top">
+                    {#<a href="//kiosk.megafonpro.ru/rake">#}
+                        {{ journal.title }}
+                    {#</a>#}
+                </h2>
+                <p class="bottom" style="padding-left: 10px;">
+
+                    {% if journal.getDoubleMonth == 1 %}
+                        {{ journal.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+                        -
+                        {{ journal.date | date_modify("+1 month") | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+                    {% else %}
+                        {{ journal.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+                    {% endif %}
+
+                    {{ journal.year }}
+
+                </p>
+            </div><!-- / title -->
+            <div class="preview">
+                <div class="image"
+                     style="background-image: url('{{ journal.imageMain }}'); ">
+                </div>
+                <div class="preland-inner" style="margin: 20px -25px;">
+                    <a href="{{ url('read', {
+                        'title': journal.url,
+                        'year' : journal.year,
+                        'month' : journal.month,
+                        'number' : journal.number
+                    }) }}" class="flat gray">Читать</a>
+                </div>
+            </div>
+
+
+
+            <h2>Читайте также:</h2>
+            <div class="latest flickity-slider-enable">
+
+
+                <!-- "magazine" variable must be defined -->
+
+                {% for item in rest %}
+
+                    <div class="magazine" style="width: 30%;">
+                        <div class="magazine-inner">
+                            <a href="{{ url('detail', {
+                                'title': item.url,
+                                'year' : item.year,
+                                'month' : item.month,
+                                'number' : item.number
+                            }) }}">
+                                <div class="cover" style="
+                        background-image: url('{{ item.imageMain }}');
+                        "></div>
+                                <p class="title">
+                                    <a href="{{ url('detail', {
+                                        'title': item.url,
+                                        'year' : item.year,
+                                        'month' : item.month,
+                                        'number' : item.number
+                                    }) }}">
+                                        {{ item.title }}
+                                    </a>
+                                </p>
+                                <p class="date">
+                                    {% if item.getDoubleMonth == 1 %}
+                                        {{ item.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+                                        -
+                                        {{ item.date | date_modify("+1 month") | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+                                    {% else %}
+                                        {{ item.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+                                    {% endif %}
+
+                                    {{ item.year }}
+                                </p>
+                            </a>
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <div class="newYear foot">
+            <img class="newYear nyIm nyFoot" src="/images/newYear/nyfoot.png" />
+        </div>
+        <p class="disclaimer">
+            МегаФон.Журналы 2016-2017
+        </p>
+        <p class="disclaimer">
+            <a href="//kiosk.megafonpro.ru/files/offer_new.pdf">
+                Условия оказания услуги
+            </a>
+        </p>
+    </div>
+    <!-- / footer -->
+</div>
+{% endblock %}
+
+
+

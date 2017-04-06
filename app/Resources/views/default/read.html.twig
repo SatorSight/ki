@@ -1,0 +1,200 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div style="display: none;" id="page_variables">
+        <div class="pages">
+            [{% for file in fileNames %}"{{ file }}",{% endfor %}]
+        </div>
+        <div class="currentPage">{{ page }}</div>
+        <div class="issueUrl">{{ url('read', {
+                'title': journal.url,
+                'year' : journal.year,
+                'month' : journal.month,
+                'number' : journal.number
+            }) }}</div>
+        <div class="issueId">{{ journal.identifier }}</div>
+        <div class="tableOfContents">{{ journal.listing }}</div>
+
+        <div class="endOfContentsNotSubscribed">{{ journal.listing + 4 }}</div>
+
+    </div>
+
+    <div class="container-fluid" id="main">
+
+
+        <style>
+            html {
+                height: auto;
+                min-width: 320px;
+                background: #fff;
+            }
+
+            img {
+                pointer-events: none;
+            }
+
+            #main {
+                max-width: none;
+                height: 100%;
+                min-height: 100%;
+                overflow: hidden;
+                box-shadow: none;
+            }
+
+            .page-container {
+                margin: 0 auto;
+                background: #fff;
+                overflow: hidden;
+                min-height: 100%;
+            }
+
+            #issue-controls > * {
+                pointer-events: auto;
+            }
+
+            .numbers div {
+                text-align: center;
+                float: left;
+            }
+
+            #controls {
+                pointer-events: none;
+                opacity: 0.9;
+                color: #555;
+            }
+
+            #controls div {
+                pointer-events: auto;
+                background-color: #f5f5f5;
+            }
+
+            #controls .arrow {
+                box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.4);
+                position: absolute;
+                top: 50%;
+                margin-top: -40px;
+                height: 9%;
+                width: 11%;
+                background-size: 40%;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: #f5f5f5;
+                max-width: 50px;
+                max-height: 80px;
+                min-width: 40px;
+                min-height: 50px;
+            }
+
+            .imagec {
+                position: relative;
+            }
+
+            div .imagec .glass {
+                background: url({{ url('homepage') }}/images/glass.png) no-repeat bottom right;
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                height: 80px;
+                width: 80px;
+                background-size: contain;
+            }
+
+            embed{
+                width: 100%;
+                height: 1000px;
+            }
+
+        </style>
+
+
+
+        <div class="view" id="view"
+             style="height: 100%; width: 100%; max-width: 1024px; margin: 45px auto 0; min-height: 100%;">
+
+            <div id="controls"
+                 style="position: fixed; height: 100%; width: 100%; pointer-events: none;; z-index: 9999; max-width: 1024px; top:0;">
+                <div class="top_panel"
+                     style="top: 0; width: 100%; height: 45px; position: absolute; box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.4); font-size: 10px;">
+                    <div style="width: 65%; margin: 10px auto 0; text-align: center;">
+                        <div>
+
+                            <span style="font-weight: 400;">{{ journal.title }}</span>, {% if journal.getDoubleMonth == 1 %}
+                                {{ journal.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+                                -
+                                {{ journal.date | date_modify("+1 month") | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+                            {% else %}
+                                {{ journal.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+                            {% endif %}
+
+                            {{ journal.year }}
+
+                        </div>
+                    </div>
+                    <div style="width: 60%; margin: 0 auto; text-align: center;">
+                        <div>{{ page }} из {{ pages }}</div>
+                    </div>
+
+                    <div id="menu_button"
+                         style="background: url({{ url('homepage') }}/images/menu.png) no-repeat center; background-size: 80%; height: 35px; width: 30px; position: absolute; top: 5px; left: 10px;">
+
+                    </div>
+
+                    <div id="bookmarks_button"
+                         style=" display: none; background: url({{ url('homepage') }}/images/bookmark.png) no-repeat center; background-size: 80%; height: 35px; width: 30px; position: absolute; top: 5px; right: 10px;">
+
+                    </div>
+
+                    <div id="viewer_menu"
+                         style="display: none; width: 150px; position: absolute; left: 0; top: 45px; z-index: -1; padding: 10px; font-size: 14px; box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.4);">
+
+                        <div>
+                            <div style="text-align: center; padding: 6px;"><a href="{{ url('homepage') }}" style="text-decoration: none;">Главная</a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div style="text-align: center; padding: 6px;" id="toc_button">
+                                К оглавлению
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div id="bookmarks"
+                         style="display: none; width: 150px; position: absolute; right: 0; top: 45px; z-index: -1; padding: 10px; font-size: 14px; box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.4);">
+                        <div class="bookmarks_container">
+                        </div>
+
+                        <div>
+
+                            <div style="text-align: center; font-size: 24px;" id="add_bookmark_button">
+                                +
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="right arrow"
+                     style="background-image: url({{ url('homepage') }}/images/vArrow_right.png); right: 0; ">
+                </div>
+                <div class="left arrow"
+                     style="background-image: url({{ url('homepage') }}/images/vArrow_left.png); left: 0;">
+                </div>
+            </div>
+
+            <div class="page-container page0">
+                {% autoescape %}
+                    {{ html|raw }}
+                {% endautoescape %}
+                {#<embed src="{{ html_path }}">#}
+                {#{{ html }}#}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+

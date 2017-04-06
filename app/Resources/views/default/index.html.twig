@@ -1,0 +1,184 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid main" id="main">
+
+        <header class="page-header" role="banner">
+            <div class="page-header-main-content">
+                {% image '@AppBundle/Resources/public/images/age-restriction.svg' %}
+                    <img alt="Возрастное ограничение 18+" class="restriction-badge " src="{{ asset_url }}">
+                {% endimage %}
+                <div class="logo">
+                    <a>
+                        <div class="logo-link">
+                            <span class="logo-image">МегаФон</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="page-header-aside-content">
+                <div class='page-sliding-aside-handle' role='button' tabindex='0' style="display: none;" ></div>
+            </div>
+        </header>
+        <!-- / header -->
+        {#<div class="menu">#}
+            {#<a href="//kiosk.megafonpro.ru/" class="menu_item active">Новинки</a>#}
+            {#<a href="//kiosk.megafonpro.ru/categories" class="menu_item ">Категории</a>#}
+
+        {#</div>#}
+        <!-- /menu -->
+
+        {#<div style="overflow: hidden; height: 156px;">#}
+            {#<div class="slidertop">#}
+
+                {#<div class="slidertop-slide">#}
+                    {#<div style="height: 144px; width: 320px;">#}
+                        {#<a href="//kiosk.megafonpro.ru/burda">#}
+                            {#<img class="banner_down" src="//kiosk.megafonpro.ru/images/banners/burda.png"#}
+                                 {#height="144" width="320" alt="">#}
+                        {#</a>#}
+                    {#</div>#}
+                {#</div>#}
+
+                {#<div class="slidertop-slide">#}
+                    {#<div style="height: 144px; width: 320px;">#}
+                        {#<a href="//kiosk.megafonpro.ru/forbes">#}
+                            {#<img class="banner_down" src="//kiosk.megafonpro.ru/images/banners/fb.png"#}
+                                 {#height="144" width="320" alt="">#}
+                        {#</a>#}
+                    {#</div>#}
+                {#</div>#}
+
+
+                {#<div class="slidertop-slide">#}
+                    {#<div style="height: 144px; width: 320px;">#}
+                        {#<a href="//kiosk.megafonpro.ru/dobrye_sovety">#}
+                            {#<img class="banner_down" src="//kiosk.megafonpro.ru/images/banners/ds.png"#}
+                                 {#height="144" width="320" alt="">#}
+                        {#</a>#}
+                    {#</div>#}
+                {#</div>#}
+
+                {#<div class="slidertop-slide">#}
+                    {#<div style="height: 144px; width: 320px;">#}
+                        {#<a href="//kiosk.megafonpro.ru/mygarden">#}
+                            {#<img class="banner_down" src="//kiosk.megafonpro.ru/images/banners/sad.png"#}
+                                 {#height="144" width="320" alt="">#}
+                        {#</a>#}
+                    {#</div>#}
+                {#</div>#}
+
+                {#<div class="slidertop-slide">#}
+                    {#<div style="height: 144px; width: 320px;">#}
+                        {#<a href="//kiosk.megafonpro.ru/igromania">#}
+                            {#<img class="banner_down" src="//kiosk.megafonpro.ru/images/banners/igm.png"#}
+                                 {#height="144" width="320" alt="">#}
+                        {#</a>#}
+                    {#</div>#}
+                {#</div>#}
+
+
+                {#<div class="slidertop-slide">#}
+                    {#<div style="height: 144px; width: 320px;">#}
+                        {#<a href="//kiosk.megafonpro.ru/idei_vashego_doma">#}
+                            {#<img class="banner_down" src="//kiosk.megafonpro.ru/images/banners/ivd.png"#}
+                                 {#height="144" width="320" alt="">#}
+                        {#</a>#}
+                    {#</div>#}
+                {#</div>#}
+
+                {#<div class="slidertop-slide">#}
+                    {#<div style="height: 144px; width: 320px;">#}
+                        {#<a href="//kiosk.megafonpro.ru/myhobby">#}
+                            {#<img class="banner_down" src="//kiosk.megafonpro.ru/images/banners/mhp.jpg"#}
+                                 {#height="144" width="320" alt="">#}
+                        {#</a>#}
+                    {#</div>#}
+                {#</div>#}
+                {#<div class="slidertop-slide">#}
+                    {#<div style="height: 144px; width: 320px;">#}
+                        {#<a href="//kiosk.megafonpro.ru/rake">#}
+                            {#<img class="banner_down" src="//kiosk.megafonpro.ru/images/banners/rake.png"#}
+                                 {#height="144" width="320" alt="">#}
+                        {#</a>#}
+                    {#</div>#}
+                {#</div>#}
+
+            {#</div>#}
+        {#</div>#}
+
+
+        <h2 style="margin-top: 20px;">Новые поступления:</h2>
+        <div class="magazines" style="overflow: hidden; text-align: center;">
+
+
+
+
+            {% for item in journals %}
+
+                <div class="magazine" style="width: 49%;">
+                    <div class="magazine-inner">
+                        <a href="{{ url('detail', {
+                            'title': item.url,
+                            'year' : item.year,
+                            'month' : item.month,
+                            'number' : item.number
+                        }) }}">
+
+                            <div class="cover" style="
+                    background-image: url('{{ item.imageMain }}');
+                    "></div>
+
+                        </a><p class="title"><a href="{{ url('detail', {
+                                'title': item.url,
+                                'year' : item.year,
+                                'month' : item.month,
+                                'number' : item.number
+                            }) }}">
+                            </a><a href="{{ url('detail', {
+                                'title': item.url,
+                                'year' : item.year,
+                                'month' : item.month,
+                                'number' : item.number
+                            }) }}">
+                                {{ item.title }}
+                            </a>
+                        </p>
+                        <p class="date">
+                            {#{{ item.month|date("F") }}#}
+
+                            {{ item.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+
+                            {{ item.year }}</p>
+                        <p class="date">
+                            {% if item.getNumberSet == 0 %}
+                                выпуск {{ item.number }}
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+
+            <!-- / one magazine -->
+        </div>
+        <!-- / magazines-->
+
+        <div class="footer">
+
+            <p class="disclaimer">
+                МегаФон.Журналы 2016-2017
+            </p>
+            <p class="disclaimer">
+                <a href="//kiosk.megafonpro.ru/files/offer_new.pdf">
+                    Условия оказания услуги
+                </a>
+            </p>
+        </div>
+        <!-- / footer -->
+    </div>
+{% endblock %}
+
+
+
