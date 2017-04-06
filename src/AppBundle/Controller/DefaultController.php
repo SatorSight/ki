@@ -291,13 +291,13 @@ HTML;
 
 //        SUtils::trace($request->request->get('date'));
 
-        SUtils::dump($request->request->get('date'));
+//        SUtils::dump($request->request->get('date'));
 
-        $date = \DateTime::createFromFormat('Y.m.d', $request->request->get('date'));
+        $date = \DateTime::createFromFormat('Y-m-d', $request->request->get('date'));
         $em = $this->getDoctrine()->getManager();
         $journal = new Journal();
 
-        SUtils::trace($date);
+//        SUtils::trace($date);
 
 //        $identifier = $date->format();
         //todo use this somehow
