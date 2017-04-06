@@ -289,7 +289,7 @@ HTML;
 
     public function addJournal(Request $request){
 
-        $date = \DateTime::createFromFormat('Y.m.d', $request->request->get('date'));
+        $date = \DateTime::createFromFormat('m.d.Y', $request->request->get('date'));
         $em = $this->getDoctrine()->getManager();
         $journal = new Journal();
 
