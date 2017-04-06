@@ -83,7 +83,7 @@ class DefaultController extends Controller
         $html =  <<<HTML
             <div style="padding-top: 25%; min-height: 550px">
                 <div class="subscribe">
-                    <a href="http://wap.megafonpro.ru/is3nwp/psmcharge/27/32/22/339540757?psmsid=dZOn4rTMcMyC14enTA4l.02&amp;back_url=http%3A%2F%2Fwap.megafonpro.ru%2Fis3nwp%2Fpsmf%2Fgenerate%3Fservice_id%3D22%26url%3Dhttp%3A%2F%2Fkiosk.megafonpro.ru%2Fplayboy%2F2017%2F3%2F1%3Fpage%3D14" class="button flat">Получить доступ</a>
+                    <a href="" class="button flat">Получить доступ</a>
                     <p class="description">
                         Кликнув на кнопку “Получить доступ”, Вы соглашаетесь с
                         <br>
@@ -146,7 +146,7 @@ HTML;
             $html =  <<<HTML
             <div style="padding-top: 25%; min-height: 550px">
                 <div class="subscribe">
-                    <a href="http://wap.megafonpro.ru/is3nwp/psmcharge/27/32/22/339540757?psmsid=dZOn4rTMcMyC14enTA4l.02&amp;back_url=http%3A%2F%2Fwap.megafonpro.ru%2Fis3nwp%2Fpsmf%2Fgenerate%3Fservice_id%3D22%26url%3Dhttp%3A%2F%2Fkiosk.megafonpro.ru%2Fplayboy%2F2017%2F3%2F1%3Fpage%3D14" class="button flat">Получить доступ</a>
+                    <a href="" class="button flat">Получить доступ</a>
                     <p class="description">
                         Кликнув на кнопку “Получить доступ”, Вы соглашаетесь с
                         <br>
