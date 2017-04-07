@@ -158,300 +158,314 @@ HTML;
 //        SUtils::trace($back_url);
 
 
-        $content = file_get_contents('http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=1&returnurl='.$back_url);
-        $content = substr($content, strpos($content, '<form id="form-step1"'), strrpos($content, '</form>'));
-        $content = str_replace('href="/platinum/#!/terms/terms"', 'href="http://join-men.kioskplus.ru/platinum/#!/terms/terms"', $content);
-
-
-
-//        $content = str_replace('<meta charset="utf-8">', '', $content);
-//        $content = str_replace('<meta name="description" content=" ">', '', $content);
-//        $content = str_replace('<meta name="description" content=" ">', '', $content);
-//        $content = str_replace('<meta name="keywords" content="">', '', $content);
-//        $content = str_replace('<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">', '', $content);
-//        $content = str_replace('<meta name="google-site-verification" content="">', '', $content);
-//        $content = str_replace('<meta http-equiv="content-language" content="ru">', '', $content);
-//        $content = str_replace('<meta http-equiv="X-Frame-Options" content="deny">', '', $content);
-//        $content = str_replace('<meta charset="utf-8">', '', $content);
-//        $content = str_replace('<meta charset="utf-8">', '', $content);
-//        $content = str_replace('<meta charset="utf-8">', '', $content);
-
-//        SUtils::trace($content);
-
+//        $content = file_get_contents('http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=1&returnurl='.$back_url);
+//        $content = substr($content, strpos($content, '<form id="form-step1"'), strrpos($content, '</form>'));
+//        $content = str_replace('href="/platinum/#!/terms/terms"', 'href="http://join-men.kioskplus.ru/platinum/#!/terms/terms"', $content);
+//
+//
+//
+////        $content = str_replace('<meta charset="utf-8">', '', $content);
+////        $content = str_replace('<meta name="description" content=" ">', '', $content);
+////        $content = str_replace('<meta name="description" content=" ">', '', $content);
+////        $content = str_replace('<meta name="keywords" content="">', '', $content);
+////        $content = str_replace('<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">', '', $content);
+////        $content = str_replace('<meta name="google-site-verification" content="">', '', $content);
+////        $content = str_replace('<meta http-equiv="content-language" content="ru">', '', $content);
+////        $content = str_replace('<meta http-equiv="X-Frame-Options" content="deny">', '', $content);
+////        $content = str_replace('<meta charset="utf-8">', '', $content);
+////        $content = str_replace('<meta charset="utf-8">', '', $content);
+////        $content = str_replace('<meta charset="utf-8">', '', $content);
+//
+////        SUtils::trace($content);
+//
         if($page > $journal->getListing() + 4 && empty($_SESSION['authorized'])){
+//
+////            $html = '<iframe src="http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=1&returnurl=http://beta.kioskplus.ru/" width="468" height="60" align="left">';
+////            $html = '<iframe src="http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=1&returnurl=http://beta.kioskplus.ru/" name="targetframe" allowTransparency="true" scrolling="no" frameborder="0" ></iframe>';
+//
+//            $html = '<div class="inner_sub">';
+//
+//            $html .= '<style>
+///* ----- START head-meta v0001 css ----- */
+///* ----- END head-meta v0003 css ----- */
+///* ----- START anti-fraud v0003 css ----- */
+///* ----- END anti-fraud v0005 css ----- */
+///* ----- START ios-iphone4-viewport v0005 css ----- */
+///* ----- END ios-iphone4-viewport v0001 css ----- */
+///* ----- START orientation v0001 css ----- */
+///* ----- END orientation v0001 css ----- */
+///* ----- START noscript-tracking v0001 css ----- */
+///* ----- END noscript-tracking v0001 css ----- */
+///* ----- START text-header v0001 css ----- */
+///* ----- END text-header v0008 css ----- */
+///* ----- START logo v0008 css ----- */
+///*logo css*/
+///*colors*/
+//.logo-container
+//{
+//background: gray;
+//}
+///*structure*/
+//.logo-container
+//{
+//width:100%;
+//height:50px;
+//}
+///* ----- END logo v0001 css ----- */
+///* ----- START content v0001 css ----- */
+///*content-staticImg*/
+///*colors*/
+//.content-staticImg-container
+//{
+//background: black;
+//}
+///*structure*/
+//.content-staticImg-container
+//{
+//width:100%;
+//min-height:150px;
+//}
+///* ----- END content v0002 css ----- */
+///* ----- START form-step1 v0002 css ----- */
+///* ----- END form-step1 v0006 css ----- */
+///* ----- START insert-number v0006 css ----- */
+///* ----- END insert-number v0004 css ----- */
+///* ----- START checkbox v0004 css ----- */
+//#mt-checkbox-container input:checked,#mt-checkbox-container input:not(checked){position:absolute;top:-500px;
+//
+//left:-900px;
+//
+//}
+//#mt-checkbox-container label{display:inline-block;position:relative}
+//#mt-checkbox-container input:checked + label,#mt-checkbox-container input:not(checked) + label{font-size:13px;cursor:pointer}
+//#mt-checkbox-container input:not(checked) + label:before{border:1px solid #3E3E3E;background-color:#EFEFEF;content:"\00a0";display:inline-block;width:14px;height:14px;font-size:15px;line-height:15px;margin-right:5px}
+//#mt-checkbox-container input:checked + label:before{border:1px solid #3E3E3E;background-color:#EFEFEF;color:#3E3E3E;content:"\2714";font-size:15px;text-align:center;line-height:15px;font-weight:bold}
+//.empty-terms{color:#FF0000;text-align:center}
+//
+//
+///* ----- END checkbox v0007 css ----- */
+///* ----- START button-step1 v0007 css ----- */
+//.disabledColors{background:#ccc !important;color:#fff !important}
+///* ----- END button-step1 v0010 css ----- */
+///* ----- START form-step1 v0010 css ----- */
+///* ----- END form-step1 v0006 css ----- */
+///* ----- START links v0006 css ----- */
+//.mt-internet-plus img{background:url("http://s.motime.com/img//wl/webstore_webapp/landing_images/general/carrier/sprite_FR.png?v=20170407091212") no-repeat -58px -65px;background-size:208px 81px;height:30px;width:100px}
+///* ----- END links v0006 css ----- */
+///* ----- START catlegals v0006 css ----- */
+///* ----- END catlegals v0001 css ----- */
+///* ----- START filter-digit v0001 css ----- */
+///* ----- END filter-digit v0001 css ----- */
+///* ----- START alternative-domain-login v0001 css ----- */
+///* ----- END alternative-domain-login v0001 css ----- */
+///* ----- START landing-simulator v0001 css ----- */
+///* ----- END landing-simulator v0001 css ----- */
+///* ----- START msisdn-from-querystring v0001 css ----- */
+///* ----- END msisdn-from-querystring v0001 css ----- */
+///* ----- START cat-pixel v0001 css ----- */
+///* ----- END cat-pixel v0001 css ----- */
+//</style><style>/* ------- START mt_css_work.css ----- */
+//html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+//*,*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+//img,fieldset{border:none;vertical-align:middle}
+//a,a:active,a:focus,a:hover,a:visited{text-decoration:underline}
+//.mt-container-wrap{margin:0 auto}
+//.text-center{text-align:center}
+//.text-left{text-align:left}
+//.text-right{text-align:right}
+//.mt-container-wrap{width:100%}
+//.col-sm-6,.col-sm-12,.col-md-6,.col-md-12,.col-lg-6,.col-lg-12{position:relative;min-height:1px;width:100%}
+//body.landscape .col-sm-6{width:50%;float:left}
+//body.landscape .col-md-6{width:50%;float:left}
+//.mt-container-wrap:before,.mt-container-wrap:after,.row:before,.row:after{content:"";display:table}
+//.mt-container-wrap:after,.row:after{clear:both}
+//label{display:block;max-width:100%;margin-bottom:5px}
+//.btn{display:inline-block;text-align:center;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+//.btn.disabled,.btn[disabled],fieldset[disabled] .btn{cursor:not-allowed;opacity:0.65;filter:alpha(opacity=65);-webkit-box-shadow:none;box-shadow:none}
+//.text-item-label{display:inline;font-size:75%;font-weight:700;color:#fff;text-align:center;white-space:nowrap;vertical-align:baseline}
+//.clearfix{clear:both}
+//.mt-inpage-spinner{margin:20px auto;width:50px;height:40px;text-align:center;font-size:10px}
+//.mt-inpage-spinner > div{background-color:#333;height:100%;width:6px;display:inline-block;-webkit-animation:sk-stretchdelay 1.2s infinite ease-in-out;animation:sk-stretchdelay 1.2s infinite ease-in-out}
+//.mt-inpage-spinner .rect2{-webkit-animation-delay:-1.1s;animation-delay:-1.1s}
+//.mt-inpage-spinner .rect3{-webkit-animation-delay:-1s;animation-delay:-1s}
+//.mt-inpage-spinner .rect4{-webkit-animation-delay:-.9s;animation-delay:-.9s}
+//.mt-inpage-spinner .rect5{-webkit-animation-delay:-.8s;animation-delay:-.8s}
+//@-webkit-keyframes sk-stretchdelay{
+//0%,100%,40%{-webkit-transform:scaleY(.4)}
+//20%{-webkit-transform:scaleY(1)}
+//}
+//@keyframes sk-stretchdelay{
+//0%,100%,40%{transform:scaleY(.4);-webkit-transform:scaleY(.4)}
+//20%{transform:scaleY(1);-webkit-transform:scaleY(1)}
+//}
+//</style><style type="text/css" title="currentStyle">html{font-size:100%;background-color:#fff}
+//*{margin:0;padding:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+//body{text-align:center;font-family:"Trebuchet MS",Arial,Helvetica,sans-serif;background-color:#fff;color:#000}
+//img{border:none}
+//fieldset{border:none}
+//button,label{cursor:pointer}
+//a,a:active,a:focus,a:hover,a:visited{color:#000}
+//p{font-size:0.750rem;margin:3px 2px}
+///* Logo */
+//.custom-logo{background-color:#DE4249;height:44px;padding:2px 0;display:none}
+//.custom-logo-content{background:url(http://s.motime.com/img/leafengine_preprod/ru_kioskplusmen//0001/objects/logo.png?v=1491392930) no-repeat 10px center;background-size:66px 40px;height:40px}
+///* Main image */
+//.custom-content-description-big-dynamicImg-container{display:none}
+//
+//
+//
+//section.custom-container-item{background:url(http://s.motime.com/img/leafengine_preprod/ru_kioskplusmen//0001/objects/staticImgBgkDesktop.jpg?v=1491392930) no-repeat center top;background-size:auto 100%;height:386px}
+//section.custom-container-main{width:70%;margin:0 auto}
+//
+//body.landscape section.custom-container-main{padding:3% 0}
+//body.landscape section.custom-container-main form{width:96%;margin:0 auto}
+///* Form */
+//.spaceHiddenCheckbox{height:0.250rem !important}
+//label{margin-bottom:3px !important}
+//.btn{width:80%;margin:3px auto !important;padding:7px 0;color:#fff;font-size:1.250rem;background-color:#DE4249;border:none;-webkit-border-radius:50px;-moz-border-radius:50px;border-radius:50px}
+//.arrow-button{display:none}
+///* Form WiFi Insert Number */
+//.custom-insert-number label{font-size:1.000rem;font-weight:700}
+//.custom-insert-number input#msisdn{width:80%;margin:0 auto;padding:7px 0;text-align:center;color:#333;font-size:1.250rem;border:2px solid #DE4249;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
+///* Form WiFi PIN */
+//.custom-insert-pin label{font-size:1.000rem;font-weight:700}
+//.custom-insert-pin input#password{width:80%;margin:0 auto;padding:7px 0;text-align:center;color:#333;font-size:1.250rem;border:2px solid #DE4249;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
+///* Errors */
+//.custom-insert-number-error p{color:#f00;font-weight:700}
+//.custom-empty-terms p{color:#f00;font-weight:700}
+//.custom-insert-pin-error p{color:#f00;font-weight:700}
+///* TYP */
+//h1{font-size:1.500rem;margin:3px 2px}
+//h2{font-size:1.000rem;margin:3px 2px}
+//body.custom-page-thankyou .btn{width:80%;padding:7px 0;color:#fff;font-size:1.250rem;background-color:#DE4249;border:none;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px}
+//body.custom-page-thankyou .btn a{color:#fff;text-decoration:none}
+///* Other Useful Variables */
+///* Detect Peculiar Carrier */
+//
+//
+///* Detect 3G/WiFi */
+//
+//
+//
+///* Detect WiFi Carrier logo inside/Fake Payment */
+//
+//
+///* Detect Smartphones */
+//
+///* Detect Tablet */
+//
+///* Detect Desktop */
+//
+//
+///* Detect Operative System */
+//
+//
+//
+//</style><style type="text/css" title="currentStyle">html{font-size:100%;background-color:#fff}
+//*{margin:0;padding:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+//body{text-align:center;font-family:"Trebuchet MS",Arial,Helvetica,sans-serif;background-color:#fff;color:#000}
+//img{border:none}
+//fieldset{border:none}
+//button,label{cursor:pointer}
+//a,a:active,a:focus,a:hover,a:visited{color:#000}
+//p{font-size:0.750rem;margin:3px 2px}
+///* Logo */
+//.custom-logo{background-color:#DE4249;height:44px;padding:2px 0;display:none}
+//.custom-logo-content{background:url(http://s.motime.com/img/leafengine_preprod/ru_kioskplusmen//0001/objects/logo.png?v=1491392930) no-repeat 10px center;background-size:66px 40px;height:40px}
+///* Main image */
+//.custom-content-description-big-dynamicImg-container{display:none}
+//
+//
+//
+//section.custom-container-item{background:url(http://s.motime.com/img/leafengine_preprod/ru_kioskplusmen//0001/objects/staticImgBgkDesktop.jpg?v=1491392930) no-repeat center top;background-size:auto 100%;height:386px}
+//section.custom-container-main{width:70%;margin:0 auto}
+//
+//body.landscape section.custom-container-main{padding:3% 0}
+//body.landscape section.custom-container-main form{width:96%;margin:0 auto}
+///* Form */
+//.spaceHiddenCheckbox{height:0.250rem !important}
+//label{margin-bottom:3px !important}
+//.btn{width:80%;margin:3px auto !important;padding:7px 0;color:#fff;font-size:1.250rem;background-color:#DE4249;border:none;-webkit-border-radius:50px;-moz-border-radius:50px;border-radius:50px}
+//.arrow-button{display:none}
+///* Form WiFi Insert Number */
+//.custom-insert-number label{font-size:1.000rem;font-weight:700}
+//.custom-insert-number input#msisdn{width:80%;margin:0 auto;padding:7px 0;text-align:center;color:#333;font-size:1.250rem;border:2px solid #DE4249;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
+///* Form WiFi PIN */
+//.custom-insert-pin label{font-size:1.000rem;font-weight:700}
+//.custom-insert-pin input#password{width:80%;margin:0 auto;padding:7px 0;text-align:center;color:#333;font-size:1.250rem;border:2px solid #DE4249;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
+///* Errors */
+//.custom-insert-number-error p{color:#f00;font-weight:700}
+//.custom-empty-terms p{color:#f00;font-weight:700}
+//.custom-insert-pin-error p{color:#f00;font-weight:700}
+///* TYP */
+//h1{font-size:1.500rem;margin:3px 2px}
+//h2{font-size:1.000rem;margin:3px 2px}
+//body.custom-page-thankyou .btn{width:80%;padding:7px 0;color:#fff;font-size:1.250rem;background-color:#DE4249;border:none;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px}
+//body.custom-page-thankyou .btn a{color:#fff;text-decoration:none}
+///* Other Useful Variables */
+///* Detect Peculiar Carrier */
+//
+//
+///* Detect 3G/WiFi */
+//
+//
+//
+///* Detect WiFi Carrier logo inside/Fake Payment */
+//
+//
+///* Detect Smartphones */
+//
+///* Detect Tablet */
+//
+///* Detect Desktop */
+//
+//
+///* Detect Operative System */
+//
+//
+//
+//</style>
+//';
+//            $html .= '<style>';
+//            $html .= <<<CSS
+//.inner_sub{
+//    width: 50%;
+//    margin: auto;
+//    margin-top: 15%;
+//}
+//
+//CSS;
+//$html .= '</style>';
+//
+//            $html .= $content;
+//            $html .= '</div>';
 
-//            $html = '<iframe src="http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=1&returnurl=http://beta.kioskplus.ru/" width="468" height="60" align="left">';
-//            $html = '<iframe src="http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=1&returnurl=http://beta.kioskplus.ru/" name="targetframe" allowTransparency="true" scrolling="no" frameborder="0" ></iframe>';
-
-            $html = '<div class="inner_sub">';
-
-            $html .= '<style>
-/* ----- START head-meta v0001 css ----- */
-/* ----- END head-meta v0003 css ----- */
-/* ----- START anti-fraud v0003 css ----- */
-/* ----- END anti-fraud v0005 css ----- */
-/* ----- START ios-iphone4-viewport v0005 css ----- */
-/* ----- END ios-iphone4-viewport v0001 css ----- */
-/* ----- START orientation v0001 css ----- */
-/* ----- END orientation v0001 css ----- */
-/* ----- START noscript-tracking v0001 css ----- */
-/* ----- END noscript-tracking v0001 css ----- */
-/* ----- START text-header v0001 css ----- */
-/* ----- END text-header v0008 css ----- */
-/* ----- START logo v0008 css ----- */
-/*logo css*/
-/*colors*/
-.logo-container
-{
-background: gray;
-}
-/*structure*/
-.logo-container
-{
-width:100%;
-height:50px;
-}
-/* ----- END logo v0001 css ----- */
-/* ----- START content v0001 css ----- */
-/*content-staticImg*/
-/*colors*/
-.content-staticImg-container
-{
-background: black;
-}
-/*structure*/
-.content-staticImg-container
-{
-width:100%;
-min-height:150px;
-}
-/* ----- END content v0002 css ----- */
-/* ----- START form-step1 v0002 css ----- */
-/* ----- END form-step1 v0006 css ----- */
-/* ----- START insert-number v0006 css ----- */
-/* ----- END insert-number v0004 css ----- */
-/* ----- START checkbox v0004 css ----- */
-#mt-checkbox-container input:checked,#mt-checkbox-container input:not(checked){position:absolute;top:-500px;
- 
-left:-900px;
- 
-}
-#mt-checkbox-container label{display:inline-block;position:relative}
-#mt-checkbox-container input:checked + label,#mt-checkbox-container input:not(checked) + label{font-size:13px;cursor:pointer}
-#mt-checkbox-container input:not(checked) + label:before{border:1px solid #3E3E3E;background-color:#EFEFEF;content:"\00a0";display:inline-block;width:14px;height:14px;font-size:15px;line-height:15px;margin-right:5px}
-#mt-checkbox-container input:checked + label:before{border:1px solid #3E3E3E;background-color:#EFEFEF;color:#3E3E3E;content:"\2714";font-size:15px;text-align:center;line-height:15px;font-weight:bold}
-.empty-terms{color:#FF0000;text-align:center}
- 
- 
-/* ----- END checkbox v0007 css ----- */
-/* ----- START button-step1 v0007 css ----- */
-.disabledColors{background:#ccc !important;color:#fff !important}
-/* ----- END button-step1 v0010 css ----- */
-/* ----- START form-step1 v0010 css ----- */
-/* ----- END form-step1 v0006 css ----- */
-/* ----- START links v0006 css ----- */
-.mt-internet-plus img{background:url("http://s.motime.com/img//wl/webstore_webapp/landing_images/general/carrier/sprite_FR.png?v=20170407091212") no-repeat -58px -65px;background-size:208px 81px;height:30px;width:100px}
-/* ----- END links v0006 css ----- */
-/* ----- START catlegals v0006 css ----- */
-/* ----- END catlegals v0001 css ----- */
-/* ----- START filter-digit v0001 css ----- */
-/* ----- END filter-digit v0001 css ----- */
-/* ----- START alternative-domain-login v0001 css ----- */
-/* ----- END alternative-domain-login v0001 css ----- */
-/* ----- START landing-simulator v0001 css ----- */
-/* ----- END landing-simulator v0001 css ----- */
-/* ----- START msisdn-from-querystring v0001 css ----- */
-/* ----- END msisdn-from-querystring v0001 css ----- */
-/* ----- START cat-pixel v0001 css ----- */
-/* ----- END cat-pixel v0001 css ----- */
-</style><style>/* ------- START mt_css_work.css ----- */
-html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
-*,*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
-img,fieldset{border:none;vertical-align:middle}
-a,a:active,a:focus,a:hover,a:visited{text-decoration:underline}
-.mt-container-wrap{margin:0 auto}
-.text-center{text-align:center}
-.text-left{text-align:left}
-.text-right{text-align:right}
-.mt-container-wrap{width:100%}
-.col-sm-6,.col-sm-12,.col-md-6,.col-md-12,.col-lg-6,.col-lg-12{position:relative;min-height:1px;width:100%}
-body.landscape .col-sm-6{width:50%;float:left}
-body.landscape .col-md-6{width:50%;float:left}
-.mt-container-wrap:before,.mt-container-wrap:after,.row:before,.row:after{content:"";display:table}
-.mt-container-wrap:after,.row:after{clear:both}
-label{display:block;max-width:100%;margin-bottom:5px}
-.btn{display:inline-block;text-align:center;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
-.btn.disabled,.btn[disabled],fieldset[disabled] .btn{cursor:not-allowed;opacity:0.65;filter:alpha(opacity=65);-webkit-box-shadow:none;box-shadow:none}
-.text-item-label{display:inline;font-size:75%;font-weight:700;color:#fff;text-align:center;white-space:nowrap;vertical-align:baseline}
-.clearfix{clear:both}
-.mt-inpage-spinner{margin:20px auto;width:50px;height:40px;text-align:center;font-size:10px}
-.mt-inpage-spinner > div{background-color:#333;height:100%;width:6px;display:inline-block;-webkit-animation:sk-stretchdelay 1.2s infinite ease-in-out;animation:sk-stretchdelay 1.2s infinite ease-in-out}
-.mt-inpage-spinner .rect2{-webkit-animation-delay:-1.1s;animation-delay:-1.1s}
-.mt-inpage-spinner .rect3{-webkit-animation-delay:-1s;animation-delay:-1s}
-.mt-inpage-spinner .rect4{-webkit-animation-delay:-.9s;animation-delay:-.9s}
-.mt-inpage-spinner .rect5{-webkit-animation-delay:-.8s;animation-delay:-.8s}
-@-webkit-keyframes sk-stretchdelay{
-0%,100%,40%{-webkit-transform:scaleY(.4)}
-20%{-webkit-transform:scaleY(1)}
-}
-@keyframes sk-stretchdelay{
-0%,100%,40%{transform:scaleY(.4);-webkit-transform:scaleY(.4)}
-20%{transform:scaleY(1);-webkit-transform:scaleY(1)}
-}
-</style><style type="text/css" title="currentStyle">html{font-size:100%;background-color:#fff}
-*{margin:0;padding:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
-body{text-align:center;font-family:"Trebuchet MS",Arial,Helvetica,sans-serif;background-color:#fff;color:#000}
-img{border:none}
-fieldset{border:none}
-button,label{cursor:pointer}
-a,a:active,a:focus,a:hover,a:visited{color:#000}
-p{font-size:0.750rem;margin:3px 2px}
-/* Logo */
-.custom-logo{background-color:#DE4249;height:44px;padding:2px 0;display:none}
-.custom-logo-content{background:url(http://s.motime.com/img/leafengine_preprod/ru_kioskplusmen//0001/objects/logo.png?v=1491392930) no-repeat 10px center;background-size:66px 40px;height:40px}
-/* Main image */
-.custom-content-description-big-dynamicImg-container{display:none}
- 
- 
- 
-section.custom-container-item{background:url(http://s.motime.com/img/leafengine_preprod/ru_kioskplusmen//0001/objects/staticImgBgkDesktop.jpg?v=1491392930) no-repeat center top;background-size:auto 100%;height:386px}
-section.custom-container-main{width:70%;margin:0 auto}
- 
-body.landscape section.custom-container-main{padding:3% 0}
-body.landscape section.custom-container-main form{width:96%;margin:0 auto}
-/* Form */
-.spaceHiddenCheckbox{height:0.250rem !important}
-label{margin-bottom:3px !important}
-.btn{width:80%;margin:3px auto !important;padding:7px 0;color:#fff;font-size:1.250rem;background-color:#DE4249;border:none;-webkit-border-radius:50px;-moz-border-radius:50px;border-radius:50px}
-.arrow-button{display:none}
-/* Form WiFi Insert Number */
-.custom-insert-number label{font-size:1.000rem;font-weight:700}
-.custom-insert-number input#msisdn{width:80%;margin:0 auto;padding:7px 0;text-align:center;color:#333;font-size:1.250rem;border:2px solid #DE4249;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
-/* Form WiFi PIN */
-.custom-insert-pin label{font-size:1.000rem;font-weight:700}
-.custom-insert-pin input#password{width:80%;margin:0 auto;padding:7px 0;text-align:center;color:#333;font-size:1.250rem;border:2px solid #DE4249;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
-/* Errors */
-.custom-insert-number-error p{color:#f00;font-weight:700}
-.custom-empty-terms p{color:#f00;font-weight:700}
-.custom-insert-pin-error p{color:#f00;font-weight:700}
-/* TYP */
-h1{font-size:1.500rem;margin:3px 2px}
-h2{font-size:1.000rem;margin:3px 2px}
-body.custom-page-thankyou .btn{width:80%;padding:7px 0;color:#fff;font-size:1.250rem;background-color:#DE4249;border:none;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px}
-body.custom-page-thankyou .btn a{color:#fff;text-decoration:none}
-/* Other Useful Variables */
-/* Detect Peculiar Carrier */
- 
- 
-/* Detect 3G/WiFi */
- 
- 
- 
-/* Detect WiFi Carrier logo inside/Fake Payment */
- 
- 
-/* Detect Smartphones */
- 
-/* Detect Tablet */
- 
-/* Detect Desktop */
- 
- 
-/* Detect Operative System */
- 
- 
- 
-</style><style type="text/css" title="currentStyle">html{font-size:100%;background-color:#fff}
-*{margin:0;padding:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
-body{text-align:center;font-family:"Trebuchet MS",Arial,Helvetica,sans-serif;background-color:#fff;color:#000}
-img{border:none}
-fieldset{border:none}
-button,label{cursor:pointer}
-a,a:active,a:focus,a:hover,a:visited{color:#000}
-p{font-size:0.750rem;margin:3px 2px}
-/* Logo */
-.custom-logo{background-color:#DE4249;height:44px;padding:2px 0;display:none}
-.custom-logo-content{background:url(http://s.motime.com/img/leafengine_preprod/ru_kioskplusmen//0001/objects/logo.png?v=1491392930) no-repeat 10px center;background-size:66px 40px;height:40px}
-/* Main image */
-.custom-content-description-big-dynamicImg-container{display:none}
- 
- 
- 
-section.custom-container-item{background:url(http://s.motime.com/img/leafengine_preprod/ru_kioskplusmen//0001/objects/staticImgBgkDesktop.jpg?v=1491392930) no-repeat center top;background-size:auto 100%;height:386px}
-section.custom-container-main{width:70%;margin:0 auto}
- 
-body.landscape section.custom-container-main{padding:3% 0}
-body.landscape section.custom-container-main form{width:96%;margin:0 auto}
-/* Form */
-.spaceHiddenCheckbox{height:0.250rem !important}
-label{margin-bottom:3px !important}
-.btn{width:80%;margin:3px auto !important;padding:7px 0;color:#fff;font-size:1.250rem;background-color:#DE4249;border:none;-webkit-border-radius:50px;-moz-border-radius:50px;border-radius:50px}
-.arrow-button{display:none}
-/* Form WiFi Insert Number */
-.custom-insert-number label{font-size:1.000rem;font-weight:700}
-.custom-insert-number input#msisdn{width:80%;margin:0 auto;padding:7px 0;text-align:center;color:#333;font-size:1.250rem;border:2px solid #DE4249;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
-/* Form WiFi PIN */
-.custom-insert-pin label{font-size:1.000rem;font-weight:700}
-.custom-insert-pin input#password{width:80%;margin:0 auto;padding:7px 0;text-align:center;color:#333;font-size:1.250rem;border:2px solid #DE4249;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
-/* Errors */
-.custom-insert-number-error p{color:#f00;font-weight:700}
-.custom-empty-terms p{color:#f00;font-weight:700}
-.custom-insert-pin-error p{color:#f00;font-weight:700}
-/* TYP */
-h1{font-size:1.500rem;margin:3px 2px}
-h2{font-size:1.000rem;margin:3px 2px}
-body.custom-page-thankyou .btn{width:80%;padding:7px 0;color:#fff;font-size:1.250rem;background-color:#DE4249;border:none;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px}
-body.custom-page-thankyou .btn a{color:#fff;text-decoration:none}
-/* Other Useful Variables */
-/* Detect Peculiar Carrier */
- 
- 
-/* Detect 3G/WiFi */
- 
- 
- 
-/* Detect WiFi Carrier logo inside/Fake Payment */
- 
- 
-/* Detect Smartphones */
- 
-/* Detect Tablet */
- 
-/* Detect Desktop */
- 
- 
-/* Detect Operative System */
- 
- 
- 
-</style>
-';
-            $html .= '<style>';
-            $html .= <<<CSS
-.inner_sub{
-    width: 50%;
-    margin: auto;
-    margin-top: 15%;
-}
-
-CSS;
-$html .= '</style>';
-
-            $html .= $content;
-            $html .= '</div>';
-
-//            $html .=  <<<HTML
+//            $html =  '
 //            <div style="padding-top: 25%; min-height: 550px">
 //                <div class="subscribe">
 //                    Введите номер, чтобы авторизоваться
-//                    <a href="http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=1&returnurl=http://beta.kioskplus.ru/" class="button flat">Получить доступ</a>
+//                    <a href="http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=1&returnurl='.$back_url.'" class="button flat">Получить доступ</a>
 //                    <p class="description">
 //
 //                        <input>
 //                    </p>
 //                </div>
 //            </div>
-//HTML;
+//';
+            $html =  '
+                <div style="padding-top: 25%; min-height: 550px">
+                    <div class="subscribe">
+                        <a href="http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=1&returnurl='.$back_url.'" class="button flat">Получить доступ</a>
+                        <p class="description">
+                            Кликнув на кнопку “Получить доступ”, Вы соглашаетесь с
+                            <br>
+                            условиями подписки на доступ ко всему каталогу.
+                            <br>
+                            Стоимость 12 руб. с учетом НДС в день.
+                        </p>
+                    </div> 
+                </div>
+            ';
         }else
             $html = file_get_contents(realpath($this->get('kernel')->getRootDir().'/../web/').$html_path);
 
