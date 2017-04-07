@@ -63,7 +63,7 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/preland/{title}/{year}/{month}/{number}", name="detail", requirements={
+     * @Route("/cover/{title}/{year}/{month}/{number}", name="detail", requirements={
      *         "month": "\d+",
      *         "number": "\d+",
      *         "year": "\d+"
