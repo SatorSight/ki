@@ -92,10 +92,13 @@ class DefaultController extends Controller
             if($a->getId() == $journal->getId())
                 unset($all[$key]);
 
+        $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
+
         return $this->render('default/detail.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
             'journal' => $journal,
-            'rest' => $all
+            'rest' => $all,
+            'base_url' => $baseurl
         ]);
     }
 

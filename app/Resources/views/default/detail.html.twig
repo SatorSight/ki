@@ -17,7 +17,9 @@
 
     <header class="page-header" role="banner">
         <div class="page-header-main-content">
-            <div class="logo-image"></div>
+            <a href="{{ base_url }}">
+                <div class="logo-image"></div>
+            </a>
             {% image '@AppBundle/Resources/public/images/age-restriction.svg' %}
             <img alt="Возрастное ограничение 18+" class="restriction-badge " src="{{ asset_url }}">
             {% endimage %}
