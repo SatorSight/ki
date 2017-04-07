@@ -27,9 +27,22 @@ class DefaultController extends Controller
                 $j->setNumber(1);
 
 
+//        foreach ($journals){
+//
+//        }
+
+        $jour = [];
+        $jour[] = array_shift($journals);
+        $jour[] = array_shift($journals);
+
+
+
+
+
+
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-            'journals' => $journals
+            'journals' => $jour
         ]);
     }
 
@@ -117,6 +130,9 @@ HTML;
 
         if(!empty($_REQUEST['bridge_token']))
             $_SESSION['bridge_token'] = $_REQUEST['bridge_token'];
+
+        SUtils::dump($_REQUEST);
+        SUtils::trace($_SESSION);
 
         $page = $request->query->get('page');
         if(!$page) $page = 1;
