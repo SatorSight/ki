@@ -134,8 +134,10 @@ HTML;
         $session = $request->getSession();
 //        $session = new Session();
 //        $session->start();
-        if(!empty($session->get('bridge_token')))
+        if(empty($session->get('bridge_token')))
             $session->set('bridge_token', $_REQUEST['bridge_token']);
+        if(!empty($request->query->get('alreadyAllowed')))
+            $session->set('bridge_token', 'yes');
 //            $this->getUser()->setAttribute('bridge_token', $_REQUEST['bridge_token']);
 
 //        if(!empty($_REQUEST['bridge_token']))
