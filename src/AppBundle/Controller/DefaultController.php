@@ -8,6 +8,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+use Symfony\Component\HttpFoundation\Session\Session;
+
 class DefaultController extends Controller
 {
     /**
@@ -128,8 +130,11 @@ HTML;
     public function readAction(Request $request, $title, $year, $month, $number)
     {
 
+        $session = new Session();
+        $session->start();
+
         if(!empty($_REQUEST['bridge_token']))
-            $_SESSION['bridge_token'] = $_REQUEST['bridge_token'];
+            $session->set('bridge_token', $_REQUEST['bridge_token']);
 //        if(!empty($_REQUEST))
 //            SUtils::dump($_REQUEST);
 //        else echo 'no req';
@@ -174,7 +179,7 @@ HTML;
         $back_url = $baseurl.$request->getPathInfo().'?page='.$page.'&user_back=yes';
 
 
-        if($page > $journal->getListing() + 4 && empty($_SESSION['bridge_token'])){
+        if($page > $journal->getListing() + 4 && empty($session->get('bridge_token'))){
 
             $html =  '
                 <div style="padding-top: 25%; min-height: 550px">
