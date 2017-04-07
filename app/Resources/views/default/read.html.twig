@@ -49,7 +49,6 @@
                 max-width: none;
                 height: 100%;
                 min-height: 100%;
-                overflow: hidden;
                 box-shadow: none;
             }
 
@@ -77,25 +76,50 @@
 
             #controls div {
                 pointer-events: auto;
-                background-color: #f5f5f5;
+                background-color: #331122;
+                color: #EEE;
             }
 
             #controls .arrow {
-                box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.4);
                 position: absolute;
-                top: 50%;
-                margin-top: -40px;
-                height: 9%;
+                top: 0;
+                margin-top: 0;
+                height: 100%;
                 width: 11%;
-                background-size: 40%;
-                background-repeat: no-repeat;
-                background-position: center;
-                background-color: #f5f5f5;
                 max-width: 50px;
-                max-height: 80px;
                 min-width: 40px;
                 min-height: 50px;
+                z-index: 50;
             }
+            #controls .arrow span {
+                color: #000;
+                font-weight: 600;
+                font-size: 30px;
+                line-height: 2;
+                position: absolute;
+                top: 50%;
+                margin-top: -15px;
+            }
+            #controls .right.arrow {right: 0;
+                background: rgba(0,0,0,0);
+                background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+                background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,0)), color-stop(100%, rgba(0,0,0,0.5)));
+                background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+                background: -o-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+                background: -ms-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+                background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );}
+            #controls .right.arrow span {right: 5px;}
+            #controls .left.arrow {left: 0;
+                background: rgba(0,0,0,0.5);
+                background: -moz-linear-gradient(left, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+                background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,0.5)), color-stop(100%, rgba(0,0,0,0)));
+                background: -webkit-linear-gradient(left, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+                background: -o-linear-gradient(left, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+                background: -ms-linear-gradient(left, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+                background: linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );}
+            #controls .left.arrow span {left: 5px;}
 
             .imagec {
                 position: relative;
@@ -126,8 +150,8 @@
             <div id="controls"
                  style="position: fixed; height: 100%; width: 100%; pointer-events: none;; z-index: 9999; max-width: 1024px; top:0;">
                 <div class="top_panel"
-                     style="top: 0; width: 100%; height: 45px; position: absolute; box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.4); font-size: 10px;">
-                    <div style="width: 65%; margin: 10px auto 0; text-align: center;">
+                     style="top: 0; width: 100%; height: 45px; position: absolute; font-size: 10px; z-index: 100;">
+                    <div style="margin: 10px 10px 0 0; text-align: right;">
                         <div>
 
                             <span style="font-weight: 400;">{{ journal.title }}</span>, {% if journal.getDoubleMonth == 1 %}
@@ -142,7 +166,7 @@
 
                         </div>
                     </div>
-                    <div style="width: 60%; margin: 0 auto; text-align: center;">
+                    <div style="margin-right: 10px; text-align: right;">
                         <div>{{ page }} из {{ pages }}</div>
                     </div>
 
@@ -160,13 +184,13 @@
                          style="display: none; width: 150px; position: absolute; left: 0; top: 45px; z-index: -1; padding: 10px; font-size: 14px; box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.4);">
 
                         <div>
-                            <div style="text-align: center; padding: 6px;"><a href="{{ url('homepage') }}" style="text-decoration: none;">Ко всем журналам</a>
+                            <div style="text-align: center; padding: 6px;"><a href="{{ url('homepage') }}" style="text-decoration: none;">Главная</a>
                             </div>
                         </div>
 
                         <div>
                             <div style="text-align: center; padding: 6px;" id="toc_button">
-                                Оглавление выпуска
+                                К оглавлению
                             </div>
                         </div>
 
@@ -188,11 +212,11 @@
                     </div>
                     
                 </div>
-                <div class="right arrow"
-                     style="background-image: url({{ url('homepage') }}/images/vArrow_right.png); right: 0; ">
+                <div class="right arrow">
+                    <span>></span>
                 </div>
-                <div class="left arrow"
-                     style="background-image: url({{ url('homepage') }}/images/vArrow_left.png); left: 0;">
+                <div class="left arrow">
+                    <span><</span>
                 </div>
             </div>
 
