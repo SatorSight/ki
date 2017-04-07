@@ -9,7 +9,7 @@
             <div class="page-header-main-content">
                 <div class="logo-image"></div>
                 {% image '@AppBundle/Resources/public/images/age-restriction.svg' %}
-                    <img alt="Возрастное ограничение 18+" class="restriction-badge " src="{{ asset_url }}">
+                <img alt="Возрастное ограничение 18+" class="restriction-badge " src="{{ asset_url }}">
                 {% endimage %}
                 <div class="logo">
                     <div class="logo-link">
@@ -20,14 +20,14 @@
                 </div>
             </div>
             <div class="page-header-aside-content">
-                <div class='page-sliding-aside-handle' role='button' tabindex='0' style="display: none;" ></div>
+                <div class='page-sliding-aside-handle' role='button' tabindex='0' style="display: none;"></div>
             </div>
         </header>
         <div class="grad"></div>
         <!-- / header -->
         {#<div class="menu">#}
-            {#<a href="//kiosk.megafonpro.ru/" class="menu_item active">Новинки</a>#}
-            {#<a href="//kiosk.megafonpro.ru/categories" class="menu_item ">Категории</a>#}
+        {#<a href="//kiosk.megafonpro.ru/" class="menu_item active">Новинки</a>#}
+        {#<a href="//kiosk.megafonpro.ru/categories" class="menu_item ">Категории</a>#}
 
         {#</div>#}
         <!-- /menu -->
@@ -116,6 +116,53 @@
         <div class="magazines" style="overflow: hidden; text-align: center;">
 
 
+            {% for item in journals %}
+
+                <div class="magazine" style="width: 49%;">
+                    <div class="magazine-inner">
+                        <a href="{{ url('detail', {
+                            'title': item.url,
+                            'year' : item.year,
+                            'month' : item.month,
+                            'number' : item.number
+                        }) }}">
+
+                            <div class="cover" style="
+                                    background-image: url('{{ item.imageMain }}');
+                                    "></div>
+
+                        </a>
+                        <p class="title"><a href="{{ url('detail', {
+                                'title': item.url,
+                                'year' : item.year,
+                                'month' : item.month,
+                                'number' : item.number
+                            }) }}">
+                            </a><a href="{{ url('detail', {
+                                'title': item.url,
+                                'year' : item.year,
+                                'month' : item.month,
+                                'number' : item.number
+                            }) }}">
+                                {{ item.title }}
+                            </a>
+                        </p>
+                        <p class="date">
+                            {{ item.month|date("F") }}
+
+                            {{ item.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+
+                            {{ item.year }}</p>
+                        <p class="date">
+                            {% if item.getNumberSet == 0 %}
+                                выпуск {{ item.number }}
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+
+
             {% for key,item in j_names %}
                 <div class="journal-{{ key }}">
                     <span class="j-group-title">{{ item }}</span>
@@ -133,7 +180,8 @@
                                             background-image: url('{{ item2.imageMain }}');
                                             "></div>
 
-                                </a><p class="title"><a href="{{ url('detail', {
+                                </a>
+                                <p class="title"><a href="{{ url('detail', {
                                         'title': item2.url,
                                         'year' : item2.year,
                                         'month' : item2.month,
@@ -165,52 +213,6 @@
                 </div>
             {% endfor %}
 
-            {#{% for item in journals %}#}
-
-                {#<div class="magazine" style="width: 49%;">#}
-                    {#<div class="magazine-inner">#}
-                        {#<a href="{{ url('detail', {#}
-                            {#'title': item.url,#}
-                            {#'year' : item.year,#}
-                            {#'month' : item.month,#}
-                            {#'number' : item.number#}
-                        {#}) }}">#}
-
-                            {#<div class="cover" style="#}
-                    {#background-image: url('{{ item.imageMain }}');#}
-                    {#"></div>#}
-
-                        {#</a><p class="title"><a href="{{ url('detail', {#}
-                                {#'title': item.url,#}
-                                {#'year' : item.year,#}
-                                {#'month' : item.month,#}
-                                {#'number' : item.number#}
-                            {#}) }}">#}
-                            {#</a><a href="{{ url('detail', {#}
-                                {#'title': item.url,#}
-                                {#'year' : item.year,#}
-                                {#'month' : item.month,#}
-                                {#'number' : item.number#}
-                            {#}) }}">#}
-                                {#{{ item.title }}#}
-                            {#</a>#}
-                        {#</p>#}
-                        {#<p class="date">#}
-                            {#{{ item.month|date("F") }}#}
-
-                            {#{{ item.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}#}
-
-                            {#{{ item.year }}</p>#}
-                        {#<p class="date">#}
-                            {#{% if item.getNumberSet == 0 %}#}
-                                {#выпуск {{ item.number }}#}
-                            {#{% endif %}#}
-                        {#</p>#}
-                    {#</div>#}
-                {#</div>#}
-            {#{% endfor %}#}
-
-
 
             <!-- / one magazine -->
         </div>
@@ -236,10 +238,10 @@
                 var i;
 
                 for (i = 0; i < acc.length; i++) {
-                    acc[i].onclick = function() {
+                    acc[i].onclick = function () {
                         this.classList.toggle("active");
                         var panel = this.nextElementSibling;
-                        if (panel.style.maxHeight){
+                        if (panel.style.maxHeight) {
                             panel.style.maxHeight = null;
                         } else {
                             panel.style.maxHeight = panel.scrollHeight + "px";
