@@ -130,9 +130,12 @@ HTML;
 
         if(!empty($_REQUEST['bridge_token']))
             $_SESSION['bridge_token'] = $_REQUEST['bridge_token'];
-
-        SUtils::dump($_REQUEST);
-        SUtils::trace($_SESSION);
+        if(!empty($_REQUEST))
+            SUtils::dump($_REQUEST);
+        else echo 'no req';
+        if(!empty($_SESSION))
+            SUtils::trace($_SESSION);
+        else echo 'no session';
 
         $page = $request->query->get('page');
         if(!$page) $page = 1;
