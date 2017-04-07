@@ -891,6 +891,7 @@ http://flickity.metafizzy.co
     position: relative;
     top: -7px;
     background-image: url('/images/top_gradient.png');
+    display: none;
 }
 
 
