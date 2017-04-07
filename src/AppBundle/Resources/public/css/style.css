@@ -59,6 +59,7 @@ a {
     font-weight: 400;
     font-size: 14px;
 }
+.container-fluid .title {text-align: center;}
 
 .container-fluid .header {
     padding: 20px 24px 14px 24px;
@@ -320,13 +321,13 @@ a {
 }
 
 .container-fluid .previews .preview div.image {
-    box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.4);
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.4);
     margin: 0 auto;
     padding-bottom: 120%;
     background-color: #eee;
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    background-position: 50% 0;
+    background-size: cover;
 }
 
 .container-fluid .previews .preview .blob {
