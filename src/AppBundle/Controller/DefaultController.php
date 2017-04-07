@@ -128,14 +128,14 @@ HTML;
     public function readAction(Request $request, $title, $year, $month, $number)
     {
 
-        if(!empty($_REQUEST['bridge_token']))
-            $_SESSION['bridge_token'] = $_REQUEST['bridge_token'];
-        if(!empty($_REQUEST))
-            SUtils::dump($_REQUEST);
-        else echo 'no req';
-        if(!empty($_SESSION))
-            SUtils::trace($_SESSION);
-        else echo 'no session';
+//        if(!empty($_REQUEST['bridge_token']))
+//            $_SESSION['bridge_token'] = $_REQUEST['bridge_token'];
+//        if(!empty($_REQUEST))
+//            SUtils::dump($_REQUEST);
+//        else echo 'no req';
+//        if(!empty($_SESSION))
+//            SUtils::trace($_SESSION);
+//        else echo 'no session';
 
         $page = $request->query->get('page');
         if(!$page) $page = 1;
