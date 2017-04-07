@@ -130,11 +130,13 @@ HTML;
     public function readAction(Request $request, $title, $year, $month, $number)
     {
 
-        $session = new Session();
-        $session->start();
+//        $session = new Session();
+//        $session->start();
+        if(!empty($this->getUser()->getAttribute('bridge_token')))
+            $this->getUser()->setAttribute('bridge_token', $_REQUEST['bridge_token']);
 
-        if(!empty($_REQUEST['bridge_token']))
-            $session->set('bridge_token', $_REQUEST['bridge_token']);
+//        if(!empty($_REQUEST['bridge_token']))
+//            $session->set('bridge_token', $_REQUEST['bridge_token']);
 //        if(!empty($_REQUEST))
 //            SUtils::dump($_REQUEST);
 //        else echo 'no req';
@@ -179,7 +181,7 @@ HTML;
         $back_url = $baseurl.$request->getPathInfo().'?page='.$page.'&user_back=yes';
 
 
-        if($page > $journal->getListing() + 4 && empty($session->get('bridge_token'))){
+        if($page > $journal->getListing() + 4 && empty($this->getUser()->getAttribute('bridge_token'))){
 
             $html =  '
                 <div style="padding-top: 25%; min-height: 550px">
