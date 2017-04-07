@@ -1,5 +1,17 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}
+    {{ journal.title }}
+    {% if journal.getDoubleMonth == 1 %}
+        {{ journal.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+        -
+        {{ journal.date | date_modify("+1 month") | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+    {% else %}
+        {{ journal.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+    {% endif %}
+    {{ journal.year }}
+{% endblock %}
+
 {% block body %}
     <div style="display: none;" id="page_variables">
         <div class="pages">

@@ -1,10 +1,23 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}
+    {{ journal.title }}
+    {% if journal.getDoubleMonth == 1 %}
+        {{ journal.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+        -
+        {{ journal.date | date_modify("+1 month") | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+    {% else %}
+        {{ journal.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+    {% endif %}
+    {{ journal.year }}
+{% endblock %}
+
 {% block body %}
 <div class="container-fluid main"  id="main">
 
     <header class="page-header" role="banner">
         <div class="page-header-main-content">
+            <div class="logo-image"></div>
             {% image '@AppBundle/Resources/public/images/age-restriction.svg' %}
             <img alt="Возрастное ограничение 18+" class="restriction-badge " src="{{ asset_url }}">
             {% endimage %}
