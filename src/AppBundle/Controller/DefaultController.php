@@ -50,14 +50,14 @@ class DefaultController extends Controller
 
 //        SUtils::trace($journals_grouped);
 
-
-
+        $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
 
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
             'journals' => $jour,
             'journals_grouped' => $journals_grouped,
-            'j_names' => $j_names
+            'j_names' => $j_names,
+            'base_url' => $baseurl
         ]);
     }
 
