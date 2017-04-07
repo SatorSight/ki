@@ -339,15 +339,16 @@ a {
     display: block;
     height: 60px;
     line-height: 60px;
-    width: 270px;
+    width: 300px;
     font-weight: 300;
     text-decoration: none;
-    background: #00995d;
+    background: #331122;
     font-size: 24px;
     text-align: center;
     margin: 0 auto;
     color: #fff;
-    border-radius: 8px;
+    border-radius: 30px;
+    text-transform: uppercase;
 }
 
 .container-fluid .previews .description_bottom {
