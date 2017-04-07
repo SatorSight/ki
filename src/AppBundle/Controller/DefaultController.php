@@ -115,8 +115,8 @@ HTML;
     public function readAction(Request $request, $title, $year, $month, $number)
     {
 
-        if(!empty($_REQUEST['user_back']))
-            SUtils::trace($_REQUEST);
+        if(!empty($_REQUEST['bridge_token']))
+            $_SESSION['bridge_token'] = $_REQUEST['bridge_token'];
 
         $page = $request->query->get('page');
         if(!$page) $page = 1;
@@ -178,7 +178,7 @@ HTML;
 //
 ////        SUtils::trace($content);
 //
-        if($page > $journal->getListing() + 4 && empty($_SESSION['authorized'])){
+        if($page > $journal->getListing() + 4 && empty($_SESSION['bridge_token'])){
 //
 ////            $html = '<iframe src="http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=1&returnurl=http://beta.kioskplus.ru/" width="468" height="60" align="left">';
 ////            $html = '<iframe src="http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=1&returnurl=http://beta.kioskplus.ru/" name="targetframe" allowTransparency="true" scrolling="no" frameborder="0" ></iframe>';
