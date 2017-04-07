@@ -29,22 +29,35 @@ class DefaultController extends Controller
                 $j->setNumber(1);
 
 
-//        foreach ($journals){
-//
-//        }
+        $j_names = [];
+        foreach ($journals as $jr){
+            if(!in_array($jr->getTitle(), $j_names))
+                $j_names[] = $jr->getTitle();
+        }
+
+//        SUtils::trace($j_names);
 
         $jour = [];
-        $jour[] = array_shift($journals);
-        $jour[] = array_shift($journals);
+        $jour[] = $journals[key($journals)];
+        $jour[] = $journals[key($journals) + 1];
 
 
+        $journals_grouped = [];
+        foreach ($journals as $jj){
+            $journals_grouped[$jj->getTitle()][] = $jj;
+        }
+
+
+//        SUtils::trace($journals_grouped);
 
 
 
 
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-            'journals' => $jour
+            'journals' => $jour,
+            'journals_grouped' => $journals_grouped,
+            'j_names' => $j_names
         ]);
     }
 

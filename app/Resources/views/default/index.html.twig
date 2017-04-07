@@ -116,52 +116,99 @@
         <div class="magazines" style="overflow: hidden; text-align: center;">
 
 
+            {% for key,item in j_names %}
+                <div class="journal-{{ key }}">
+                    <span class="j-group-title">{{ item }}</span>
+                    {% for key2,item2 in journals_grouped[item] %}
+                        <div class="magazine" style="width: 49%;">
+                            <div class="magazine-inner">
+                                <a href="{{ url('detail', {
+                                    'title': item2.url,
+                                    'year' : item2.year,
+                                    'month' : item2.month,
+                                    'number' : item2.number
+                                }) }}">
 
+                                    <div class="cover" style="
+                                            background-image: url('{{ item2.imageMain }}');
+                                            "></div>
 
-            {% for item in journals %}
+                                </a><p class="title"><a href="{{ url('detail', {
+                                        'title': item2.url,
+                                        'year' : item2.year,
+                                        'month' : item2.month,
+                                        'number' : item2.number
+                                    }) }}">
+                                    </a><a href="{{ url('detail', {
+                                        'title': item2.url,
+                                        'year' : item2.year,
+                                        'month' : item2.month,
+                                        'number' : item2.number
+                                    }) }}">
+                                        {{ item2.title }}
+                                    </a>
+                                </p>
+                                <p class="date">
+                                    {#{{ item.month|date("F") }}#}
 
-                <div class="magazine" style="width: 49%;">
-                    <div class="magazine-inner">
-                        <a href="{{ url('detail', {
-                            'title': item.url,
-                            'year' : item.year,
-                            'month' : item.month,
-                            'number' : item.number
-                        }) }}">
+                                    {{ item2.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
 
-                            <div class="cover" style="
-                    background-image: url('{{ item.imageMain }}');
-                    "></div>
-
-                        </a><p class="title"><a href="{{ url('detail', {
-                                'title': item.url,
-                                'year' : item.year,
-                                'month' : item.month,
-                                'number' : item.number
-                            }) }}">
-                            </a><a href="{{ url('detail', {
-                                'title': item.url,
-                                'year' : item.year,
-                                'month' : item.month,
-                                'number' : item.number
-                            }) }}">
-                                {{ item.title }}
-                            </a>
-                        </p>
-                        <p class="date">
-                            {#{{ item.month|date("F") }}#}
-
-                            {{ item.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
-
-                            {{ item.year }}</p>
-                        <p class="date">
-                            {% if item.getNumberSet == 0 %}
-                                выпуск {{ item.number }}
-                            {% endif %}
-                        </p>
-                    </div>
+                                    {{ item2.year }}</p>
+                                <p class="date">
+                                    {% if item2.getNumberSet == 0 %}
+                                        выпуск {{ item2.number }}
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             {% endfor %}
+
+            {#{% for item in journals %}#}
+
+                {#<div class="magazine" style="width: 49%;">#}
+                    {#<div class="magazine-inner">#}
+                        {#<a href="{{ url('detail', {#}
+                            {#'title': item.url,#}
+                            {#'year' : item.year,#}
+                            {#'month' : item.month,#}
+                            {#'number' : item.number#}
+                        {#}) }}">#}
+
+                            {#<div class="cover" style="#}
+                    {#background-image: url('{{ item.imageMain }}');#}
+                    {#"></div>#}
+
+                        {#</a><p class="title"><a href="{{ url('detail', {#}
+                                {#'title': item.url,#}
+                                {#'year' : item.year,#}
+                                {#'month' : item.month,#}
+                                {#'number' : item.number#}
+                            {#}) }}">#}
+                            {#</a><a href="{{ url('detail', {#}
+                                {#'title': item.url,#}
+                                {#'year' : item.year,#}
+                                {#'month' : item.month,#}
+                                {#'number' : item.number#}
+                            {#}) }}">#}
+                                {#{{ item.title }}#}
+                            {#</a>#}
+                        {#</p>#}
+                        {#<p class="date">#}
+                            {#{{ item.month|date("F") }}#}
+
+                            {#{{ item.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}#}
+
+                            {#{{ item.year }}</p>#}
+                        {#<p class="date">#}
+                            {#{% if item.getNumberSet == 0 %}#}
+                                {#выпуск {{ item.number }}#}
+                            {#{% endif %}#}
+                        {#</p>#}
+                    {#</div>#}
+                {#</div>#}
+            {#{% endfor %}#}
 
 
 
