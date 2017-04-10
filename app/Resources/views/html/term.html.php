@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <meta http-equiv="imagetoolbar" content="no">
+    <title>Киоск плюс</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+    <script src="/js/bb54fd1_part_1_common_1.js"></script>
+    <script src="/js/bb54fd1_part_1_flickity_2.js"></script>
+    <script src="/js/bb54fd1_part_1_jquery-2_3.js"></script>
+    <script src="/js/bb54fd1_part_1_viewer_4.js"></script>
+    <link rel="stylesheet" href="/css/4fe151e_part_1_flickity_1.css">
+    <link rel="stylesheet" href="/css/4fe151e_part_1_style-menu_2.css">
+    <link rel="stylesheet" href="/css/4fe151e_part_1_style_3.css">
+</head>
+<body>
+<div id="wrapper"></div>
+
+<div class="container-fluid main" id="main">
+    <header class="page-header" role="banner">
+        <div class="page-header-main-content">
+            <a href="http://beta.kioskplus.ru">
+                <div class="logo-image"></div>
+            </a>
+            <img alt="Возрастное ограничение 18+" class="restriction-badge " src="/images/f9f1d3d_age-restriction_1.svg">
+            <div class="logo">
+                <div class="logo-link">
+                    <span class="kiosk-logo-image"></span>
+                    <div class="kiosk-bundle-title">Мужской выбор</div>
+                </div>
+            </div>
+        </div>
+        <div class="page-header-aside-content">
+            <div class='page-sliding-aside-handle' role='button' tabindex='0' style="display: none;"></div>
+        </div>
+    </header>
+    <div class="grad"></div>
+    <div class="inner" style="padding: 0 1em;">
+        <p class="info" style="text-transform: uppercase; font-weight: 800; text-align: center;">Условия оказания Услуги</p>
+        <p><strong>Стоимость и порядок оплаты</strong></p>
+        <p>1. Стоимость услуги составляет 20 рублей с НДС за 1 календарный день.</p>
+        <p>2. С порядком списания Стоимости услуги можно ознакомиться на сайте Оператора my.beeline.ru в разделе «Мои информационно-развлекательные услуги» или позвонив по единому номеру 88007000611.</p>
+    </div>
+    <div class="footer">
+
+        <p class="disclaimer">
+            Киоск плюс 2016-2017
+        </p>
+
+        <p class="accordion disclaimer">Информация для пользователей</p>
+        <div class="panel">
+            <ul id="open">
+                <li><a href="/info">Информация для пользователей</a></li>
+                <li><a href="/manage">Управление Услугой</a></li>
+                <li><a href="/term">Условия оказания услуги</a></li>
+            </ul>
+        </div>
+
+        <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].onclick = function () {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                }
+            }
+        </script>
+    </div>
+</div>
+</body>
+</html>

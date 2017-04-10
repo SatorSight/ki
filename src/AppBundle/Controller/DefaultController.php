@@ -292,15 +292,6 @@ display: block;
 
 
 
-    /**
-     * @Route("/admin", name="admin")
-     *
-     */
-//    public function adminAction(Request $request)
-//    {
-//
-//    }
-
 
 
 
@@ -440,7 +431,7 @@ display: block;
 
             }
 
-//            if($counter > 20) break;
+            if($counter > 20) break;
 
         }
 
@@ -519,6 +510,35 @@ display: block;
 //            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
 //        ]);
 //    }
+
+
+    /*http://beta.kioskplus.ru/info/index.html
+    http://beta.kioskplus.ru/manage/index.html
+    http://beta.kioskplus.ru/term/index.html*/
+
+
+
+    /**
+     * @Route("/info", name="info")
+     */
+    public function infoAction(Request $request)
+    {
+        return $this->render('html/info.html.php', []);
+    }
+    /**
+     * @Route("/manage", name="manage")
+     */
+    public function manageAction(Request $request)
+    {
+        return $this->render('html/manage.html.php', []);
+    }
+    /**
+     * @Route("/term", name="term")
+     */
+    public function termAction(Request $request)
+    {
+        return $this->render('html/term.html.php', []);
+    }
 
 
     public function addJournal(Request $request){
