@@ -191,7 +191,7 @@ a {
 
 .magazine .cover {
     box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.4);
-    background-color: #eee;
+    background-color: #FFF;
     background-size: cover;
     padding-bottom: 120%;
     background-repeat: no-repeat;
@@ -328,7 +328,7 @@ a {
     box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.4);
     margin: 0 auto;
     padding-bottom: 120%;
-    background-color: #eee;
+    background-color: #FFF;
     background-repeat: no-repeat;
     background-position: 50% 0;
     background-size: cover;
@@ -347,11 +347,11 @@ a {
     width: 300px;
     font-weight: 300;
     text-decoration: none;
-    background: #331122;
+    background: #fcc200;
     font-size: 24px;
     text-align: center;
     margin: 0 auto;
-    color: #fff;
+    color: #2c2c2c;
     border-radius: 30px;
     text-transform: uppercase;
     box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.4);
