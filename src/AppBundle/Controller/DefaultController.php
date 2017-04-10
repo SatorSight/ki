@@ -209,8 +209,12 @@ men-kioskplus.ru -> http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=
 
         $back_url = $baseurl.$request->getPathInfo().'?page='.$page.'&user_back=yes';
 
+        /*http://buon.kiosk.buongiorno.ru/subscribe/?cr=78706%E2%80%A6*/
 
         $host = $request->getHost();
+
+        $join = 'join-';
+        $kiosk = 'kioskplus';
 
         $cr = '78089';
         $domain = 'men';
@@ -229,6 +233,8 @@ men-kioskplus.ru -> http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=
         if(strpos($host, 'premium') !== false) {
             $cr = '78706';
             $domain = 'buon';
+            $join = '';
+            $kiosk = 'kiosk.buongiorno';
         }
 
 
@@ -244,7 +250,7 @@ men-kioskplus.ru -> http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=
             $html =  '
                 <div style="padding-top: 25%; min-height: 550px">
                     <div class="subscribe">
-                        <a href="http://join-'.$domain.'.kioskplus.ru/subscribe/?cr='.$cr.'&setpreprod=1&returnurl='.$back_url.'" style="
+                        <a href="http://'.$join.$domain.'.'.$kiosk.'.ru/subscribe/?cr='.$cr.'&setpreprod=1&returnurl='.$back_url.'" style="
 display: block;
     height: 60px;
     line-height: 60px;
