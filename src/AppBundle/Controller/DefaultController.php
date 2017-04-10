@@ -195,7 +195,14 @@ HTML;
                         <br>
                         условиями подписки на доступ ко всему каталогу.
                         <br>
-                        Стоимость 12 руб. с учетом НДС в день.*/
+                        Стоимость 12 руб. с учетом НДС в день.
+
+tech.kioskplus.ru -> http://join-tech.kioskplus.ru/subscribe/?cr=78290&setpreprod=1
+avto.kioskplus.ru -> http://join-avto.kioskplus.ru/subscribe/?cr=78369&setpreprod=1
+kind.kioskplus.ru -> http://join-kind.kioskplus.ru/subscribe/?cr=77889&setpreprod=1
+men-kioskplus.ru -> http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=1
+
+*/
 
         $current_url = $request->get('_route');
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
@@ -203,12 +210,29 @@ HTML;
         $back_url = $baseurl.$request->getPathInfo().'?page='.$page.'&user_back=yes';
 
 
+        $host = $request->getHost();
+
+        $cr = '78089';
+        if(strpos($host, 'tech') !== false)
+            $cr = '78290';
+        if(strpos($host, 'avto') !== false)
+            $cr = '78369';
+        if(strpos($host, 'kind') !== false)
+            $cr = '77889';
+
+
+//        SUtils::dump($route);
+//        SUtils::trace($url);
+
+
+
+
         if($page > $journal->getListing() + 4 && empty($session->get('bridge_token'))){
 
             $html =  '
                 <div style="padding-top: 25%; min-height: 550px">
                     <div class="subscribe">
-                        <a href="http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=1&returnurl='.$back_url.'" style="
+                        <a href="http://join-men.kioskplus.ru/subscribe/?cr='.$cr.'&setpreprod=1&returnurl='.$back_url.'" style="
 display: block;
     height: 60px;
     line-height: 60px;
