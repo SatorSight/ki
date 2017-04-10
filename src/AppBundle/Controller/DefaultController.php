@@ -296,6 +296,18 @@ display: block;
      * @Route("/admin", name="admin")
      *
      */
+//    public function adminAction(Request $request)
+//    {
+//
+//    }
+
+
+
+
+/**
+     * @Route("/admin", name="admin")
+     *
+     */
     public function adminAction(Request $request)
     {
 
@@ -311,7 +323,7 @@ display: block;
         $conn_id = ftp_connect('ftp.buongiorno.ru');
         $login_result = ftp_login($conn_id, 'burda', 'burda1898');
         $contents = ftp_nlist($conn_id, "./kiosk_plus");
-        ftp_close($conn_id);
+
 
         $not_dirs = ['json', 'pdf', 'prodtest', 'srv'];
         $j_exists = [];
@@ -324,18 +336,121 @@ display: block;
 
         $dirs = [];
         $prefix = [];
+        $images = [];
+
+        $counter = 0;
+
         foreach($contents as $dir){
+
+            $counter++;
+
             $d = str_replace('./kiosk_plus/','',$dir);
+
+            $local_path = realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR.'web/tmp/'.$d.'/';
             if(!in_array($d, $not_dirs) && !in_array($d, $j_exists)) {
+
+
+
+                if(!is_dir($local_path)) {
+
+                    $inner_contents = ftp_nlist($conn_id, './kiosk_plus/srv/images/' . $d);
+                    $first_image_folder = array_shift($inner_contents);
+                    $first_image_folder_name = substr($first_image_folder, strrpos($first_image_folder, '/') + 1);
+                    $images_inner = ftp_nlist($conn_id, $first_image_folder);
+
+                    $first_image = '';
+                    foreach ($images_inner as $img_inner){
+                        if(strpos($img_inner, 'icon') !== false)
+                            $first_image = $img_inner;
+                    }
+
+                    if(!$first_image){
+                        $images[$d] = 'no';
+                        continue;
+                    }
+
+                    $first_image_name = substr($first_image, strrpos($first_image, '/') + 1);
+
+                    $local_dir = realpath($this->getParameter('kernel.root_dir') . '/..') . DIRECTORY_SEPARATOR . 'web/tmp/' . $d . '/';
+
+
+                    $remote_image = $first_image_folder . '/' . $first_image_name;
+
+                    $local_image = realpath($this->getParameter('kernel.root_dir') . '/..') . DIRECTORY_SEPARATOR . 'web/tmp/' . $d . '/' . $first_image_folder_name . '/' . $first_image_name;
+
+
+                    $exists = false;
+                    if(!is_dir($local_dir)) {
+                        $oldmask = umask(0);
+                        mkdir($local_dir, 0777, true);
+                        umask($oldmask);
+                    }
+
+                    if(!is_dir($local_dir.$first_image_folder_name)) {
+                        $oldmask = umask(0);
+                        mkdir($local_dir.$first_image_folder_name, 0777, true);
+                        umask($oldmask);
+                    }
+
+
+                    ftp_get($conn_id, $local_image, $remote_image, FTP_BINARY);
+
+                    $images[$d] = '/tmp/'.$d.'/'.$first_image_folder_name.'/'.$first_image_name;
+
+                }else{
+
+                    $dds = scandir($local_path);
+                    $dds_inner = '';
+                    foreach ($dds as $ddss)
+                        if($ddss == '000' || $ddss == '001')
+                            $dds_inner = $ddss;
+                    $ffs = scandir($local_path.$dds_inner);
+                    $ffs_inner = '';
+                    foreach ($ffs as $ffss){
+                        if(strpos($ffss, 'jpg') !== false || strpos($ffss, 'png') !== false )
+                            $ffs_inner = $ffss;
+                    }
+
+
+
+                    $loc_file = $dds_inner.'/'.$ffs_inner;
+
+
+//                    SUtils::dump($loc_file);
+//                    SUtils::trace($local_path);
+//                    SUtils::trace(realpath($this->getParameter('kernel.root_dir') . '/..') . DIRECTORY_SEPARATOR . 'web/tmp/');
+
+
+
+                    $images[$d] = '/tmp/'.$d.'/'.$loc_file;
+
+//                    SUtils::trace($images);
+
+                }
+
+
+
+//
+
+
                 $dirs[] = $d;
-                $prefix[] = substr($d,0, strpos($d, '/'));
+                $prefix[] = substr($d,0, strpos($d, '_'));
+
+
+
             }
+
+//            if($counter > 20) break;
+
         }
+
+        ftp_close($conn_id);
 
         return $this->render('default/admin.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
             'dirs' => $dirs,
-            'prefix' => $prefix
+            'prefix' => $prefix,
+            'images' => $images
         ]);
     }
 

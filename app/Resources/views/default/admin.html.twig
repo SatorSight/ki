@@ -25,10 +25,14 @@
             thead{
                 text-align: left;
             }
+            .admin-preview{
+                height: 100px;
+            }
         </style>
         <table>
             <thead>
                 <th>№</th>
+                <th>Обложка</th>
                 <th>Префикс</th>
                 <th>Папка</th>
             </thead>
@@ -36,6 +40,7 @@
                 {% for key, item in dirs %}
                     <tr>
                         <td>{{ key + 1}}</td>
+                        <td><img class="admin-preview" src="{{ images[dirs[key]] }}"/></td>
                         <td>{{ prefix[key] }}</td>
                         <td>{{ dirs[key] }}</td>
                         <td>
