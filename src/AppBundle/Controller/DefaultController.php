@@ -524,21 +524,21 @@ display: block;
      */
     public function infoAction(Request $request)
     {
-        return $this->render('html/info.html.php', []);
+        return $this->render('html/info.html.twig', []);
     }
     /**
      * @Route("/manage", name="manage")
      */
     public function manageAction(Request $request)
     {
-        return $this->render('html/manage.html.php', []);
+        return $this->render('html/manage.html.twig', []);
     }
     /**
      * @Route("/term", name="term")
      */
     public function termAction(Request $request)
     {
-        return $this->render('html/term.html.php', []);
+        return $this->render('html/term.html.twig', []);
     }
 
 

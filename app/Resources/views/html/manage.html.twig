@@ -6,13 +6,13 @@
     <meta http-equiv="imagetoolbar" content="no">
     <title>Киоск плюс</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
-    <script src="/js/bb54fd1_part_1_common_1.js"></script>
-    <script src="/js/bb54fd1_part_1_flickity_2.js"></script>
-    <script src="/js/bb54fd1_part_1_jquery-2_3.js"></script>
-    <script src="/js/bb54fd1_part_1_viewer_4.js"></script>
-    <link rel="stylesheet" href="/css/4fe151e_part_1_flickity_1.css">
-    <link rel="stylesheet" href="/css/4fe151e_part_1_style-menu_2.css">
-    <link rel="stylesheet" href="/css/4fe151e_part_1_style_3.css">
+    {% javascripts '@AppBundle/Resources/public/js/*' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% stylesheets '@AppBundle/Resources/public/css/*' %}
+    <link rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
 </head>
 <body>
 <div id="wrapper"></div>
