@@ -49,6 +49,7 @@ a {
     transition: 300ms ease-out;
     box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.4);
     z-index: 999;
+    background-color: #FCFCFC;
 }
 
 .container-fluid {
