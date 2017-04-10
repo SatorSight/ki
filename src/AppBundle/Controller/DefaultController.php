@@ -219,6 +219,8 @@ men-kioskplus.ru -> http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=
             $cr = '78369';
         if(strpos($host, 'kind') !== false)
             $cr = '77889';
+        if(strpos($host, 'premium') !== false)
+            $cr = '78706';
 
 
 //        SUtils::dump($route);
