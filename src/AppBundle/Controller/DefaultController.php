@@ -357,36 +357,37 @@ display: block;
 
                     if(!$first_image){
                         $images[$d] = 'no';
-                        continue;
+
+                    }else {
+
+                        $first_image_name = substr($first_image, strrpos($first_image, '/') + 1);
+
+                        $local_dir = realpath($this->getParameter('kernel.root_dir') . '/..') . DIRECTORY_SEPARATOR . 'web/tmp/' . $d . '/';
+
+
+                        $remote_image = $first_image_folder . '/' . $first_image_name;
+
+                        $local_image = realpath($this->getParameter('kernel.root_dir') . '/..') . DIRECTORY_SEPARATOR . 'web/tmp/' . $d . '/' . $first_image_folder_name . '/' . $first_image_name;
+
+
+                        $exists = false;
+                        if (!is_dir($local_dir)) {
+                            $oldmask = umask(0);
+                            mkdir($local_dir, 0777, true);
+                            umask($oldmask);
+                        }
+
+                        if (!is_dir($local_dir . $first_image_folder_name)) {
+                            $oldmask = umask(0);
+                            mkdir($local_dir . $first_image_folder_name, 0777, true);
+                            umask($oldmask);
+                        }
+
+
+                        ftp_get($conn_id, $local_image, $remote_image, FTP_BINARY);
+
+                        $images[$d] = '/tmp/' . $d . '/' . $first_image_folder_name . '/' . $first_image_name;
                     }
-
-                    $first_image_name = substr($first_image, strrpos($first_image, '/') + 1);
-
-                    $local_dir = realpath($this->getParameter('kernel.root_dir') . '/..') . DIRECTORY_SEPARATOR . 'web/tmp/' . $d . '/';
-
-
-                    $remote_image = $first_image_folder . '/' . $first_image_name;
-
-                    $local_image = realpath($this->getParameter('kernel.root_dir') . '/..') . DIRECTORY_SEPARATOR . 'web/tmp/' . $d . '/' . $first_image_folder_name . '/' . $first_image_name;
-
-
-                    $exists = false;
-                    if(!is_dir($local_dir)) {
-                        $oldmask = umask(0);
-                        mkdir($local_dir, 0777, true);
-                        umask($oldmask);
-                    }
-
-                    if(!is_dir($local_dir.$first_image_folder_name)) {
-                        $oldmask = umask(0);
-                        mkdir($local_dir.$first_image_folder_name, 0777, true);
-                        umask($oldmask);
-                    }
-
-
-                    ftp_get($conn_id, $local_image, $remote_image, FTP_BINARY);
-
-                    $images[$d] = '/tmp/'.$d.'/'.$first_image_folder_name.'/'.$first_image_name;
 
                 }else{
 
