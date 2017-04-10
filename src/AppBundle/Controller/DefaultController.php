@@ -228,7 +228,7 @@ men-kioskplus.ru -> http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=
         }
         if(strpos($host, 'premium') !== false) {
             $cr = '78706';
-            $domain = 'premium';
+            $domain = 'buon';
         }
 
 
