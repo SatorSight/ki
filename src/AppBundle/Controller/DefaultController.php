@@ -52,7 +52,7 @@ class DefaultController extends Controller
 
 
 
-        SUtils::trace($journals_grouped);
+//        SUtils::trace($journals_grouped);
 
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
 
