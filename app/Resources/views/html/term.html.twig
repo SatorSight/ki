@@ -23,7 +23,9 @@
             <a href="http://beta.kioskplus.ru">
                 <div class="logo-image"></div>
             </a>
-            <img alt="Возрастное ограничение 18+" class="restriction-badge " src="/images/f9f1d3d_age-restriction_1.svg">
+            {% image '@AppBundle/Resources/public/images/18.png' %}
+            <img alt="Возрастное ограничение 18+" class="restriction-badge " src="{{ asset_url }}">
+            {% endimage %}
             <div class="logo">
                 <div class="logo-link">
                     <span class="kiosk-logo-image"></span>
