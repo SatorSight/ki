@@ -44,7 +44,8 @@ class DefaultController extends Controller
 
         $journals_grouped = [];
         foreach ($journals as $jj){
-            $journals_grouped[$jj->getTitle()][] = $jj;
+            if(empty($journals_grouped[$jj->getTitle()]) || (isset($journals_grouped[$jj->getTitle()]) && count($journals_grouped[$jj->getTitle()]) < 5))
+                $journals_grouped[$jj->getTitle()][] = $jj;
         }
 
 
@@ -207,9 +208,24 @@ HTML;
             $html =  '
                 <div style="padding-top: 25%; min-height: 550px">
                     <div class="subscribe">
-                        <a href="http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=1&returnurl='.$back_url.'" class="button flat">Получить доступ</a>
+                        <a href="http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=1&returnurl='.$back_url.'" style="
+display: block;
+    height: 60px;
+    line-height: 60px;
+    width: 300px;
+    font-weight: 300;
+    text-decoration: none;
+    background: #331122;
+    font-size: 24px;
+    text-align: center;
+    margin: 0 auto;
+    color: #fff;
+    border-radius: 30px;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.4);
+                        " class="">Оформить подписку</a>
                         <p class="description">
-                            Кликнув на кнопку “Получить доступ”, Вы соглашаетесь с
+                            Кликнув на кнопку “Оформить подписку”, Вы соглашаетесь с
                             <br>
                             условиями подписки на доступ ко всему каталогу.
                             <br>
@@ -369,7 +385,7 @@ HTML;
         $journal->setImageMain($request->request->get('image_main'));
         $journal->setUrl($request->request->get('url'));
         $journal->setDate($date);
-        $journal->setNumber($request->request->get('number'));
+        $journal->setNumber((int)$request->request->get('number'));
         $journal->setIdentifier($identifier);
         $journal->setListing($request->request->get('listing'));
         $journal->setPath($request->request->get('path'));

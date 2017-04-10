@@ -59,6 +59,7 @@ a {
     font-weight: 400;
     font-size: 14px;
 }
+.container-fluid .title {text-align: center;}
 
 .container-fluid .header {
     padding: 20px 24px 14px 24px;
@@ -170,14 +171,13 @@ a {
     overflow: hidden;
     vertical-align: top;
     margin-top: 10px;
-    max-width: 253px;
+    max-width: 400px;
     display: inline-block;
     text-align: left;
 }
 
 .magazine .magazine-inner {
     display: block;
-    padding: 0 6px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -241,12 +241,15 @@ a {
     font-size: 10px;
     color: #7a7a7a;
 }
-#open {width: 200px;
+#open {
+    width: 250px;
     text-align: left;
     margin: 0 auto;
     line-height: 1.5;
     list-style: inside;
-    padding-left: 40px;}
+    padding-left: 40px;
+    font-size: 13px;
+}
 
 .container-fluid .footer p {
     margin: 0;
@@ -271,11 +274,12 @@ a {
 
 .container-fluid .footer p.disclaimer, .container-fluid .footer .disclaimer {
     font-weight: 400;
-    font-size: 10px;
+    font-size: 13px;
     color: #7a7a7a;
 }
 .container-fluid .footer .disclaimer.accordion {
-    text-decoration: underline;
+    border-bottom: 1px dotted #666;
+    display: inline-block;
 }
 
 .container-fluid .previews .title p {
@@ -320,13 +324,13 @@ a {
 }
 
 .container-fluid .previews .preview div.image {
-    box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.4);
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.4);
     margin: 0 auto;
     padding-bottom: 120%;
     background-color: #eee;
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    background-position: 50% 0;
+    background-size: cover;
 }
 
 .container-fluid .previews .preview .blob {
@@ -339,15 +343,17 @@ a {
     display: block;
     height: 60px;
     line-height: 60px;
-    width: 270px;
+    width: 300px;
     font-weight: 300;
     text-decoration: none;
-    background: #00995d;
+    background: #331122;
     font-size: 24px;
     text-align: center;
     margin: 0 auto;
     color: #fff;
-    border-radius: 8px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 .container-fluid .previews .description_bottom {
@@ -569,6 +575,10 @@ div.panel {
     overflow: hidden;
     transition: max-height 0.2s ease-out;
 }
+.j-group-title {display: block; font-size: 20px; text-align: left; margin: 6% 3% 0;}
+.magazines > .magazine:nth-child(1) {margin-bottom: 20px;}
+.magazines .inner .magazine {display: none;}
+.magazines .inner .magazine:nth-child(1), .magazines .inner .magazine:nth-child(2), .magazines .inner .magazine:nth-child(3), .magazines .inner .magazine:nth-child(4), .magazines .inner .magazine:nth-child(5) {display: inline-block;}
 /*
 @media all and (min-width: 600px) {
     img.nyIm.nyFoot {
