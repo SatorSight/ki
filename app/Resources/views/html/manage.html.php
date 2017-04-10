@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <meta http-equiv="imagetoolbar" content="no">
+    <title>Киоск плюс</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+    <script src="/js/bb54fd1_part_1_common_1.js"></script>
+    <script src="/js/bb54fd1_part_1_flickity_2.js"></script>
+    <script src="/js/bb54fd1_part_1_jquery-2_3.js"></script>
+    <script src="/js/bb54fd1_part_1_viewer_4.js"></script>
+    <link rel="stylesheet" href="/css/4fe151e_part_1_flickity_1.css">
+    <link rel="stylesheet" href="/css/4fe151e_part_1_style-menu_2.css">
+    <link rel="stylesheet" href="/css/4fe151e_part_1_style_3.css">
+</head>
+<body>
+<div id="wrapper"></div>
+
+<div class="container-fluid main" id="main">
+    <header class="page-header" role="banner">
+        <div class="page-header-main-content">
+            <a href="http://beta.kioskplus.ru">
+                <div class="logo-image"></div>
+            </a>
+            <img alt="Возрастное ограничение 18+" class="restriction-badge " src="/images/f9f1d3d_age-restriction_1.svg">
+            <div class="logo">
+                <div class="logo-link">
+                    <span class="kiosk-logo-image"></span>
+                    <div class="kiosk-bundle-title">Мужской выбор</div>
+                </div>
+            </div>
+        </div>
+        <div class="page-header-aside-content">
+            <div class='page-sliding-aside-handle' role='button' tabindex='0' style="display: none;"></div>
+        </div>
+    </header>
+    <div class="grad"></div>
+    <div class="inner" style="padding: 0 1em;">
+        <p class="info" style="text-transform: uppercase; font-weight: 800; text-align: center;">Управление Услугой</p>
+        <p><strong>1. Порядок заказа</strong></p>
+
+        <p>1.1. Для получения доступа к Подписке на Контент Абоненту необходимо совершить следующие последовательные действия:</p>
+        <p>1.1.1. На wap-сайте http://beekiosk.ru Контент-провайдера:</p>
+        <p>- ознакомиться с настоящими Правилами;</p>
+        <p>- нажать кнопку «Читать» для перехода на wap-страницу Оператора.</p>
+        <p>или</p>
+        <p>- по баннеру или рекламной ссылке Абонент переходит на wap-страницу Оператора.</p>
+        <p>1.1.2. На wap-странице Оператора:</p>
+        <p>- ознакомиться с Правилами оказания Подписки на Контент и Порядком предоставления Контентной услуги;</p>
+        <p>- в случае согласия с Правилами оказания Подписки на Контент и Порядком предоставления Контентной услуги нажать кнопку «Играть».</p>
+        <p>1.2. После получения от Абонента Заказа Абоненту направляется два SMS-сообщения:</p>
+        <p>- SMS-сообщение с номера Билайн/Beeline/5591, содержащее информацию о факте подключения и условиях предоставления доступа к Подписке на Контент (Контентной услуги),</p>
+        <p>- SMS-сообщение с номера 5591, содержащее wap-ссылку.</p>
+        <p>1.3. Выполнение Абонентом указанных в п. 4.1. настоящих Правил действий означает согласие Абонента на получение Контентной услуги в соответствии с заявленными Оператором условиями, на получение выбранной Абонентом Подписки на Контент в соответствии с заявленными Контент-провайдером условиями, на передачу данных, идентифицирующих Абонента (в частности, номера мобильного телефона Абонента) третьим лицам, привлекаемым Контент-провайдером для оказания Подписки на Контент, а также на получение бесплатных SMS-сообщений, напоминающих Абоненту о содержании, стоимости, порядке отказа от предоставления Контентной услуги.</p>
+        <p>&nbsp;</p>
+        <p><strong>2. Порядок отключения</strong></p>
+        <p>2.1. Отключить Подписку на Контент можно посредством отключения Контентной услуги, одностороннего отказа от ее получения.</p>
+        <p>2.2. Отключение Контентной услуги осуществляется Абонентом самостоятельно:</p>
+        <p>а) с пощью интерфейсов, определенных Оператором. Подробнее об интерфейсах для отказа от получения такой услуги можно узнать на сайте Оператора my.beeline.ru в разделе «Мои информационно-развлекательные услуги» или позвонив по единому номеру 88007000611.</p>
+        <p>б) при отправке сообщения на 4-x-значный МО-номер 5591 (сообщение бесплатно для Абонента):</p>
+        <p>- при отправке Абонентом бесплатного сообщения на 4-х-значный МО-номер 5591 с командой СТОП (STOP, stop, стоп, Стоп и т.п.) происходит прекращение оказания всех Контентных услуг, при предоставления которых используется 4-х-значный МО-номер 5591.</p>
+        <p>- при отправке Абонентом бесплатного сообщения на 4-х-значный МО-номер 5591 с командой, содержащей в т. ч. слово «СТОП» СТОП ЖУРНАЛ происходит прекращение предоставления Подписки на Контент, соответствующей данной команде.</p>
+        <p>в) На странице «Управления подпиской» http://beekiosk.ru/service.html, введя свой номер и нажав кнопку «Отписаться».</p>
+        <p>г) Связавшись со Службой Поддержки Контент-провайдера по тел.: 8-800-505-4081 (круглосуточно), электронной почтой support@blinkogold.ru.</p>
+        <p>Одностороим отказом Абонента от получения Контентной услуги считается нахождение Абонента в блокировке более 30 календарных дней.</p>
+    </div>
+    <div class="footer">
+
+        <p class="disclaimer">
+            Киоск плюс 2016-2017
+        </p>
+
+        <p class="accordion disclaimer">Информация для пользователей</p>
+        <div class="panel">
+            <ul id="open">
+                <li><a href="/info">Информация для пользователей</a></li>
+                <li><a href="/manage">Управление Услугой</a></li>
+                <li><a href="/term">Условия оказания услуги</a></li>
+            </ul>
+        </div>
+
+        <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].onclick = function () {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                }
+            }
+        </script>
+    </div>
+</div>
+</body>
+</html>
