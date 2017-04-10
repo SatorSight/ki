@@ -29,28 +29,42 @@ class DefaultController extends Controller
                 $j->setNumber(1);
 
 
-//        foreach ($journals){
-//
-//        }
+        $j_names = [];
+        foreach ($journals as $jr){
+            if(!in_array($jr->getTitle(), $j_names))
+                $j_names[] = $jr->getTitle();
+        }
+
+//        SUtils::trace($j_names);
 
         $jour = [];
-        $jour[] = array_shift($journals);
-        $jour[] = array_shift($journals);
+        $jour[] = $journals[key($journals)];
+        $jour[] = $journals[key($journals) + 1];
 
 
+        $journals_grouped = [];
+        foreach ($journals as $jj){
+            if(empty($journals_grouped[$jj->getTitle()]) || (isset($journals_grouped[$jj->getTitle()]) && count($journals_grouped[$jj->getTitle()]) < 5))
+                $journals_grouped[$jj->getTitle()][] = $jj;
+        }
 
 
+//        SUtils::trace($journals_grouped);
 
+        $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
 
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-            'journals' => $jour
+            'journals' => $jour,
+            'journals_grouped' => $journals_grouped,
+            'j_names' => $j_names,
+            'base_url' => $baseurl
         ]);
     }
 
 
     /**
-     * @Route("/preland/{title}/{year}/{month}/{number}", name="detail", requirements={
+     * @Route("/cover/{title}/{year}/{month}/{number}", name="detail", requirements={
      *         "month": "\d+",
      *         "number": "\d+",
      *         "year": "\d+"
@@ -79,10 +93,13 @@ class DefaultController extends Controller
             if($a->getId() == $journal->getId())
                 unset($all[$key]);
 
+        $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
+
         return $this->render('default/detail.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
             'journal' => $journal,
-            'rest' => $all
+            'rest' => $all,
+            'base_url' => $baseurl
         ]);
     }
 
@@ -178,12 +195,54 @@ HTML;
                         <br>
                         условиями подписки на доступ ко всему каталогу.
                         <br>
-                        Стоимость 12 руб. с учетом НДС в день.*/
+                        Стоимость 12 руб. с учетом НДС в день.
+
+tech.kioskplus.ru -> http://join-tech.kioskplus.ru/subscribe/?cr=78290&setpreprod=1
+avto.kioskplus.ru -> http://join-avto.kioskplus.ru/subscribe/?cr=78369&setpreprod=1
+kind.kioskplus.ru -> http://join-kind.kioskplus.ru/subscribe/?cr=77889&setpreprod=1
+men-kioskplus.ru -> http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=1
+
+*/
 
         $current_url = $request->get('_route');
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
 
         $back_url = $baseurl.$request->getPathInfo().'?page='.$page.'&user_back=yes';
+
+        /*http://buon.kiosk.buongiorno.ru/subscribe/?cr=78706%E2%80%A6*/
+
+        $host = $request->getHost();
+
+        $join = 'join-';
+        $kiosk = 'kioskplus';
+
+        $cr = '78089';
+        $domain = 'men';
+        if(strpos($host, 'tech') !== false) {
+            $cr = '78290';
+            $domain = 'tech';
+        }
+        if(strpos($host, 'avto') !== false) {
+            $cr = '78369';
+            $domain = 'avto';
+        }
+        if(strpos($host, 'kind') !== false){
+            $cr = '77889';
+            $domain = 'kind';
+        }
+        if(strpos($host, 'premium') !== false) {
+            $cr = '78706';
+            $domain = 'buon';
+            $join = '';
+            $kiosk = 'kiosk.buongiorno';
+        }
+
+
+
+//        SUtils::dump($route);
+//        SUtils::trace($url);
+
+
 
 
         if($page > $journal->getListing() + 4 && empty($session->get('bridge_token'))){
@@ -191,9 +250,24 @@ HTML;
             $html =  '
                 <div style="padding-top: 25%; min-height: 550px">
                     <div class="subscribe">
-                        <a href="http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=1&returnurl='.$back_url.'" class="button flat">Получить доступ</a>
+                        <a href="http://'.$join.$domain.'.'.$kiosk.'.ru/subscribe/?cr='.$cr.'&setpreprod=1&returnurl='.$back_url.'" style="
+display: block;
+    height: 60px;
+    line-height: 60px;
+    width: 300px;
+    font-weight: 300;
+    text-decoration: none;
+    background: #331122;
+    font-size: 24px;
+    text-align: center;
+    margin: 0 auto;
+    color: #fff;
+    border-radius: 30px;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.4);
+                        " class="">Оформить подписку</a>
                         <p class="description">
-                            Кликнув на кнопку “Получить доступ”, Вы соглашаетесь с
+                            Кликнув на кнопку “Оформить подписку”, Вы соглашаетесь с
                             <br>
                             условиями подписки на доступ ко всему каталогу.
                             <br>
@@ -353,7 +427,7 @@ HTML;
         $journal->setImageMain($request->request->get('image_main'));
         $journal->setUrl($request->request->get('url'));
         $journal->setDate($date);
-        $journal->setNumber($request->request->get('number'));
+        $journal->setNumber((int)$request->request->get('number'));
         $journal->setIdentifier($identifier);
         $journal->setListing($request->request->get('listing'));
         $journal->setPath($request->request->get('path'));

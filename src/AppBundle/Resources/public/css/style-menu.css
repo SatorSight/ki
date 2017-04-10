@@ -711,7 +711,11 @@
 .kiosk-bundle-title{
     color: #eeeeee;
     font-size: 20px;
+<<<<<<< HEAD
+    margin-left: -60px;
+=======
     margin-left: -50px;
+>>>>>>> d56ab1c84a4614b61ae668906f66412398894d68
     margin-top: -4px;
 }
 .page-header{

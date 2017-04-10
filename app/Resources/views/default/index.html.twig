@@ -7,9 +7,11 @@
 
         <header class="page-header" role="banner">
             <div class="page-header-main-content">
-                <div class="logo-image"></div>
+                <a href="{{ base_url }}">
+                    <div class="logo-image"></div>
+                </a>
                 {% image '@AppBundle/Resources/public/images/age-restriction.svg' %}
-                    <img alt="Возрастное ограничение 18+" class="restriction-badge " src="{{ asset_url }}">
+                <img alt="Возрастное ограничение 18+" class="restriction-badge " src="{{ asset_url }}">
                 {% endimage %}
                 <div class="logo">
                     <div class="logo-link">
@@ -20,102 +22,23 @@
                 </div>
             </div>
             <div class="page-header-aside-content">
-                <div class='page-sliding-aside-handle' role='button' tabindex='0' style="display: none;" ></div>
+                <div class='page-sliding-aside-handle' role='button' tabindex='0' style="display: none;"></div>
             </div>
         </header>
         <div class="grad"></div>
         <!-- / header -->
         {#<div class="menu">#}
-            {#<a href="//kiosk.megafonpro.ru/" class="menu_item active">Новинки</a>#}
-            {#<a href="//kiosk.megafonpro.ru/categories" class="menu_item ">Категории</a>#}
+        {#<a href="//kiosk.megafonpro.ru/" class="menu_item active">Новинки</a>#}
+        {#<a href="//kiosk.megafonpro.ru/categories" class="menu_item ">Категории</a>#}
 
         {#</div>#}
         <!-- /menu -->
 
-        <div style="overflow: hidden; height: 156px;">
-            <div class="slidertop">
-
-                <div class="slidertop-slide">
-                    <div style="height: 144px; width: 320px;">
-                        <a href="//kiosk.megafonpro.ru/burda">
-                            <img class="banner_down" src="//kiosk.megafonpro.ru/images/banners/burda.png"
-                                 height="144" width="320" alt="">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="slidertop-slide">
-                    <div style="height: 144px; width: 320px;">
-                        <a href="//kiosk.megafonpro.ru/forbes">
-                            <img class="banner_down" src="//kiosk.megafonpro.ru/images/banners/fb.png"
-                                 height="144" width="320" alt="">
-                        </a>
-                    </div>
-                </div>
 
 
-                <div class="slidertop-slide">
-                    <div style="height: 144px; width: 320px;">
-                        <a href="//kiosk.megafonpro.ru/dobrye_sovety">
-                            <img class="banner_down" src="//kiosk.megafonpro.ru/images/banners/ds.png"
-                                 height="144" width="320" alt="">
-                        </a>
-                    </div>
-                </div>
 
-                <div class="slidertop-slide">
-                    <div style="height: 144px; width: 320px;">
-                        <a href="//kiosk.megafonpro.ru/mygarden">
-                            <img class="banner_down" src="//kiosk.megafonpro.ru/images/banners/sad.png"
-                                 height="144" width="320" alt="">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="slidertop-slide">
-                    <div style="height: 144px; width: 320px;">
-                        <a href="//kiosk.megafonpro.ru/igromania">
-                            <img class="banner_down" src="//kiosk.megafonpro.ru/images/banners/igm.png"
-                                 height="144" width="320" alt="">
-                        </a>
-                    </div>
-                </div>
-
-
-                <div class="slidertop-slide">
-                    <div style="height: 144px; width: 320px;">
-                        <a href="//kiosk.megafonpro.ru/idei_vashego_doma">
-                            <img class="banner_down" src="//kiosk.megafonpro.ru/images/banners/ivd.png"
-                                 height="144" width="320" alt="">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="slidertop-slide">
-                    <div style="height: 144px; width: 320px;">
-                        <a href="//kiosk.megafonpro.ru/myhobby">
-                            <img class="banner_down" src="//kiosk.megafonpro.ru/images/banners/mhp.jpg"
-                                 height="144" width="320" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="slidertop-slide">
-                    <div style="height: 144px; width: 320px;">
-                        <a href="//kiosk.megafonpro.ru/rake">
-                            <img class="banner_down" src="//kiosk.megafonpro.ru/images/banners/rake.png"
-                                 height="144" width="320" alt="">
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-
-        <h2 style="margin-top: 20px;">Новые поступления:</h2>
+        <h2>Новые поступления:</h2>
         <div class="magazines" style="overflow: hidden; text-align: center;">
-
-
 
 
             {% for item in journals %}
@@ -130,10 +53,11 @@
                         }) }}">
 
                             <div class="cover" style="
-                    background-image: url('{{ item.imageMain }}');
-                    "></div>
+                                    background-image: url('{{ item.imageMain }}');
+                                    "></div>
 
-                        </a><p class="title"><a href="{{ url('detail', {
+                        </a>
+                        <p class="title"><a href="{{ url('detail', {
                                 'title': item.url,
                                 'year' : item.year,
                                 'month' : item.month,
@@ -149,7 +73,7 @@
                             </a>
                         </p>
                         <p class="date">
-                            {#{{ item.month|date("F") }}#}
+                            {{ item.month|date("F") }}
 
                             {{ item.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
 
@@ -163,6 +87,135 @@
                 </div>
             {% endfor %}
 
+            <div style="overflow: hidden; height: 205px;">
+                <div class="slidertop">
+
+                    <div class="slidertop-slide">
+                        <div style="height: 205px; width: 320px;">
+                            <a href="/playboy/2017/3/3?page=5">
+                                <img class="banner_down" src="/images/slider/pl1.png"
+                                     height="205" width="320" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="slidertop-slide">
+                        <div style="height: 205px; width: 320px;">
+                            <a href="/avtomir/2017/3/11?page=22">
+                                <img class="banner_down" src="/images/slider/av2.png"
+                                     height="205" width="320" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <div class="slidertop-slide">
+                        <div style="height: 205px; width: 320px;">
+                            <a href="/igromania/2017/3/234">
+                                <img class="banner_down" src="/images/slider/ig3.png"
+                                     height="205" width="320" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="slidertop-slide">
+                        <div style="height: 205px; width: 320px;">
+                            <a href="/avtomir/2017/3/14?page=18">
+                                <img class="banner_down" src="/images/slider/av4.png"
+                                     height="205" width="320" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="slidertop-slide">
+                        <div style="height: 205px; width: 320px;">
+                            <a href="/burda/2017/3/3">
+                                <img class="banner_down" src="/images/slider/bd5.png"
+                                     height="205" width="320" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+<!--
+                    <div class="slidertop-slide">
+                        <div style="height: 205px; width: 320px;">
+                            <a href="//beta.kioskplus.ru">
+                                <img class="banner_down" src="//kiosk.megafonpro.ru/images/banners/ivd.png"
+                                     height="205" width="320" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="slidertop-slide">
+                        <div style="height: 205px; width: 320px;">
+                            <a href="//beta.kioskplus.ru">
+                                <img class="banner_down" src="//kiosk.megafonpro.ru/images/banners/mhp.jpg"
+                                     height="205" width="320" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slidertop-slide">
+                        <div style="height: 205px; width: 320px;">
+                            <a href="//kiosk.megafonpro.ru/rake">
+                                <img class="banner_down" src="//kiosk.megafonpro.ru/images/banners/rake.png"
+                                     height="205" width="320" alt="">
+                            </a>
+                        </div>
+                    </div> -->
+
+                </div>
+            </div>
+
+
+            {% for key,item in j_names %}
+                <div class="journal-{{ key }} inner">
+                    <span class="j-group-title">{{ item }}</span>
+                    {% for key2,item2 in journals_grouped[item] %}
+                        <div class="magazine" style="width: 24%;">
+                            <div class="magazine-inner">
+                                <a href="{{ url('detail', {
+                                    'title': item2.url,
+                                    'year' : item2.year,
+                                    'month' : item2.month,
+                                    'number' : item2.number
+                                }) }}">
+
+                                    <div class="cover" style="
+                                            background-image: url('{{ item2.imageMain }}');
+                                            "></div>
+
+                                </a>
+                                <p class="title"><a href="{{ url('detail', {
+                                        'title': item2.url,
+                                        'year' : item2.year,
+                                        'month' : item2.month,
+                                        'number' : item2.number
+                                    }) }}">
+                                    </a><a href="{{ url('detail', {
+                                        'title': item2.url,
+                                        'year' : item2.year,
+                                        'month' : item2.month,
+                                        'number' : item2.number
+                                    }) }}">
+                                        {{ item2.title }}
+                                    </a>
+                                </p>
+                                <p class="date">
+                                    {#{{ item.month|date("F") }}#}
+
+                                    {{ item2.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+
+                                    {{ item2.year }}</p>
+                                <p class="date">
+                                    {% if item2.getNumberSet == 0 %}
+                                        выпуск {{ item2.number }}
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
 
 
             <!-- / one magazine -->
@@ -189,10 +242,10 @@
                 var i;
 
                 for (i = 0; i < acc.length; i++) {
-                    acc[i].onclick = function() {
+                    acc[i].onclick = function () {
                         this.classList.toggle("active");
                         var panel = this.nextElementSibling;
-                        if (panel.style.maxHeight){
+                        if (panel.style.maxHeight) {
                             panel.style.maxHeight = null;
                         } else {
                             panel.style.maxHeight = panel.scrollHeight + "px";

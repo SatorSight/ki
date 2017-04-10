@@ -144,24 +144,19 @@ http://flickity.metafizzy.co
     font-family: Roboto;
     src: url('/fonts/roboto-regular.woff');
 }
-
-
-
 .page-header {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
     position: relative;
-    padding: 11px 10px;
+    padding: 5px 10px;
     /*background: #fff;*/
     -webkit-box-align: center;
     -webkit-align-items: center;
     align-items: center;
-
     height: 30px;
     background: #331122;
 }
-
 .page-header .page-header-main-content {
     display: -webkit-box;
     display: -webkit-flex;
@@ -192,12 +187,11 @@ http://flickity.metafizzy.co
 
 .page-header-main-content .restriction-badge {
     position: absolute;
-    top: 50%;
+    top: 0;
     right: 0;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px
+    height: 24px;
+    width: 24px;
+    opacity: 0.7;
 }
 
 .page-header-main-content .logo {
@@ -208,12 +202,12 @@ http://flickity.metafizzy.co
 .logo-image {
     display: inline-block;
     overflow: hidden;
-    width: 64px;
-    height: 62px;
+    width: 60px;
+    height: 24px;
     text-indent: 100%;
     vertical-align: top;
-    background: url(/images/logo.png) 100% no-repeat;
-    background-size: 60px;
+    background: url(/images/logo.png) no-repeat 50% 50%;
+    background-size: contain;
 }
 
 .page-header-aside-content .page-sliding-aside-handle {
@@ -858,27 +852,19 @@ http://flickity.metafizzy.co
 
 .kiosk-bundle-title{
     color: #eeeeee;
-    font-size: 38px;
+    font-size: 20px;
+<<<<<<< HEAD
     margin-left: -60px;
+=======
+    margin-left: -50px;
+>>>>>>> d56ab1c84a4614b61ae668906f66412398894d68
     margin-top: -4px;
 }
 .page-header{
     background-color: #331122;
 }
 
-.container-fluid .subscribe .button{
-    background: #002299!important;
-}
-.flat.gray {
-    background: #002299!important;
-}
 
-.page-header-main-content .restriction-badge{
-    margin-right: 10px!important;
-    height: 30px!important;
-    width: 30px!important;
-    opacity: 0.7!important;
-}
 
 .page-header-main-content {
     padding: 0!important;
@@ -886,12 +872,17 @@ http://flickity.metafizzy.co
 
 .grad{
     display: inline-block;
-    height: 10px;
+    height: 2px;
     width: 100%;
     position: relative;
-    top: -7px;
-    background-image: url('/images/top_gradient.png');
-    display: none;
+    top: -13px;
+    background: rgba(51,17,34,1);
+    background: -moz-linear-gradient(top, rgba(51,17,34,1) 0%, rgba(238,238,238,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(51,17,34,1)), color-stop(100%, rgba(238,238,238,1)));
+    background: -webkit-linear-gradient(top, rgba(51,17,34,1) 0%, rgba(238,238,238,1) 100%);
+    background: -o-linear-gradient(top, rgba(51,17,34,1) 0%, rgba(238,238,238,1) 100%);
+    background: -ms-linear-gradient(top, rgba(51,17,34,1) 0%, rgba(238,238,238,1) 100%);
+    background: linear-gradient(to bottom, rgba(51,17,34,1) 0%, rgba(238,238,238,1) 100%);
 }
 
 
@@ -944,7 +935,6 @@ a {
     width: 100%;
     height: 100%;
     transition: 300ms ease-out;
-    background: #fff;
     box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.4);
     z-index: 999;
 }
@@ -957,6 +947,7 @@ a {
     font-weight: 400;
     font-size: 14px;
 }
+.container-fluid .title {text-align: center;}
 
 .container-fluid .header {
     padding: 20px 24px 14px 24px;
@@ -1068,14 +1059,13 @@ a {
     overflow: hidden;
     vertical-align: top;
     margin-top: 10px;
-    max-width: 253px;
+    max-width: 400px;
     display: inline-block;
     text-align: left;
 }
 
 .magazine .magazine-inner {
     display: block;
-    padding: 0 6px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -1087,12 +1077,12 @@ a {
 }
 
 .magazine .cover {
-    box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.4);
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.4);
     background-color: #eee;
+    background-size: cover;
     padding-bottom: 120%;
-    background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: 50% 0;
     margin: 6px;
 }
 
@@ -1127,17 +1117,31 @@ a {
         font-size: 10px;
     }
 }
+.magazine p.title,.magazine p.date, .magazine p {display: none;}
 
 /* /Magazine /////////////*/
 
 .container-fluid .footer {
-    /* background: #dddddd; */
-    padding: 35px;
+    background: #DDD;
+    padding: 15px;
     margin-top: 30px;
+    text-align: center;
+    font-size: 10px;
+    color: #7a7a7a;
+}
+#open {
+    width: 250px;
+    text-align: left;
+    margin: 0 auto;
+    line-height: 1.5;
+    list-style: inside;
+    padding-left: 40px;
+    font-size: 13px;
 }
 
 .container-fluid .footer p {
     margin: 0;
+    text-align: center;
 }
 
 .container-fluid .footer p.support {
@@ -1156,11 +1160,14 @@ a {
     margin-top: 10px;
 }
 
-.container-fluid .footer p.disclaimer {
-    text-align: right;
+.container-fluid .footer p.disclaimer, .container-fluid .footer .disclaimer {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 13px;
     color: #7a7a7a;
+}
+.container-fluid .footer .disclaimer.accordion {
+    border-bottom: 1px dotted #666;
+    display: inline-block;
 }
 
 .container-fluid .previews .title p {
@@ -1205,13 +1212,13 @@ a {
 }
 
 .container-fluid .previews .preview div.image {
-    box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.4);
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.4);
     margin: 0 auto;
     padding-bottom: 120%;
     background-color: #eee;
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    background-position: 50% 0;
+    background-size: cover;
 }
 
 .container-fluid .previews .preview .blob {
@@ -1224,15 +1231,17 @@ a {
     display: block;
     height: 60px;
     line-height: 60px;
-    width: 270px;
+    width: 300px;
     font-weight: 300;
     text-decoration: none;
-    background: #00995d;
+    background: #331122;
     font-size: 24px;
     text-align: center;
     margin: 0 auto;
     color: #fff;
-    border-radius: 8px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 .container-fluid .previews .description_bottom {
@@ -1442,7 +1451,23 @@ img.nyIm.nyFoot {
     width: 110%;
     left: -3%;
     margin-top: -12%;
-}/*
+}
+
+
+
+
+
+
+div.panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+.j-group-title {display: block; font-size: 20px; text-align: left; margin: 6% 3% 0;}
+.magazines > .magazine:nth-child(1) {margin-bottom: 20px;}
+.magazines .inner .magazine {display: none;}
+.magazines .inner .magazine:nth-child(1), .magazines .inner .magazine:nth-child(2), .magazines .inner .magazine:nth-child(3), .magazines .inner .magazine:nth-child(4), .magazines .inner .magazine:nth-child(5) {display: inline-block;}
+/*
 @media all and (min-width: 600px) {
     img.nyIm.nyFoot {
         width: 101%;
