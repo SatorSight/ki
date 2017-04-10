@@ -213,14 +213,24 @@ men-kioskplus.ru -> http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=
         $host = $request->getHost();
 
         $cr = '78089';
-        if(strpos($host, 'tech') !== false)
+        $domain = 'men';
+        if(strpos($host, 'tech') !== false) {
             $cr = '78290';
-        if(strpos($host, 'avto') !== false)
+            $domain = 'tech';
+        }
+        if(strpos($host, 'avto') !== false) {
             $cr = '78369';
-        if(strpos($host, 'kind') !== false)
+            $domain = 'avto';
+        }
+        if(strpos($host, 'kind') !== false){
             $cr = '77889';
-        if(strpos($host, 'premium') !== false)
+            $domain = 'kind';
+        }
+        if(strpos($host, 'premium') !== false) {
             $cr = '78706';
+            $domain = 'premium';
+        }
+
 
 
 //        SUtils::dump($route);
@@ -234,7 +244,7 @@ men-kioskplus.ru -> http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=
             $html =  '
                 <div style="padding-top: 25%; min-height: 550px">
                     <div class="subscribe">
-                        <a href="http://join-men.kioskplus.ru/subscribe/?cr='.$cr.'&setpreprod=1&returnurl='.$back_url.'" style="
+                        <a href="http://join-'.$domain.'.kioskplus.ru/subscribe/?cr='.$cr.'&setpreprod=1&returnurl='.$back_url.'" style="
 display: block;
     height: 60px;
     line-height: 60px;
