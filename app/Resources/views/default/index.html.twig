@@ -136,10 +136,10 @@
 
 
             {% for key,item in j_names %}
-                <div class="journal-{{ key }} inner">
+                <div class="journal-{{ key }} item">
                     <span class="j-group-title">{{ item }}</span>
                     {% for key2,item2 in journals_grouped[item] %}
-                        <div class="magazine" style="width: 24%;">
+                        <div class="magazine">
                             <div class="magazine-inner">
                                 <a href="{{ url('detail', {
                                     'title': item2.url,

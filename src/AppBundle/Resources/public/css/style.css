@@ -226,11 +226,11 @@ a {
     .magazine p.date {
         font-weight: 400;
         color: #7e7e7e;
-        margin: 0 0 0px 6px;
+        margin: 0 0 0 6px;
         font-size: 10px;
     }
 }
-.magazine p.title,.magazine p.date, .magazine p {display: none;}
+.magazine p.date {display: none;}
 
 /* /Magazine /////////////*/
 
@@ -576,7 +576,15 @@ div.panel {
     overflow: hidden;
     transition: max-height 0.2s ease-out;
 }
-.j-group-title {display: block; font-size: 20px; text-align: left; margin: 6% 3% 0;}
+
+.one-col {width: 100%; overflow: hidden;}
+.one-col > .inner {width: auto; overflow: auto; padding: 0 1.4em;}
+.one-col .inner {width: auto; overflow: auto; padding: 0 1.4em;}
+.one-col .magazine {min-width: 20em; max-width: 20em; padding: 0 2.2em 1.5em 0; display: table-cell; position: relative;}
+
+.j-group-title {display: none; font-size: 20px; text-align: left; margin: 6% 3% 0;}
+.magazines .item {width: 32%; display: inline-block;}
+.magazines .item .magazine {display: block;}
 .magazines > .magazine:nth-child(1) {margin-bottom: 20px;}
 .magazines .inner .magazine {display: none;}
 .magazines .inner .magazine:nth-child(1), .magazines .inner .magazine:nth-child(2), .magazines .inner .magazine:nth-child(3), .magazines .inner .magazine:nth-child(4), .magazines .inner .magazine:nth-child(5) {display: inline-block;}
@@ -611,7 +619,16 @@ div.panel {
 @-o-keyframes load {0% {opacity: 1;} 25% {opacity: 1;} 30% {opacity: 0;} 100% {opacity: 0;}}
 @keyframes load {0% {opacity: 1;} 25% {opacity: 1;} 30% {opacity: 0;} 100% {opacity: 0;}}
 
-@media (max-width: 360px) {#page10 .subscribe .bt {font-size: 17px;} #page10 .subscribe {padding-bottom: 0;}}
+@media (max-width: 360px) {
+    #page10 .subscribe .bt {font-size: 17px;} #page10 .subscribe {padding-bottom: 0;}
+}
+@media (max-width: 480px) {
+    .one-col .inner {padding: 0 0.5em;}
+    .one-col .magazine {min-width: 10em; max-width: 10em; padding: 0 0.5em 1.5em 0;}
+}
+@media (min-width: 480px) and  (max-width: 720px){
+    .one-col .magazine {min-width: 15em; max-width: 15em;}
+}
 @media (min-width: 360px) and (max-width: 420px) {#page10 .subscribe .bt {font-size: 20px;}}
 @media (max-height: 420px) {#page10 .logo img {width: auto; height: 100px;}}
 /*
