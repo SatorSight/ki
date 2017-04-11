@@ -43,11 +43,18 @@ class DefaultController extends Controller
         $jour[] = $journals[key($journals) + 1];
 
 
+//        $path = realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR.'web';
 
         $journals_grouped = [];
         foreach ($journals as $jj){
-            if(empty($journals_grouped[$jj->getTitle()]) || (isset($journals_grouped[$jj->getTitle()]) && count($journals_grouped[$jj->getTitle()]) < 4))
+            if(empty($journals_grouped[$jj->getTitle()]) || (isset($journals_grouped[$jj->getTitle()]) && count($journals_grouped[$jj->getTitle()]) < 4)) {
+                $image = $jj->getImageMain();
+                $image_name = substr($image, strrpos($image, '/') + 1);
+                $image_new_name = str_replace($image_name, '__' . $image_name, $image);
+                $jj->setImageMain($image_new_name);
+
                 $journals_grouped[$jj->getTitle()][] = $jj;
+            }
         }
 
 
