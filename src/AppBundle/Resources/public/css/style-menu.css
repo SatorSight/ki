@@ -724,3 +724,7 @@
     padding: 0!important;
 }
 
+.item-4{
+    width: 24%;
+    display: inline-block;
+}

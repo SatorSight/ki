@@ -73,6 +73,38 @@ class DefaultController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/all", name="all")
+     *
+     */
+    public function allAction(Request $request)
+    {
+
+        $baseUrl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
+
+        $em = $this->getDoctrine()->getManager();
+        /** @var Journal[] $journals */
+        $journals = $em->getRepository('AppBundle:Journal')->findAll();
+
+        foreach ($journals as $jj)
+            $jj->setImageMain(self::renameImageToMin($jj->getImageMain()));
+
+//        $journals_four_grouped = [];
+//        $key = 0;
+//        foreach ($journals as $j){
+//            if(isset($journals_four_grouped[$key]) && count($journals_four_grouped[$key]) > 3)
+//                $key++;
+//            $journals_four_grouped[$key][] = $j;
+//        }
+
+
+        return $this->render('default/all.html.twig', [
+            'journals' => $journals,
+            'base_url' => $baseUrl
+        ]);
+
+    }
+
 
     /**
      * @Route("/cover/{title}/{year}/{month}/{number}", name="detail", requirements={

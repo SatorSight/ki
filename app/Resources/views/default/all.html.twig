@@ -1,0 +1,133 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <div class="container-fluid main" id="main">
+
+        <header class="page-header" role="banner">
+            <div class="page-header-main-content">
+                <a href="{{ base_url }}">
+                    <div class="logo-image"></div>
+                </a>
+                {% image '@AppBundle/Resources/public/images/18.png' %}
+                <img alt="Возрастное ограничение 18+" class="restriction-badge " src="{{ asset_url }}">
+                {% endimage %}
+                <div class="logo">
+                    <div class="logo-link">
+                        <span class="kiosk-logo-image"></span>
+                        <div class="kiosk-bundle-title">Киоск Плюс</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="page-header-aside-content">
+                <div class='page-sliding-aside-handle' role='button' tabindex='0' style="display: none;"></div>
+            </div>
+        </header>
+        <div class="grad"></div>
+
+
+
+
+        {#<h2>Новые поступления:</h2>#}
+        <div class="magazines" style="overflow: hidden; text-align: center;">
+
+            {#{% for key,item in journals_grouped %}#}
+                {#<div class="inner">#}
+                    {% for item in journals %}
+                        <div class="item-4">
+                            <div class="magazine">
+                                <div class="magazine-inner">
+                                    <a href="{{ url('detail', {
+                                        'title': item.url,
+                                        'year' : item.year,
+                                        'month' : item.month,
+                                        'number' : item.number
+                                    }) }}">
+
+                                        {#{% if key < 10 %}#}
+                                        <div class="cover journal-url-{{ item.url }}" style="
+                                                background-image: url('{{ item.imageMain }}');
+                                                "></div>
+
+                                        {#{% endif %}#}
+
+                                    </a>
+                                    {#<p class="title"><a href="{{ url('detail', {#}
+                                            {#'title': item2.url,#}
+                                            {#'year' : item2.year,#}
+                                            {#'month' : item2.month,#}
+                                            {#'number' : item2.number#}
+                                        {#}) }}">#}
+                                        {#</a><a href="{{ url('detail', {#}
+                                            {#'title': item2.url,#}
+                                            {#'year' : item2.year,#}
+                                            {#'month' : item2.month,#}
+                                            {#'number' : item2.number#}
+                                        {#}) }}">#}
+                                            {#{{ item2.title }}#}
+                                        {#</a>#}
+                                    {#</p>#}
+                                    {#<p class="date">#}
+                                        {#{{ item.month|date("F") }}#}
+
+                                        {#{{ item2.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}#}
+
+                                        {#{{ item2.year }}</p>#}
+                                    {#<p class="date">#}
+                                        {#{% if item2.getNumberSet == 0 %}#}
+                                            {#выпуск {{ item2.number }}#}
+                                        {#{% endif %}#}
+                                    {#</p>#}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {#</div>#}
+            {#{% endfor %}#}
+
+
+
+            <!-- / one magazine -->
+        </div>
+        <!-- / magazines-->
+
+        <div class="footer">
+
+            <p class="disclaimer">
+                Киоск плюс 2016-2017
+            </p>
+
+            <p class="accordion disclaimer">Информация для пользователей</p>
+            <div class="panel">
+                <ul id="open">
+                    <li><a href="/info">Информация для пользователей</a></li>
+                    <li><a href="/manage">Управление Услугой</a></li>
+                    <li><a href="/term">Условия оказания услуги</a></li>
+                </ul>
+            </div>
+
+            <script>
+                var acc = document.getElementsByClassName("accordion");
+                var i;
+
+                for (i = 0; i < acc.length; i++) {
+                    acc[i].onclick = function () {
+                        this.classList.toggle("active");
+                        var panel = this.nextElementSibling;
+                        if (panel.style.maxHeight) {
+                            panel.style.maxHeight = null;
+                        } else {
+                            panel.style.maxHeight = panel.scrollHeight + "px";
+                        }
+                    }
+                }
+            </script>
+        </div>
+        <!-- / footer -->
+    </div>
+{% endblock %}
+
+
+
