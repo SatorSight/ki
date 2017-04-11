@@ -404,7 +404,7 @@ men-kioskplus.ru -> http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=
         $contents = ftp_nlist($conn_id, "./kiosk_plus");
 
 
-        $not_dirs = ['json', 'pdf', 'prodtest', 'srv'];
+        $not_dirs = ['json', 'pdf', 'prodtest', 'srv', 'test', 'TEST1', 'uploadTest'];
         $j_exists = [];
 
         $em = $this->getDoctrine()->getManager();
