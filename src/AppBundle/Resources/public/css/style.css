@@ -579,7 +579,7 @@ div.panel {
 .j-group-title {display: block; font-size: 20px; text-align: left; margin: 6% 3% 0;}
 .magazines > .magazine:nth-child(1) {margin-bottom: 20px;}
 .magazines .inner .magazine {display: none;}
-.magazines .inner .magazine:nth-child(1), .magazines .inner .magazine:nth-child(2), .magazines .inner .magazine:nth-child(3), .magazines .inner .magazine:nth-child(4), .magazines .inner .magazine:nth-child(5) {display: inline-block;}
+.magazines .inner .magazine:nth-child(1), .magazines .inner .magazine:nth-child(2) {display: inline-block;}
 /*
 @media all and (min-width: 600px) {
     img.nyIm.nyFoot {
