@@ -36,27 +36,33 @@ class DefaultController extends Controller
                 $j_names[] = $jr->getTitle();
         }
 
-//        SUtils::trace($j_names);
-
         $jour = [];
         $jour[] = $journals[key($journals)];
         $jour[] = $journals[key($journals) + 1];
 
 
-//        $path = realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR.'web';
 
         $journals_grouped = [];
         foreach ($journals as $jj){
-            if(empty($journals_grouped[$jj->getTitle()]) || (isset($journals_grouped[$jj->getTitle()]) && count($journals_grouped[$jj->getTitle()]) < 1)) {
+            if(empty($journals_grouped[$jj->getTitle()]) || (isset($journals_grouped[$jj->getTitle()]) && count($journals_grouped[$jj->getTitle()]) < 2)) {
                 $image = $jj->getImageMain();
                 $jj->setImageMain(self::renameImageToMin($jj->getImageMain()));
-//                $image_name = substr($image, strrpos($image, '/') + 1);
-//                $image_new_name = str_replace($image_name, '__' . $image_name, $image);
-//                $jj->setImageMain($image_new_name);
                 $journals_grouped[$jj->getTitle()][] = $jj;
             }
         }
 
+
+        foreach ($jour as $j)
+            if(count($journals_grouped[$j->getTitle()]) > 1)
+                array_shift($journals_grouped[$j->getTitle()]);
+
+
+        foreach($journals_grouped as $key => $j)
+            if(count($journals_grouped[$key]) > 1)
+                array_shift($journals_grouped[$key]);
+
+
+//        SUtils::trace($journals_grouped);
 
 
 
