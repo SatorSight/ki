@@ -47,7 +47,7 @@ class DefaultController extends Controller
 
         $journals_grouped = [];
         foreach ($journals as $jj){
-            if(empty($journals_grouped[$jj->getTitle()]) || (isset($journals_grouped[$jj->getTitle()]) && count($journals_grouped[$jj->getTitle()]) < 4)) {
+            if(empty($journals_grouped[$jj->getTitle()]) || (isset($journals_grouped[$jj->getTitle()]) && count($journals_grouped[$jj->getTitle()]) < 1)) {
                 $image = $jj->getImageMain();
                 $jj->setImageMain(self::renameImageToMin($jj->getImageMain()));
 //                $image_name = substr($image, strrpos($image, '/') + 1);
