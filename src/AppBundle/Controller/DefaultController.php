@@ -49,10 +49,10 @@ class DefaultController extends Controller
         foreach ($journals as $jj){
             if(empty($journals_grouped[$jj->getTitle()]) || (isset($journals_grouped[$jj->getTitle()]) && count($journals_grouped[$jj->getTitle()]) < 4)) {
                 $image = $jj->getImageMain();
-                $image_name = substr($image, strrpos($image, '/') + 1);
-                $image_new_name = str_replace($image_name, '__' . $image_name, $image);
-                $jj->setImageMain($image_new_name);
-
+                $jj->setImageMain(self::renameImageToMin($jj->getImageMain()));
+//                $image_name = substr($image, strrpos($image, '/') + 1);
+//                $image_new_name = str_replace($image_name, '__' . $image_name, $image);
+//                $jj->setImageMain($image_new_name);
                 $journals_grouped[$jj->getTitle()][] = $jj;
             }
         }
@@ -630,6 +630,23 @@ men-kioskplus.ru -> http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=
     }
 
 
+    /**
+     * @Route("/ajax/get/{url}", name="get")
+     */
+    public function ajaxGetAction(Request $request, $url)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        /** @var Journal[] $journals */
+        $journals = $em->getRepository('AppBundle:Journal')->findBy(['url' => $url], array('date' => 'DESC'));
+
+        $journal = array_shift($journals);
+        $journal->setImageMain(self::renameImageToMin($journal->getImageMain()));
+
+        echo $journal->getImageMain();
+    }
+
+
     public function addJournal(Request $request){
 
 //        SUtils::trace($request->request->get('date'));
@@ -715,5 +732,11 @@ men-kioskplus.ru -> http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=
         }
 
         ftp_close($conn_id);
+    }
+
+    public static function renameImageToMin($image){
+        $image_name = substr($image, strrpos($image, '/') + 1);
+        $image_new_name = str_replace($image_name, '__' . $image_name, $image);
+        return $image_new_name;
     }
 }
