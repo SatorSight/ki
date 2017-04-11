@@ -78,53 +78,45 @@
 
 
             <h2>Читайте также:</h2>
-            <div class="latest flickity-slider-enable">
+            <div class="one-col">
+                <div class="inner">
+                    <!-- "magazine" variable must be defined -->
+                    {% for item in rest %}
+                        <div class="magazine">
+                            <div class="magazine-inner">
+                                <a href="{{ url('detail', {
+                                    'title': item.url,
+                                    'year' : item.year,
+                                    'month' : item.month,
+                                    'number' : item.number
+                                }) }}">
+                                    <div class="cover" style="background-image: url('{{ item.imageMain }}');"></div>
+                                    <p class="title">
+                                        <a href="{{ url('detail', {
+                                            'title': item.url,
+                                            'year' : item.year,
+                                            'month' : item.month,
+                                            'number' : item.number
+                                        }) }}">
+                                            {{ item.title }}
+                                        </a>
+                                    </p>
+                                    <p class="date">
+                                        {% if item.getDoubleMonth == 1 %}
+                                            {{ item.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+                                            -
+                                            {{ item.date | date_modify("+1 month") | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+                                        {% else %}
+                                            {{ item.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+                                        {% endif %}
 
-
-                <!-- "magazine" variable must be defined -->
-
-                {% for item in rest %}
-
-                    <div class="magazine" style="width: 30%;">
-                        <div class="magazine-inner">
-                            <a href="{{ url('detail', {
-                                'title': item.url,
-                                'year' : item.year,
-                                'month' : item.month,
-                                'number' : item.number
-                            }) }}">
-                                <div class="cover" style="
-                        background-image: url('{{ item.imageMain }}');
-                        "></div>
-                                <p class="title">
-                                    <a href="{{ url('detail', {
-                                        'title': item.url,
-                                        'year' : item.year,
-                                        'month' : item.month,
-                                        'number' : item.number
-                                    }) }}">
-                                        {{ item.title }}
-                                    </a>
-                                </p>
-                                <p class="date">
-                                    {% if item.getDoubleMonth == 1 %}
-                                        {{ item.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
-                                        -
-                                        {{ item.date | date_modify("+1 month") | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
-                                    {% else %}
-                                        {{ item.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
-                                    {% endif %}
-
-                                    {{ item.year }}
-                                </p>
-                            </a>
+                                        {{ item.year }}
+                                    </p>
+                                </a>
+                            </div>
                         </div>
-
-                    </div>
-
-                {% endfor %}
-
-
+                    {% endfor %}
+                </div>
             </div>
 
         </div>
