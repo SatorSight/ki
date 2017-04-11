@@ -226,11 +226,11 @@ a {
     .magazine p.date {
         font-weight: 400;
         color: #7e7e7e;
-        margin: 0 0 0px 6px;
+        margin: 0 0 0 6px;
         font-size: 10px;
     }
 }
-.magazine p.title,.magazine p.date, .magazine p {display: none;}
+.magazine p.date, .magazine p {display: none;}
 
 /* /Magazine /////////////*/
 
@@ -576,7 +576,8 @@ div.panel {
     overflow: hidden;
     transition: max-height 0.2s ease-out;
 }
-.j-group-title {display: block; font-size: 20px; text-align: left; margin: 6% 3% 0;}
+.j-group-title {display: none; font-size: 20px; text-align: left; margin: 6% 3% 0;}
+.magazines .item {width: 32%; display: inline-block;}
 .magazines > .magazine:nth-child(1) {margin-bottom: 20px;}
 .magazines .inner .magazine {display: none;}
 .magazines .inner .magazine:nth-child(1), .magazines .inner .magazine:nth-child(2), .magazines .inner .magazine:nth-child(3), .magazines .inner .magazine:nth-child(4), .magazines .inner .magazine:nth-child(5) {display: inline-block;}
