@@ -184,6 +184,10 @@ HTML;
      */
     public function testAction(Request $request){
 
+        $env = $this->get( 'kernel' )->getEnvironment();
+
+        SUtils::trace($env);
+
         phpinfo();
 
 
