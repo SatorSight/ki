@@ -45,9 +45,11 @@ class DefaultController extends Controller
 
         $journals_grouped = [];
         foreach ($journals as $jj){
-            if(empty($journals_grouped[$jj->getTitle()]) || (isset($journals_grouped[$jj->getTitle()]) && count($journals_grouped[$jj->getTitle()]) < 2))
+            if(empty($journals_grouped[$jj->getTitle()]) || (isset($journals_grouped[$jj->getTitle()]) && count($journals_grouped[$jj->getTitle()]) < 4))
                 $journals_grouped[$jj->getTitle()][] = $jj;
         }
+
+
 
 
 //        SUtils::trace($journals_grouped);
