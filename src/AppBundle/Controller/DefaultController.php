@@ -59,7 +59,7 @@ class DefaultController extends Controller
 
         foreach($journals_grouped as $key => $j)
             if(count($journals_grouped[$key]) > 1)
-                array_shift($journals_grouped[$key]);
+                $journals_grouped[$key] = array_shift($journals_grouped[$key]);
 
 
 //        SUtils::trace($journals_grouped);
