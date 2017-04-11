@@ -124,13 +124,24 @@ class DefaultController extends Controller
         if($journal->getNumberSet())
             $journal->setNumber(1);
 
+//        SUtils::dump($journal->getImageMain());
+
+        $journal->setImageMain(self::renameImageToMin($journal->getImageMain()));
+
+//        SUtils::trace($journal->getImageMain());
+
 
         /** @var Journal[] $all */
         $all = $em->getRepository('AppBundle:Journal')->findBy(['url' => $title]);
 
-        foreach($all as $j)
-            if($j->getNumberSet())
+        foreach($all as $key => $j) {
+            if ($j->getNumberSet())
                 $j->setNumber(1);
+            $j->setImageMain(self::renameImageToMin($j->getImageMain()));
+        }
+
+
+
 
         foreach($all as $key => $a)
             if($a->getId() == $journal->getId())
