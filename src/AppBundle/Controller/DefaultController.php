@@ -251,6 +251,7 @@ men-kioskplus.ru -> http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=
         if($page > $journal->getListing() + 4 && empty($session->get('bridge_token'))){
 
             $html =  '
+                <style>#controls .arrow {display: none;}</style>
                 <div id="page10">
                     <div class="subscribe">
                         <div class="logo">
