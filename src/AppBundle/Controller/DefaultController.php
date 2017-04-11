@@ -251,32 +251,36 @@ men-kioskplus.ru -> http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=
         if($page > $journal->getListing() + 4 && empty($session->get('bridge_token'))){
 
             $html =  '
-                <div style="padding-top: 25%; min-height: 550px">
+                <div id="page10">
                     <div class="subscribe">
-                        <a href="http://'.$join.$domain.'.'.$kiosk.'.ru/subscribe/?cr='.$cr.'&setpreprod=1&returnurl='.$back_url.'" style="
-display: block;
-    height: 60px;
-    line-height: 60px;
-    width: 300px;
-    font-weight: 300;
-    text-decoration: none;
-    background: #331122;
-    font-size: 24px;
-    text-align: center;
-    margin: 0 auto;
-    color: #fff;
-    border-radius: 30px;
-    text-transform: uppercase;
-    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.4);
-                        " class="">Оформить подписку</a>
-                        <p class="description">
-                            Кликнув на кнопку “Оформить подписку”, Вы соглашаетесь с
-                            <br>
-                            условиями подписки на доступ ко всему каталогу.
-                            <br>
-                            Стоимость 12 руб. с учетом НДС в день.
-                        </p>
-                    </div> 
+                        <div class="logo">
+                            <img src="/images/subscribe-logo.png" alt="" />
+                        </div>
+                        <a href="http://'.$join.$domain.'.'.$kiosk.'.ru/subscribe/?cr='.$cr.'&setpreprod=1&returnurl='.$back_url.'" class="bt">Оформить подписку</a>
+                        <p class="description">Оформляя подписку, вы&nbsp;соглашаетесь с&nbsp;условиями её&nbsp;предоставления. Стоимость цифровой подписки на&nbsp;журналы составляет 20&nbsp;руб.&nbsp;в&nbsp;день включая НДС.</p>
+                    </div>
+                    <div id="slider">
+                        <div class="item slider1">
+                           <div class="blur">
+                                <div class="inner"> </div>
+                            </div>
+                        </div>
+                        <div class="item slider2">
+                           <div class="blur">
+                                <div class="inner"> </div>
+                            </div>          
+                        </div>
+                        <div class="item slider3">
+                           <div class="blur">
+                                <div class="inner"> </div>
+                            </div>           
+                        </div>
+                        <div class="item slider4">
+                           <div class="blur">
+                                <div class="inner"> </div>
+                            </div>           
+                        </div>
+                    </div>
                 </div>
             ';
         }else
