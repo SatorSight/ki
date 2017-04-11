@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid main" id="main">
+
+
+        <h2 style="margin-top: 20px;">Журналы</h2>
+        {#<div class="magazines" style="overflow: hidden; text-align: center;">#}
+
+
+        <style>
+            table{
+                width: 100%;
+                margin: 50px 100px 0;
+            }
+
+            h2{
+                margin-top: 20px;
+                text-align: center;
+                position: relative;
+                top: 30px;
+                font-size: 28px;
+            }
+
+            thead{
+                text-align: left;
+            }
+            .admin-preview{
+                height: 100px;
+            }
+        </style>
+        <table>
+            <thead>
+            <th>№</th>
+            <th>Обложка</th>
+            <th>Префикс</th>
+            <th>Папка</th>
+            </thead>
+            <tbody>
+            {% for key, item in dirs %}
+                <tr>
+                    <td>{{ key + 1}}</td>
+                    <td><img class="admin-preview" src="{{ images[dirs[key]] }}"/></td>
+                    <td>{{ prefix[key] }}</td>
+                    <td>{{ dirs[key] }}</td>
+                    <td>
+                        <form action="{{ url('add') }}" method="post">
+                            <input type="hidden" name="dir" value="{{ dirs[key] }}">
+                            <button type="submit">Добавить</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+
+
+
+        <!-- / one magazine -->
+        {#</div>#}
+        <!-- / magazines-->
+
+        <div class="footer">
+
+            <p class="disclaimer">
+                Киоск плюс 2016-2017
+            </p>
+            <p class="disclaimer">
+                <a href="http://yandex.ru">
+                    Информация для пользователей
+                </a>
+            </p>
+        </div>
+        <!-- / footer -->
+    </div>
+{% endblock %}
+
+
+

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Category;
 use AppBundle\Entity\Journal;
 use AppBundle\Resources\SUtils;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -136,6 +137,78 @@ HTML;
 
     }
 
+
+
+    /**
+     * @Route("/test/", name="test")
+     *
+     */
+    public function testAction(Request $request){
+
+        phpinfo();
+
+
+//        $path = realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR.'web';
+//        $width  = 480;
+//
+//        $em = $this->getDoctrine()->getManager();
+//        /** @var Journal[] $journals */
+//        $journals = $em->getRepository('AppBundle:Journal')->findAll();
+//        foreach ($journals as $j){
+//
+//            $image = $j->getImageMain();
+////
+//            $img = new \imagick($path.$image);
+//            $img->scaleImage($width, 0);
+////        $img->cropImage($width, $height, 0, 0);
+//            $img->setImageCompression(\imagick::COMPRESSION_JPEG);
+//            $img->setImageCompressionQuality(0);
+//
+//
+//            $image_name = substr($image, strrpos($image, '/') + 1);
+//            $image_new_name = $path.str_replace($image_name, '_'.$image_name,$image);
+//            $image_final_name = $path.str_replace($image_name, '__'.$image_name,$image);
+//
+//
+//            $img->writeImage($image_new_name);
+//
+//
+//            $sh = exec('cd ../vendor/mozjpeg && ./cjpeg -quality 70 -outfile '.$image_final_name.' '.$image_new_name,$output);
+//
+//
+//
+//
+//
+//            SUtils::dump($output);
+//            SUtils::dump($image_name);
+//            SUtils::dump($image_new_name);
+//            SUtils::trace($image);
+//
+//
+//
+//
+//        }
+
+
+    }
+
+
+
+    /**
+     * @Route("/admin/categories/", name="categories")
+     *
+     */
+    public function adminCategoriesAction(Request $request){
+
+        $em = $this->getDoctrine()->getManager();
+        /** @var Category[] $categories */
+        $categories = $em->getRepository('AppBundle:Category')->findAll();
+
+        return $this->render('default/read.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+
+        ]);
+    }
 
 
 
@@ -446,7 +519,7 @@ men-kioskplus.ru -> http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=
 
         ftp_close($conn_id);
 
-        return $this->render('default/admin.html.twig', [
+        return $this->render('admin/admin.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
             'dirs' => $dirs,
             'prefix' => $prefix,
@@ -493,7 +566,7 @@ men-kioskplus.ru -> http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=
             $img_name = substr($img, strrpos($img,'/') + 1);
         }
 
-        return $this->render('default/add.html.twig', [
+        return $this->render('admin/add.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
             'path' => $dir,
             'genre' => $genre,
