@@ -329,12 +329,13 @@ a {
 .container-fluid .previews .preview div.image {
     box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.4);
     margin: 0 auto;
-    padding-bottom: 120%;
     background-color: #FFF;
     background-repeat: no-repeat;
     background-position: 50% 0;
     background-size: cover;
+    overflow: hidden;
 }
+.container-fluid .previews .preview div.image img {float: left; width: 100%;}
 
 .container-fluid .previews .preview .blob {
     overflow-x: auto;
