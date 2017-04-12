@@ -156,13 +156,17 @@
                                     {#{% endif %}#}
 
                                 </a>
-                                <p class="title"><a href="{{ url('detail', {
-                                        'title': item2.url,
-                                        'year' : item2.year,
-                                        'month' : item2.month,
-                                        'number' : item2.number
-                                    }) }}">
-                                    </a><a href="{{ url('detail', {
+                                <p class="title">
+
+                                    {#<a href="{{ url('detail', {#}
+                                        {#'title': item2.url,#}
+                                        {#'year' : item2.year,#}
+                                        {#'month' : item2.month,#}
+                                        {#'number' : item2.number#}
+                                    {#}) }}">#}
+                                    {#</a>#}
+
+                                    <a href="{{ url('detail', {
                                         'title': item2.url,
                                         'year' : item2.year,
                                         'month' : item2.month,
@@ -170,6 +174,7 @@
                                     }) }}">
                                         {{ item2.title }}
                                     </a>
+                                    <span class="shadow"></span>
                                 </p>
                                 <p class="date">
                                     {#{{ item.month|date("F") }}#}
