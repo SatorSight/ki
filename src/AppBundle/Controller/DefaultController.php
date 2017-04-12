@@ -37,10 +37,19 @@ class DefaultController extends Controller
         $journals = $em->getRepository('AppBundle:Journal')->findBy(array(), array('date' => 'DESC'));
 
 
-        if(strpos($host, 'men') !== false)
+//        SUtils::dump($journals);
+
+        if(strpos($host, 'men') !== false ||strpos($host, 'localhost') !== false )
             foreach ($journals as $key => $jjj)
                 if(!in_array($jjj->getTitle(), $men_j))
                     unset($journals[$key]);
+
+        reset($journals);
+
+//        SUtils::trace($journals);
+
+
+
 
 
         /** @var Journal $j */
