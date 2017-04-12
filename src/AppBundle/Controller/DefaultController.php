@@ -63,15 +63,44 @@ class DefaultController extends Controller
             if(count($journals_grouped[$key]) > 1)
                 $journals_grouped[$key] = [array_shift($journals_grouped[$key])];
 
+
+        /*
+        вверх
+        квартророут
+        Psychologies
+        Forbes
+        Maxim
+        Игромания
+        SNC
+        */
+
 //        SUtils::trace($journals_grouped);
+//        SUtils::dump($j_names);
+        $j_names = array_reverse($j_names,false);
+//        SUtils::dump($j_names);
+
+        $new_journals = [];
+
+        if(!empty($journals_grouped['Quattroruote']))
+            $new_journals[] = 'Quattroruote';
+        if(!empty($journals_grouped['Psychologies']))
+            $new_journals[] = 'Psychologies';
+        if(!empty($journals_grouped['Forbes']))
+            $new_journals[] = 'Forbes';
+        if(!empty($journals_grouped['Maxim']))
+            $new_journals[] = 'Maxim';
+        if(!empty($journals_grouped['Игромания']))
+            $new_journals[] = 'Игромания';
+        if(!empty($journals_grouped['SNC']))
+            $new_journals[] = 'SNC';
 
 
+        foreach ($j_names as $name){
+            if(!in_array($name,$new_journals))
+                $new_journals[] = $name;
+        }
 
-//        SUtils::trace($journals_grouped);
 
-
-
-//        SUtils::trace($journals_grouped);
 
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
 
@@ -79,7 +108,7 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
             'journals' => $jour,
             'journals_grouped' => $journals_grouped,
-            'j_names' => $j_names,
+            'j_names' => $new_journals,
             'base_url' => $baseurl
         ]);
     }
