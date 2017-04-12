@@ -689,21 +689,24 @@ men-kioskplus.ru -> http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=
      */
     public function infoAction(Request $request)
     {
-        return $this->render('html/info.html.twig', []);
+        $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
+        return $this->render('html/info.html.twig', ['base_url' => $baseurl]);
     }
     /**
      * @Route("/manage", name="manage")
      */
     public function manageAction(Request $request)
     {
-        return $this->render('html/manage.html.twig', []);
+        $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
+        return $this->render('html/manage.html.twig', ['base_url' => $baseurl]);
     }
     /**
      * @Route("/term", name="term")
      */
     public function termAction(Request $request)
     {
-        return $this->render('html/term.html.twig', []);
+        $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
+        return $this->render('html/term.html.twig', ['base_url' => $baseurl]);
     }
 
 
