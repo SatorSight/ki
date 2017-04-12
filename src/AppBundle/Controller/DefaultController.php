@@ -63,6 +63,42 @@ class DefaultController extends Controller
             if(count($journals_grouped[$key]) > 1)
                 $journals_grouped[$key] = [array_shift($journals_grouped[$key])];
 
+
+        /*
+        вверх
+        квартророут
+        Psychologies
+        Forbes
+        Maxim
+        Игромания
+        SNC
+        */
+
+//        SUtils::trace($journals_grouped);
+
+        $new_journals = [];
+
+        if(!empty($journals_grouped['Quattroruote']))
+            $new_journals['Quattroruote'] = $journals_grouped['Quattroruote'];
+        if(!empty($journals_grouped['Psychologies']))
+            $new_journals['Psychologies'] = $journals_grouped['Psychologies'];
+        if(!empty($journals_grouped['Forbes']))
+            $new_journals['Forbes'] = $journals_grouped['Forbes'];
+        if(!empty($journals_grouped['Maxim']))
+            $new_journals['Maxim'] = $journals_grouped['Maxim'];
+        if(!empty($journals_grouped['Игромания']))
+            $new_journals['Игромания'] = $journals_grouped['Игромания'];
+        if(!empty($journals_grouped['SNC']))
+            $new_journals['SNC'] = $journals_grouped['SNC'];
+
+        foreach($journals_grouped as $key => $j){
+            if(!key_exists($key, $new_journals))
+                $new_journals[$key] = $j;
+        }
+
+        $journals_grouped = $new_journals;
+
+
 //        SUtils::trace($journals_grouped);
 
 
