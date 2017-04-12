@@ -75,39 +75,32 @@ class DefaultController extends Controller
         */
 
 //        SUtils::trace($journals_grouped);
+//        SUtils::dump($j_names);
+        $j_names = array_reverse($j_names,false);
+//        SUtils::dump($j_names);
 
         $new_journals = [];
 
         if(!empty($journals_grouped['Quattroruote']))
-            $new_journals['Quattroruote'] = $journals_grouped['Quattroruote'];
+            $new_journals[] = 'Quattroruote';
         if(!empty($journals_grouped['Psychologies']))
-            $new_journals['Psychologies'] = $journals_grouped['Psychologies'];
+            $new_journals[] = 'Psychologies';
         if(!empty($journals_grouped['Forbes']))
-            $new_journals['Forbes'] = $journals_grouped['Forbes'];
+            $new_journals[] = 'Forbes';
         if(!empty($journals_grouped['Maxim']))
-            $new_journals['Maxim'] = $journals_grouped['Maxim'];
+            $new_journals[] = 'Maxim';
         if(!empty($journals_grouped['Игромания']))
-            $new_journals['Игромания'] = $journals_grouped['Игромания'];
+            $new_journals[] = 'Игромания';
         if(!empty($journals_grouped['SNC']))
-            $new_journals['SNC'] = $journals_grouped['SNC'];
+            $new_journals[] = 'SNC';
 
-        foreach($journals_grouped as $key => $j){
-            if(!key_exists($key, $new_journals))
-                $new_journals[$key] = $j;
+
+        foreach ($j_names as $name){
+            if(!in_array($name,$new_journals))
+                $new_journals[] = $name;
         }
 
-        $journals_grouped = $new_journals;
 
-
-//        SUtils::trace($journals_grouped);
-
-
-
-//        SUtils::trace($journals_grouped);
-
-
-
-//        SUtils::trace($journals_grouped);
 
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
 
@@ -115,7 +108,7 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
             'journals' => $jour,
             'journals_grouped' => $journals_grouped,
-            'j_names' => $j_names,
+            'j_names' => $new_journals,
             'base_url' => $baseurl
         ]);
     }
