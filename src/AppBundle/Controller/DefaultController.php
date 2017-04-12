@@ -39,7 +39,7 @@ class DefaultController extends Controller
 
         if(strpos($host, 'men') !== false)
             foreach ($journals as $key => $jjj)
-                if(!in_array($jjj, $men_j))
+                if(!in_array($jjj->getTitle(), $men_j))
                     unset($journals[$key]);
 
 
