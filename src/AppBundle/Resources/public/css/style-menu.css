@@ -19,7 +19,7 @@
     color: #2c2c2c;
 }
 
-.adult {position: absolute; right: 0; top: 0; width: 25px; height: 25px; background: url('/images/adult_grey.png') no-repeat 50% 50%;}
+.adult {position: absolute; right: 0; top: 0; width: 24px; height: 24px; background: url('/images/adult_grey.png') no-repeat 50% 50%;}
 
 body.tech .page-header,body.tech #mine_menu, body.tech #controls .top_panel, body.tech #viewer_menu, body.tech .container-fluid .previews .preview .flat, body.tech #page10 .subscribe .bt {background-color: #00c0ff;}
 body.men .page-header, body.men #mine_menu, body.men #controls .top_panel, body.men #viewer_menu, body.men .container-fluid .previews .preview .flat, body.men #page10 .subscribe .bt {background-color: #331122; color: #FFF;}
