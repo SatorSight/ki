@@ -690,7 +690,6 @@ body.food  #page10 .logo {background-image: url("/images/logo-food.png")}
     background-position: 50% 0;
     margin: 6px;
 }
-
 .bundle .magazines .j-group-title{
     height: 20px;
     font-size: 20px;
@@ -698,7 +697,5 @@ body.food  #page10 .logo {background-image: url("/images/logo-food.png")}
     margin: 1% 3% 0;
     display: block;
 }
-
-.bundle .magazines p.title{
-    display: none;
-}
+.bundle .magazine p {display: none;}
+.bundle .magazine p.date {display: block;}
