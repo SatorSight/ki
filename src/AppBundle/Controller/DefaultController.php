@@ -296,8 +296,14 @@ class DefaultController extends Controller
         $journal = $em->getRepository('AppBundle:Journal')->findOneBy(['url' => $title, 'month' => $month, 'year' => $year, 'number' => $number]);
         if(!$journal)
             $journal = $em->getRepository('AppBundle:Journal')->findOneBy(['url' => $title, 'month' => $month, 'year' => $year, 'number' => null]);
+        if(!$journal)
+            throw $this->createNotFoundException('404 Journal not found!');
         if($journal->getNumberSet())
             $journal->setNumber(1);
+
+
+
+
 
         /** @var Journal[] $all */
         $all = $em->getRepository('AppBundle:Journal')->findBy(['url' => $title]);
@@ -564,6 +570,9 @@ class DefaultController extends Controller
         $journal = $em->getRepository('AppBundle:Journal')->findOneBy(['url' => $title, 'month' => $month, 'year' => $year, 'number' => $number]);
         if(!$journal)
             $journal = $em->getRepository('AppBundle:Journal')->findOneBy(['url' => $title, 'month' => $month, 'year' => $year, 'number' => null]);
+
+        if(!$journal)
+            throw $this->createNotFoundException('404 Journal not found!');
 
         $p = (int)$page;
         if($p < 10) $p = '00'.$p;
