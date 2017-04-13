@@ -18,12 +18,18 @@
     background-color: #fcc200;
     color: #2c2c2c;
 }
+
+.adult {position: absolute; right: 0; top: 0; width: 24px; height: 24px; background: url('/images/adult_grey.png') no-repeat 50% 50%;}
+
 body.tech .page-header, body.tech #controls .top_panel, body.tech #viewer_menu, body.tech .container-fluid .previews .preview .flat, body.tech #page10 .subscribe .bt {background-color: #00c0ff;}
-body.men .page-header, body.men #controls .top_panel, body.men #viewer_menu, body.men .container-fluid .previews .preview .flat, body.men #page10 .subscribe .bt {background-color: #331122;}
-body.avto .page-header, body.avto #controls .top_panel, body.avto #viewer_menu, body.avto .container-fluid .previews .preview .flat, body.avto #page10 .subscribe .bt {background-color: #8e081b;}
+body.men .page-header, body.men #controls .top_panel, body.men #viewer_menu, body.men .container-fluid .previews .preview .flat, body.men #page10 .subscribe .bt {background-color: #331122; color: #FFF;}
+body.avto .page-header, body.avto #controls .top_panel, body.avto #viewer_menu, body.avto .container-fluid .previews .preview .flat, body.avto #page10 .subscribe .bt {background-color: #8e081b; color: #FFF;}
 body.kind .page-header, body.kind #controls .top_panel, body.kind #viewer_menu, body.kind .container-fluid .previews .preview .flat, body.kind #page10 .subscribe .bt {background-color: #f9d232;}
 body.food .page-header, body.food #controls .top_panel, body.food #viewer_menu, body.food .container-fluid .previews .preview .flat, body.food #page10 .subscribe .bt   {background-color: #8ac832;}
 
+body.men #menu_button, body.avto #menu_button {background-image: url('/images/menu.png');}
+body.men .logo-image, body.avto .logo-image {background-image: url('/images/logo.png');}
+body.men .adult, body.avto .adult {background-image: url('/images/adult.png');}
 
 .page-header .page-header-main-content {
     display: -webkit-box;
@@ -719,7 +725,6 @@ body.food .page-header, body.food #controls .top_panel, body.food #viewer_menu, 
 }
 
 .kiosk-bundle-title{
-    color: #2c2c2c;
     font-size: 20px;
     margin-left: -60px;
     margin-left: -50px;
@@ -732,7 +737,7 @@ body.food .page-header, body.food #controls .top_panel, body.food #viewer_menu, 
 .item-4 {width: 24%; display: inline-block;}
 .item-4 .magazine {display: block;}
 
-#menu_button {background: url('/images/menu.png') no-repeat 50% 50%; background-size: 80%; height: 35px; overflow: hidden; width: 30px; position: absolute; top: 5px; left: 10px;}
+#menu_button {background: url('/images/menu_grey.png') no-repeat 50% 50%; background-size: 80%; height: 35px; overflow: hidden; width: 30px; position: absolute; top: 5px; left: 10px;}
 #viewer_menu {display: none; text-align: center; max-width: 200px; overflow: hidden;}
 #viewer_menu p {font-size: 14px; margin: 10px; padding: 5px 0; cursor: pointer;}
 

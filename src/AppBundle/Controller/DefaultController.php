@@ -677,7 +677,7 @@ http://join-men.kioskplus.ru/subscribe/?cr=78225&setpreprod=1
                 <div id="page10">
                     <div class="subscribe">
                         <div class="logo">
-                            <img src="/images/subscribe-logo.png" alt="" />
+                            
                         </div>
                         <a href="http://'.$join.$domain.'.'.$kiosk.'.ru/subscribe/?cr='.$cr.'&setpreprod=1&returnurl='.$back_url.'" class="bt">Оформить подписку</a>
                         <p class="description">Оформляя подписку, вы&nbsp;соглашаетесь с&nbsp;условиями её&nbsp;предоставления. Стоимость цифровой подписки на&nbsp;журналы составляет 20&nbsp;руб.&nbsp;в&nbsp;день включая НДС.</p>
