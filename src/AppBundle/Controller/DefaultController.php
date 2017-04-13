@@ -964,24 +964,27 @@ http://join-men.kioskplus.ru/subscribe/?cr=78225&setpreprod=1
      */
     public function infoAction(Request $request)
     {
+        $folder = self::getBodyClass($request) == 'men' ? 'html_men' : 'html';
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
-        return $this->render('html/info.html.twig', ['base_url' => $baseurl, 'body_class' => self::getBodyClass($request)]);
+        return $this->render($folder.'/info.html.twig', ['base_url' => $baseurl, 'body_class' => self::getBodyClass($request)]);
     }
     /**
      * @Route("/manage", name="manage")
      */
     public function manageAction(Request $request)
     {
+        $folder = self::getBodyClass($request) == 'men' ? 'html_men' : 'html';
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
-        return $this->render('html/manage.html.twig', ['base_url' => $baseurl, 'body_class' => self::getBodyClass($request)]);
+        return $this->render($folder.'/manage.html.twig', ['base_url' => $baseurl, 'body_class' => self::getBodyClass($request)]);
     }
     /**
      * @Route("/term", name="term")
      */
     public function termAction(Request $request)
     {
+        $folder = self::getBodyClass($request) == 'men' ? 'html_men' : 'html';
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
-        return $this->render('html/term.html.twig', ['base_url' => $baseurl, 'body_class' => self::getBodyClass($request)]);
+        return $this->render($folder.'/term.html.twig', ['base_url' => $baseurl, 'body_class' => self::getBodyClass($request)]);
     }
 
 
