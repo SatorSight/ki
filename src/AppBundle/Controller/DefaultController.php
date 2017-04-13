@@ -847,7 +847,7 @@ men-kioskplus.ru -> http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=
             $cr = '77889';
             $domain = 'kind';
         }
-        if(strpos($host, 'premium') !== false) {
+        if(strpos($host, 'premium') !== false && $host == 'kioskplus.ru') {
             $cr = '78706';
             $domain = 'buon';
             $join = '';
@@ -1319,7 +1319,7 @@ http://join-men.kioskplus.ru/subscribe/?cr=78225&setpreprod=1
     public static function getBodyClass(Request $request){
         $host = $request->getHost();
 
-        $domain = 'men';
+        $domain = 'premium';
         if(strpos($host, 'tech') !== false) {
             $domain = 'tech';
         }
@@ -1332,11 +1332,8 @@ http://join-men.kioskplus.ru/subscribe/?cr=78225&setpreprod=1
         if(strpos($host, 'kind') !== false){
             $domain = 'kind';
         }
-        if(strpos($host, 'premium') !== false) {
-            $domain = 'premium';
-        }
-        if(strpos($host, 'premium') !== false) {
-            $domain = 'premium';
+        if(strpos($host, 'men') !== false) {
+            $domain = 'men';
         }
 
         return $domain;
