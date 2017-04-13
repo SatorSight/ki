@@ -39,7 +39,7 @@ class DefaultController extends Controller
 
 
 
-        if(strpos($host, 'men') !== false ||strpos($host, 'localhost') !== false )
+        if(strpos($host, 'men') !== false)
             foreach ($journals as $key => $jjj)
                 if(!in_array($jjj->getTitle(), $men_j))
                     unset($journals[$key]);
@@ -165,6 +165,87 @@ class DefaultController extends Controller
             'body_class' => self::getBodyClass($request)
         ]);
     }
+
+
+    /**
+     * @Route("/temp", name="temp")
+     *
+     */
+    public function tempAction(Request $request)
+    {
+        $host = $request->getHost();
+        $men_j = ['Playboy', 'The Rake', 'Quattroruote', 'Maxim'];
+
+        $em = $this->getDoctrine()->getManager();
+        /** @var Journal[] $journals */
+        $journals = $em->getRepository('AppBundle:Journal')->findBy(array(), array('date' => 'DESC'));
+
+        if(strpos($host, 'men') !== false)
+            foreach ($journals as $key => $jjj)
+                if(!in_array($jjj->getTitle(), $men_j))
+                    unset($journals[$key]);
+
+
+        /** @var Journal $j */
+        foreach($journals as $j)
+            if($j->getNumberSet())
+                $j->setNumber(1);
+
+
+        $j_names = [];
+        foreach ($journals as $jr){
+            if(!in_array($jr->getTitle(), $j_names))
+                $j_names[] = $jr->getTitle();
+        }
+
+        reset($journals);
+
+
+        $journals_grouped = [];
+        foreach ($journals as $jj){
+            if(empty($journals_grouped[$jj->getTitle()]) || (isset($journals_grouped[$jj->getTitle()]) && count($journals_grouped[$jj->getTitle()]) < 4)) {
+                $jj->setImageMain(self::renameImageToMin($jj->getImageMain()));
+                $journals_grouped[$jj->getTitle()][] = $jj;
+            }
+        }
+
+//        foreach($journals_grouped as $key => $j)
+//            if(count($journals_grouped[$key]) > 1)
+//                $journals_grouped[$key] = [array_shift($journals_grouped[$key])];
+
+        $new_journals = [];
+
+        if(!empty($journals_grouped['Quattroruote']))
+            $new_journals[] = 'Quattroruote';
+        if(!empty($journals_grouped['Psychologies']))
+            $new_journals[] = 'Psychologies';
+        if(!empty($journals_grouped['Forbes']))
+            $new_journals[] = 'Forbes';
+        if(!empty($journals_grouped['Maxim']))
+            $new_journals[] = 'Maxim';
+        if(!empty($journals_grouped['Игромания']))
+            $new_journals[] = 'Игромания';
+        if(!empty($journals_grouped['SNC']))
+            $new_journals[] = 'SNC';
+
+
+        foreach ($j_names as $name){
+            if(!in_array($name,$new_journals))
+                $new_journals[] = $name;
+        }
+
+        $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
+
+        return $this->render('default/temp.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+            'journals_grouped' => $journals_grouped,
+            'j_names' => $new_journals,
+            'base_url' => $baseurl,
+            'body_class' => self::getBodyClass($request)
+        ]);
+    }
+
+
 
     /**
      * @Route("/all", name="all")
