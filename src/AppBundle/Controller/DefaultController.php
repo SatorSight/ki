@@ -385,205 +385,205 @@ class DefaultController extends Controller
 //
 //
 //
-        $ipa = '212.248.24.';
-        for ($i = 193; $i < 255; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-
-        $ipa = '213.87.86.';
-        for ($i = 129; $i < 191; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-        $ipa = '213.87.89.';
-        for ($i = 129; $i < 191; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-        $ipa = '213.87.90.';
-        for ($i = 1; $i < 63; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-        $ipa = '213.87.91.';
-        for ($i = 1; $i < 63; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-        $ipa = '213.87.86.';
-        for ($i = 193; $i < 255; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-        $ipa = '213.87.89.';
-        for ($i = 193; $i < 255; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-        $ipa = '213.87.90.';
-        for ($i = 65; $i < 127; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-        $ipa = '212.248.21.';
-        for ($i = 1; $i < 63; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-        $ipa = '81.195.239.';
-        for ($i = 1; $i < 255; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-        $ipa = '80.83.234.';
-        for ($i = 1; $i < 255; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-        $ipa = '81.195.239.';
-        for ($i = 1; $i < 255; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-        $ipa = '80.83.234.';
-        for ($i = 1; $i < 255; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-        $ipa = '80.83.235.';
-        for ($i = 1; $i < 255; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-        $ipa = '81.195.238.';
-        for ($i = 1; $i < 255; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-        $ipa = '217.8.228.';
-        for ($i = 1; $i < 256; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-        $ipa = '217.8.229.';
-        for ($i = 0; $i < 256; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-        $ipa = '217.8.230.';
-        for ($i = 0; $i < 256; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-        $ipa = '217.8.231.';
-        for ($i = 0; $i < 255; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-
-        $ipa = '213.87.112.';
-        for ($i = 1; $i < 256; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-        $ipa = '213.87.113.';
-        for ($i = 0; $i < 255; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-
-        $ipa = '81.195.238.';
-        for ($i = 1; $i < 255; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-        $ipa = '80.83.236.';
-        for ($i = 1; $i < 127; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-        $ipa = '80.83.225.';
-        for ($i = 1; $i < 127; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-
-
-
-
-
-
-
-
+//        $ipa = '212.248.24.';
+//        for ($i = 193; $i < 255; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//
+//        $ipa = '213.87.86.';
+//        for ($i = 129; $i < 191; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//        $ipa = '213.87.89.';
+//        for ($i = 129; $i < 191; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//        $ipa = '213.87.90.';
+//        for ($i = 1; $i < 63; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//        $ipa = '213.87.91.';
+//        for ($i = 1; $i < 63; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//        $ipa = '213.87.86.';
+//        for ($i = 193; $i < 255; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//        $ipa = '213.87.89.';
+//        for ($i = 193; $i < 255; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//        $ipa = '213.87.90.';
+//        for ($i = 65; $i < 127; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//        $ipa = '212.248.21.';
+//        for ($i = 1; $i < 63; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//        $ipa = '81.195.239.';
+//        for ($i = 1; $i < 255; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//        $ipa = '80.83.234.';
+//        for ($i = 1; $i < 255; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//        $ipa = '81.195.239.';
+//        for ($i = 1; $i < 255; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//        $ipa = '80.83.234.';
+//        for ($i = 1; $i < 255; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//        $ipa = '80.83.235.';
+//        for ($i = 1; $i < 255; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//        $ipa = '81.195.238.';
+//        for ($i = 1; $i < 255; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//        $ipa = '217.8.228.';
+//        for ($i = 1; $i < 256; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//        $ipa = '217.8.229.';
+//        for ($i = 0; $i < 256; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//        $ipa = '217.8.230.';
+//        for ($i = 0; $i < 256; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//        $ipa = '217.8.231.';
+//        for ($i = 0; $i < 255; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//
+//        $ipa = '213.87.112.';
+//        for ($i = 1; $i < 256; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//        $ipa = '213.87.113.';
+//        for ($i = 0; $i < 255; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//
+//        $ipa = '81.195.238.';
+//        for ($i = 1; $i < 255; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//        $ipa = '80.83.236.';
+//        for ($i = 1; $i < 127; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//        $ipa = '80.83.225.';
+//        for ($i = 1; $i < 127; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
