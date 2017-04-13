@@ -14,18 +14,18 @@
     height: 30px;
     background: #fcc200;
 }
-#controls .top_panel, #viewer_menu {
+#controls .top_panel, #viewer_menu, #mine_menu {
     background-color: #fcc200;
     color: #2c2c2c;
 }
 
 .adult {position: absolute; right: 0; top: 0; width: 24px; height: 24px; background: url('/images/adult_grey.png') no-repeat 50% 50%;}
 
-body.tech .page-header, body.tech #controls .top_panel, body.tech #viewer_menu, body.tech .container-fluid .previews .preview .flat, body.tech #page10 .subscribe .bt {background-color: #00c0ff;}
-body.men .page-header, body.men #controls .top_panel, body.men #viewer_menu, body.men .container-fluid .previews .preview .flat, body.men #page10 .subscribe .bt {background-color: #331122; color: #FFF;}
-body.avto .page-header, body.avto #controls .top_panel, body.avto #viewer_menu, body.avto .container-fluid .previews .preview .flat, body.avto #page10 .subscribe .bt {background-color: #8e081b; color: #FFF;}
-body.kind .page-header, body.kind #controls .top_panel, body.kind #viewer_menu, body.kind .container-fluid .previews .preview .flat, body.kind #page10 .subscribe .bt {background-color: #f9d232;}
-body.food .page-header, body.food #controls .top_panel, body.food #viewer_menu, body.food .container-fluid .previews .preview .flat, body.food #page10 .subscribe .bt   {background-color: #8ac832;}
+body.tech .page-header,body.tech #mine_menu, body.tech #controls .top_panel, body.tech #viewer_menu, body.tech .container-fluid .previews .preview .flat, body.tech #page10 .subscribe .bt {background-color: #00c0ff;}
+body.men .page-header, body.men #mine_menu, body.men #controls .top_panel, body.men #viewer_menu, body.men .container-fluid .previews .preview .flat, body.men #page10 .subscribe .bt {background-color: #331122; color: #FFF;}
+body.avto .page-header, body.avto #mine_menu, body.avto #controls .top_panel, body.avto #viewer_menu, body.avto .container-fluid .previews .preview .flat, body.avto #page10 .subscribe .bt {background-color: #8e081b; color: #FFF;}
+body.kind .page-header, body.kind #mine_menu, body.kind #controls .top_panel, body.kind #viewer_menu, body.kind .container-fluid .previews .preview .flat, body.kind #page10 .subscribe .bt {background-color: #f9d232;}
+body.food .page-header, body.food #mine_menu, body.food #controls .top_panel, body.food #viewer_menu, body.food .container-fluid .previews .preview .flat, body.food #page10 .subscribe .bt   {background-color: #8ac832;}
 
 body.men #menu_button, body.avto #menu_button {background-image: url('/images/menu.png');}
 body.men .logo-image, body.avto .logo-image {background-image: url('/images/logo.png');}
@@ -77,7 +77,7 @@ body.men .adult, body.avto .adult {background-image: url('/images/adult.png');}
     display: inline-block;
     overflow: hidden;
     width: 60px;
-    height: 24px;
+    height: 28px;
     text-indent: 100%;
     vertical-align: top;
     background: url(/images/logo_grey.png) no-repeat 50% 50%;
@@ -737,9 +737,11 @@ body.men .adult, body.avto .adult {background-image: url('/images/adult.png');}
 .item-4 {width: 24%; display: inline-block;}
 .item-4 .magazine {display: block;}
 
-#menu_button {background: url('/images/menu_grey.png') no-repeat 50% 50%; background-size: 80%; height: 35px; overflow: hidden; width: 30px; position: absolute; top: 5px; left: 10px;}
+#menu_button {background: url('/images/menu_grey.png') no-repeat 50% 50%; background-size: 80%; height: 35px; overflow: hidden; width: 30px; position: absolute; top: 5px; left: 10px; z-index: 100;}
 #viewer_menu {display: none; text-align: center; max-width: 200px; overflow: hidden;}
-#viewer_menu p {font-size: 14px; margin: 10px; padding: 5px 0; cursor: pointer;}
+#viewer_menu p, #mine_menu p{font-size: 14px; margin: 10px; padding: 5px 0; cursor: pointer;}
+
+#mine_menu {display: none; position: absolute; left: 0; top: 40px; text-align: center; max-width: 200px; overflow: hidden;}
 
 h2.h2-all{
     display: block;

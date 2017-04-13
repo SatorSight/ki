@@ -6,17 +6,22 @@
     <div class="container-fluid main" id="main">
 
         <header class="page-header" role="banner">
+            <div id="menu_button" onclick="$('#mine_menu').slideToggle()"> </div>
+            <div id="mine_menu">
+                <p><a href="{{ url('homepage') }}" style="text-decoration: none;">Ко всем журналам</a></p>
+            </div>
+
             <div class="page-header-main-content">
-                <a href="{{ base_url }}">
-                    <div class="logo-image"></div>
-                </a>
+
                 <span class="adult"> </span>
                 <div class="logo">
                     <div class="logo-link">
-                        <span class="kiosk-logo-image"></span>
-                        <div class="kiosk-bundle-title">Киоск Плюс</div>
+                        <div class="kiosk-bundle-title">
+                            <a href="{{ base_url }}">
+                                <div class="logo-image"></div>
+                            </a>
+                        </div>
                     </div>
-
                 </div>
             </div>
             <div class="page-header-aside-content">
@@ -42,11 +47,7 @@
                             'month' : item.month,
                             'number' : item.number
                         }) }}">
-
-                            <div class="cover" style="
-                                    background-image: url('{{ item.imageMain }}');
-                                    "></div>
-
+                            <div class="cover" style="background-image: url('{{ item.imageMain }}');"></div>
                         </a>
                         <p class="title"><a href="{{ url('detail', {
                                 'title': item.url,
