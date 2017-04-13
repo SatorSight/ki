@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Ip
  *
  * @ORM\Table(name="ip_adress")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\IpRepository")
+ * @ORM\Entity()
  */
 
 
