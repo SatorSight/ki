@@ -689,7 +689,7 @@ http://join-men.kioskplus.ru/subscribe/?cr=78225&setpreprod=1
                             
                         </div>
                         <a href="http://'.$join.$domain.'.'.$kiosk.'.ru/subscribe/?cr='.$cr.'&setpreprod=1&returnurl='.$back_url.'" class="bt">Оформить подписку</a>
-                        <p class="description">Оформляя подписку, вы соглашаетесь с условиями её предоставления. Стоимость цифровой подписки на журналы составляет 7 руб. в день или 49 в неделю.</p>
+                        <p class="description">Оформляя подписку, вы соглашаетесь с условиями её предоставления. Стоимость цифровой подписки на журналы составляет 7 руб. в день или 49 руб. в неделю.</p>
                     </div>
                     <div id="slider">
                         <div class="item slider1">
