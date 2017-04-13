@@ -311,7 +311,7 @@ class DefaultController extends Controller
         foreach($all as $j) {
             if ($j->getNumberSet())
                 $j->setNumber(1);
-            $j->setImageMain(self::renameImageToMin($j->getImageMain()));
+            $j->setImageMain(self::renameImageToMinDetail($j->getImageMain()));
         }
 
         foreach($all as $key => $a)
@@ -1095,6 +1095,12 @@ http://join-men.kioskplus.ru/subscribe/?cr=78225&setpreprod=1
     public static function renameImageToMin($image){
         $image_name = substr($image, strrpos($image, '/') + 1);
         $image_new_name = str_replace($image_name, '__' . $image_name, $image);
+        return $image_new_name;
+    }
+
+    public static function renameImageToMinDetail($image){
+        $image_name = substr($image, strrpos($image, '/') + 1);
+        $image_new_name = str_replace($image_name, '294_' . $image_name, $image);
         return $image_new_name;
     }
 
