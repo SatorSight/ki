@@ -742,39 +742,3 @@ body.men .adult, body.avto .adult {background-image: url('/images/adult.png');}
 #viewer_menu p, #mine_menu p{font-size: 14px; margin: 10px; padding: 5px 0; cursor: pointer;}
 
 #mine_menu {display: none; position: absolute; left: 0; top: 40px; text-align: center; width: 200px; overflow: hidden;}
-
-h2.h2-all{
-    display: block;
-    height: 46px;
-    line-height: 47px;
-    width: 300px;
-    font-weight: 300;
-    text-decoration: none;
-    background: #fcc200;
-    font-size: 24px;
-    text-align: center;
-    margin: 0 auto;
-    margin-top: 13px;
-    color: #2c2c2c;
-    border-radius: 30px;
-    text-transform: uppercase;
-    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.4);
-}
-
-.magazine-0 .magazine-inner p.title{
-    position: absolute;
-    text-align: left;
-    margin-left: 15%;
-    top: 61px;
-    font-size: 20px;
-    left: 0;
-}
-
-.magazine-1 .magazine-inner p.title{
-    text-align: right;
-    position: absolute;
-    top: 61px;
-    margin-right: 15%;
-    font-size: 20px;
-    right: 0;
-}
