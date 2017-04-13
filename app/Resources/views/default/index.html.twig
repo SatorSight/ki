@@ -8,20 +8,16 @@
         <header class="page-header" role="banner">
             <div id="menu_button" onclick="$('#mine_menu').slideToggle()"> </div>
             <div id="mine_menu">
-                <p><a href="{{ url('homepage') }}" style="text-decoration: none;">Ко всем журналам</a></p>
+                <p><a href="{{ url('bundle') }}" style="text-decoration: none;">ВСЕ ЖУРНАЛЫ</a></p>
             </div>
 
             <div class="page-header-main-content">
 
                 <span class="adult"> </span>
                 <div class="logo">
-                    <div class="logo-link">
-                        <div class="kiosk-bundle-title">
-                            <a href="{{ base_url }}">
-                                <div class="logo-image"></div>
-                            </a>
-                        </div>
-                    </div>
+                    <a href="{{ base_url }}">
+                        <div class="logo-image"></div>
+                    </a>
                 </div>
             </div>
             <div class="page-header-aside-content">
@@ -33,7 +29,7 @@
 
 
 
-        <h2 class="h2-all"><a href="{{ url('bundle') }}">ВСЕ ЖУРНАЛЫ</a></h2>
+        {#<h2 class="h2-all"><a href="{{ url('bundle') }}">ВСЕ ЖУРНАЛЫ</a></h2>#}
         <div class="magazines" style="overflow: hidden; text-align: center;">
 
 
