@@ -759,20 +759,20 @@ h2.h2-all{
     box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
-.magazine-0 .magazine-inner p.title{
-    position: absolute;
-    text-align: left;
-    margin-left: 15%;
-    top: 61px;
-    font-size: 20px;
-    left: 0;
-}
+/*.magazine-0 .magazine-inner p.title{*/
+    /*position: absolute;*/
+    /*text-align: left;*/
+    /*margin-left: 15%;*/
+    /*top: 61px;*/
+    /*font-size: 20px;*/
+    /*left: 0;*/
+/*}*/
 
-.magazine-1 .magazine-inner p.title{
-    text-align: right;
-    position: absolute;
-    top: 61px;
-    margin-right: 15%;
-    font-size: 20px;
-    right: 0;
-}
+/*.magazine-1 .magazine-inner p.title{*/
+    /*text-align: right;*/
+    /*position: absolute;*/
+    /*top: 61px;*/
+    /*margin-right: 15%;*/
+    /*font-size: 20px;*/
+    /*right: 0;*/
+/*}*/
