@@ -737,7 +737,7 @@ body.men .adult, body.avto .adult {background-image: url('/images/adult.png');}
 .item-4 {width: 24%; display: inline-block;}
 .item-4 .magazine {display: block;}
 
-#menu_button {background: url('/images/menu_grey.png') no-repeat 50% 50%; background-size: 80%; height: 35px; overflow: hidden; width: 30px; position: absolute; top: 5px; left: 10px; z-index: 100;}
+#menu_button {background: url('/images/menu_grey.png') no-repeat 50% 50%; background-size: 60%; height: 40px; overflow: hidden; width: 40px; position: absolute; top: 0; left: 0; z-index: 100;}
 #viewer_menu {display: none; text-align: center; max-width: 200px; overflow: hidden;}
 #viewer_menu p, #mine_menu p{font-size: 14px; margin: 10px; padding: 5px 0; cursor: pointer;}
 
