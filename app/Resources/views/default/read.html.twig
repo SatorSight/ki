@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% block bodyclass %}{{ body_class }}{% endblock %}
 {% block title %}
     {{ journal.title }}
     {% if journal.getDoubleMonth == 1 %}

@@ -153,12 +153,16 @@ class DefaultController extends Controller
 
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
 
+
+
+
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
             'journals' => $jour,
             'journals_grouped' => $journals_grouped,
             'j_names' => $new_journals,
-            'base_url' => $baseurl
+            'base_url' => $baseurl,
+            'body_class' => self::getBodyClass($request)
         ]);
     }
 
@@ -189,7 +193,8 @@ class DefaultController extends Controller
 
         return $this->render('default/all.html.twig', [
             'journals' => $journals,
-            'base_url' => $baseUrl
+            'base_url' => $baseUrl,
+            'body_class' => self::getBodyClass($request)
         ]);
 
     }
@@ -232,39 +237,40 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
             'journal' => $journal,
             'rest' => $all,
-            'base_url' => $baseurl
+            'base_url' => $baseurl,
+            'body_class' => self::getBodyClass($request)
         ]);
     }
 
-    /**
-     * @Route("/pay/{title}/{year}/{month}/{number}", name="read", requirements={
-     *         "month": "\d+",
-     *         "number": "\d+",
-     *         "year": "\d+"
-     *     })
-     *
-     */
-    public function payAction(Request $request, $title, $year, $month, $number)  {
-        $html =  <<<HTML
-            <div style="padding-top: 25%; min-height: 550px">
-                <div class="subscribe">
-                    <a href="http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=1" class="button flat">Получить доступ</a>
-                    <p class="description">
-                        Кликнув на кнопку “Получить доступ”, Вы соглашаетесь с
-                        <br>
-                        условиями подписки на доступ ко всему каталогу.
-                        <br>
-                        Стоимость 12 руб. с учетом НДС в день.
-                    </p>
-                </div> 
-            </div>
-HTML;
-
-
-
-
-
-    }
+//    /**
+//     * @Route("/pay/{title}/{year}/{month}/{number}", name="read", requirements={
+//     *         "month": "\d+",
+//     *         "number": "\d+",
+//     *         "year": "\d+"
+//     *     })
+//     *
+//     */
+//    public function payAction(Request $request, $title, $year, $month, $number)  {
+//        $html =  <<<HTML
+//            <div style="padding-top: 25%; min-height: 550px">
+//                <div class="subscribe">
+//                    <a href="http://join-men.kioskplus.ru/subscribe/?cr=78089&setpreprod=1" class="button flat">Получить доступ</a>
+//                    <p class="description">
+//                        Кликнув на кнопку “Получить доступ”, Вы соглашаетесь с
+//                        <br>
+//                        условиями подписки на доступ ко всему каталогу.
+//                        <br>
+//                        Стоимость 12 руб. с учетом НДС в день.
+//                    </p>
+//                </div>
+//            </div>
+//HTML;
+//
+//
+//
+//
+//
+//    }
 
     public static function ipToInt($ip){
         return (int)str_replace('.', '', $ip);
@@ -276,88 +282,88 @@ HTML;
      *
      */
     public function testAction(Request $request){
-        $em = $this->getDoctrine()->getManager();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        $ipa = '80.83.228.';
-        for ($i = 1; $i < 256; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-        $ipa = '80.83.229.';
-        for ($i = 1; $i < 256; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-        $ipa = '80.83.230.';
-        for ($i = 1; $i < 256; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-        $ipa = '80.83.231.';
-        for ($i = 1; $i < 255; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-
-        $ipa = '80.83.238.';
-        for ($i = 1; $i < 127; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-        $ipa = '80.83.239.';
-        for ($i = 1; $i < 127; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-        $ipa = '80.83.237.';
-        for ($i = 1; $i < 127; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-        $ipa = '80.83.237.';
-        for ($i = 1; $i < 127; $i++){
-            $ip = new IpAdress();
-            $ip->setIp($ipa.$i)->setOperator('MTS');
-            $em->persist($ip);
-        }
-        $em->flush();
-
-
-        
-
-
+//        $em = $this->getDoctrine()->getManager();
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//        $ipa = '80.83.228.';
+//        for ($i = 1; $i < 256; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//        $ipa = '80.83.229.';
+//        for ($i = 1; $i < 256; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//        $ipa = '80.83.230.';
+//        for ($i = 1; $i < 256; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//        $ipa = '80.83.231.';
+//        for ($i = 1; $i < 255; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//
+//        $ipa = '80.83.238.';
+//        for ($i = 1; $i < 127; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//        $ipa = '80.83.239.';
+//        for ($i = 1; $i < 127; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//        $ipa = '80.83.237.';
+//        for ($i = 1; $i < 127; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//        $ipa = '80.83.237.';
+//        for ($i = 1; $i < 127; $i++){
+//            $ip = new IpAdress();
+//            $ip->setIp($ipa.$i)->setOperator('MTS');
+//            $em->persist($ip);
+//        }
+//        $em->flush();
+//
+//
+//
+//
+//
 
 
 
@@ -629,7 +635,8 @@ http://join-men.kioskplus.ru/subscribe/?cr=78225&setpreprod=1
             'journal' => $journal,
             'page' => $page,
             'pages' => $pages,
-            'fileNames' => $fileNames
+            'fileNames' => $fileNames,
+            'body_class' => self::getBodyClass($request)
         ]);
     }
 
@@ -868,7 +875,7 @@ http://join-men.kioskplus.ru/subscribe/?cr=78225&setpreprod=1
     public function infoAction(Request $request)
     {
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
-        return $this->render('html/info.html.twig', ['base_url' => $baseurl]);
+        return $this->render('html/info.html.twig', ['base_url' => $baseurl, 'body_class' => self::getBodyClass($request)]);
     }
     /**
      * @Route("/manage", name="manage")
@@ -876,7 +883,7 @@ http://join-men.kioskplus.ru/subscribe/?cr=78225&setpreprod=1
     public function manageAction(Request $request)
     {
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
-        return $this->render('html/manage.html.twig', ['base_url' => $baseurl]);
+        return $this->render('html/manage.html.twig', ['base_url' => $baseurl, 'body_class' => self::getBodyClass($request)]);
     }
     /**
      * @Route("/term", name="term")
@@ -884,7 +891,7 @@ http://join-men.kioskplus.ru/subscribe/?cr=78225&setpreprod=1
     public function termAction(Request $request)
     {
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
-        return $this->render('html/term.html.twig', ['base_url' => $baseurl]);
+        return $this->render('html/term.html.twig', ['base_url' => $baseurl, 'body_class' => self::getBodyClass($request)]);
     }
 
 
@@ -997,4 +1004,31 @@ http://join-men.kioskplus.ru/subscribe/?cr=78225&setpreprod=1
         $image_new_name = str_replace($image_name, '__' . $image_name, $image);
         return $image_new_name;
     }
+
+    public static function getBodyClass(Request $request){
+        $host = $request->getHost();
+
+        $domain = 'men';
+        if(strpos($host, 'tech') !== false) {
+            $domain = 'tech';
+        }
+        if(strpos($host, 'food') !== false) {
+            $domain = 'food';
+        }
+        if(strpos($host, 'avto') !== false) {
+            $domain = 'avto';
+        }
+        if(strpos($host, 'kind') !== false){
+            $domain = 'kind';
+        }
+        if(strpos($host, 'premium') !== false) {
+            $domain = 'premium';
+        }
+        if(strpos($host, 'premium') !== false) {
+            $domain = 'premium';
+        }
+
+        return $domain;
+    }
+
 }
