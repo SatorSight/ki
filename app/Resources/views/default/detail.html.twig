@@ -124,9 +124,11 @@
 
 
     <div class="footer">
-        <p class="disclaimer">
-            <a href="{{ url("all") }}">Все журналы</a>
-        </p>
+        {% if body_class != 'men' %}
+            <p class="disclaimer">
+                <a href="{{ url("all") }}">Все журналы</a>
+            </p>
+        {% endif %}
 
         <p class="disclaimer">
             Киоск плюс 2016-2017
