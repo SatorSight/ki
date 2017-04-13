@@ -741,7 +741,7 @@ body.men .adult, body.avto .adult {background-image: url('/images/adult.png');}
 #viewer_menu {display: none; text-align: center; max-width: 200px; overflow: hidden;}
 #viewer_menu p, #mine_menu p{font-size: 14px; margin: 10px; padding: 5px 0; cursor: pointer;}
 
-#mine_menu {display: none; position: absolute; left: 0; top: 40px; text-align: center; max-width: 200px; overflow: hidden;}
+#mine_menu {display: none; position: absolute; left: 0; top: 40px; text-align: center; width: 200px; overflow: hidden;}
 
 h2.h2-all{
     display: block;
