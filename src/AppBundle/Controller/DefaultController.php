@@ -83,28 +83,40 @@ class DefaultController extends Controller
 
 
 
+        $journals_count = 3;
+
+        if(self::getBodyClass($request) == 'premium')
+            $journals_count = 2;
+
 
 
         $journals_grouped = [];
         foreach ($journals as $jj){
-            if(empty($journals_grouped[$jj->getTitle()]) || (isset($journals_grouped[$jj->getTitle()]) && count($journals_grouped[$jj->getTitle()]) < 2)) {
+            if(empty($journals_grouped[$jj->getTitle()]) || (isset($journals_grouped[$jj->getTitle()]) && count($journals_grouped[$jj->getTitle()]) < $journals_count)) {
                 $image = $jj->getImageMain();
                 $jj->setImageMain(self::renameImageToMin($jj->getImageMain()));
                 $journals_grouped[$jj->getTitle()][] = $jj;
             }
         }
 
+//        SUtils::dump($jour);
+
+
 
         foreach ($jour as $j)
             if(count($journals_grouped[$j->getTitle()]) > 1)
                 array_shift($journals_grouped[$j->getTitle()]);
 
+
+
 //        SUtils::dump($journals_grouped);
 
+        if(self::getBodyClass($request) == 'premium')
+            foreach($journals_grouped as $key => $j)
+                if(count($journals_grouped[$key]) > 1)
+                    $journals_grouped[$key] = [array_shift($journals_grouped[$key])];
 
-        foreach($journals_grouped as $key => $j)
-            if(count($journals_grouped[$key]) > 1)
-                $journals_grouped[$key] = [array_shift($journals_grouped[$key])];
+//        SUtils::trace($journals_grouped);
 
 
         /*
@@ -119,7 +131,7 @@ class DefaultController extends Controller
 
 //        SUtils::trace($journals_grouped);
 //        SUtils::dump($j_names);
-        $j_names = array_reverse($j_names,false);
+//        $j_names = array_reverse($j_names,false);
 //        SUtils::dump($j_names);
 
         $new_journals = [];
@@ -155,8 +167,9 @@ class DefaultController extends Controller
 
 
 
+        $template = self::getBodyClass($request) == 'premium' ? 'index_premium' : 'index';
 
-        return $this->render('default/index.html.twig', [
+        return $this->render('default/'.$template.'.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
             'journals' => $jour,
             'journals_grouped' => $journals_grouped,

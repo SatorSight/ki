@@ -1,0 +1,238 @@
+{% extends 'base.html.twig' %}
+{% block bodyclass %}{{ body_class }}{% endblock %}
+{% block body %}
+
+
+    <div class="container-fluid main" id="main">
+
+        <header class="page-header" role="banner">
+            <div id="menu_button" onclick="$('#mine_menu').slideToggle()"> </div>
+            <div id="mine_menu">
+                <p><a href="{{ url('bundle') }}" style="text-decoration: none;">ВСЕ ЖУРНАЛЫ</a></p>
+            </div>
+
+            <div class="page-header-main-content">
+
+                <span class="adult"> </span>
+                <div class="logo">
+                    <a href="{{ base_url }}">
+                        <div class="logo-image"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="page-header-aside-content">
+                <div class='page-sliding-aside-handle' role='button' tabindex='0' style="display: none;"></div>
+            </div>
+        </header>
+        <div class="grad"></div>
+
+
+
+
+        {#<h2 class="h2-all"><a href="{{ url('bundle') }}">ВСЕ ЖУРНАЛЫ</a></h2>#}
+        <div class="magazines" style="overflow: hidden; text-align: center;">
+
+
+            {% for key,item in journals %}
+
+                <div class="magazine magazine-{{ key }}" style="width: 49%;">
+                    <div class="magazine-inner">
+                        <a href="{{ url('detail', {
+                            'title': item.url,
+                            'year' : item.year,
+                            'month' : item.month,
+                            'number' : item.number
+                        }) }}">
+                            <div class="cover" style="background-image: url('{{ item.imageMain }}');"></div>
+                        </a>
+                        <p class="title"><a href="{{ url('detail', {
+                                'title': item.url,
+                                'year' : item.year,
+                                'month' : item.month,
+                                'number' : item.number
+                            }) }}">
+                            </a><a href="{{ url('detail', {
+                                'title': item.url,
+                                'year' : item.year,
+                                'month' : item.month,
+                                'number' : item.number
+                            }) }}">
+                                {{ item.title }}
+                            </a>
+                        </p>
+                        <p class="date">
+                            {{ item.month|date("F") }}
+
+                            {{ item.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+
+                            {{ item.year }}</p>
+                        <p class="date">
+                            {% if item.getNumberSet == 0 %}
+                                выпуск {{ item.number }}
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <div style="overflow: hidden; height: 100px;">
+                <div class="slidertop">
+
+                    <div class="slidertop-slide">
+                        <div style="height: 100px; width: 320px;">
+                            <a href="/cover/rake/2017/3/1">
+                                <img class="banner_down" src="/images/slider/pl1.png"
+                                     height="100" width="320" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="slidertop-slide">
+                        <div style="height: 100px; width: 320px;">
+                            <a href="/avtomir/2017/2/6?page=14">
+                                <img class="banner_down" src="/images/slider/av2.png"
+                                     height="100" width="320" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <div class="slidertop-slide">
+                        <div style="height: 100px; width: 320px;">
+                            <a href="/igromania/2017/1/1?page=7">
+                                <img class="banner_down" src="/images/slider/ig3.png"
+                                     height="100" width="320" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="slidertop-slide">
+                        <div style="height: 100px; width: 320px;">
+                            <a href="/lublugotovit/2017/3/3?page=7">
+                                <img class="banner_down" src="/images/slider/av4.png"
+                                     height="100" width="320" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="slidertop-slide">
+                        <div style="height: 100px; width: 320px;">
+                            <a href="/dobrye_sovety/2017/2/2?page=16">
+                                <img class="banner_down" src="/images/slider/bd5.png"
+                                     height="100" width="320" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+            {% for key,item in j_names %}
+                <div class="journal-{{ key }} item">
+                    <span class="j-group-title">{{ item }}</span>
+                    {% for key2,item2 in journals_grouped[item] %}
+                        <div class="magazine">
+                            <div class="magazine-inner">
+                                <a href="{{ url('detail', {
+                                    'title': item2.url,
+                                    'year' : item2.year,
+                                    'month' : item2.month,
+                                    'number' : item2.number
+                                }) }}">
+
+                                    {#{% if key < 10 %}#}
+                                    <div class="cover journal-url-{{ item2.url }}" style="
+                                            background-image: url('{{ item2.imageMain }}');
+                                            "></div>
+
+                                    {#{% endif %}#}
+
+                                </a>
+                                <p class="title">
+
+                                    {#<a href="{{ url('detail', {#}
+                                    {#'title': item2.url,#}
+                                    {#'year' : item2.year,#}
+                                    {#'month' : item2.month,#}
+                                    {#'number' : item2.number#}
+                                    {#}) }}">#}
+                                    {#</a>#}
+
+                                    <a href="{{ url('detail', {
+                                        'title': item2.url,
+                                        'year' : item2.year,
+                                        'month' : item2.month,
+                                        'number' : item2.number
+                                    }) }}">
+                                        {{ item2.title }}
+                                    </a>
+                                    <span class="shadow"></span>
+                                </p>
+                                <p class="date">
+                                    {#{{ item.month|date("F") }}#}
+
+                                    {{ item2.date | localizeddate('none', 'none', 'ru_RU', null, 'LLLL') | capitalize }}
+
+                                    {{ item2.year }}</p>
+                                <p class="date">
+                                    {% if item2.getNumberSet == 0 %}
+                                        выпуск {{ item2.number }}
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+
+            <!-- / one magazine -->
+        </div>
+        <!-- / magazines-->
+
+        <div class="footer">
+
+            {% if body_class != 'men' %}
+                <p class="disclaimer">
+                    <a href="{{ url("all") }}">Все журналы</a>
+                </p>
+            {% endif %}
+            <p class="disclaimer">
+                Киоск плюс 2016-2017
+            </p>
+
+            <p class="accordion disclaimer">Информация для пользователей</p>
+            <div class="panel">
+                <ul id="open">
+                    <li><a href="/info">Информация для пользователей</a></li>
+                    <li><a href="/manage">Управление Услугой</a></li>
+                    <li><a href="/term">Условия оказания услуги</a></li>
+                </ul>
+            </div>
+
+            <script>
+                var acc = document.getElementsByClassName("accordion");
+                var i;
+
+                for (i = 0; i < acc.length; i++) {
+                    acc[i].onclick = function () {
+                        this.classList.toggle("active");
+                        var panel = this.nextElementSibling;
+                        if (panel.style.maxHeight) {
+                            panel.style.maxHeight = null;
+                        } else {
+                            panel.style.maxHeight = panel.scrollHeight + "px";
+                        }
+                    }
+                }
+            </script>
+        </div>
+        <!-- / footer -->
+    </div>
+{% endblock %}
+
+
+
