@@ -306,7 +306,7 @@ class DefaultController extends Controller
 
 
         /** @var Journal[] $all */
-        $all = $em->getRepository('AppBundle:Journal')->findBy(['url' => $title]);
+        $all = $em->getRepository('AppBundle:Journal')->findBy(['url' => $title], ['date' => 'DESC']);
 
         foreach($all as $j) {
             if ($j->getNumberSet())
