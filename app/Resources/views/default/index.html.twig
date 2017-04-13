@@ -6,17 +6,18 @@
     <div class="container-fluid main" id="main">
 
         <header class="page-header" role="banner">
+            <div id="menu_button" onclick="$('#mine_menu').slideToggle()"> </div>
+            <div id="mine_menu">
+                <p><a href="{{ url('bundle') }}" style="text-decoration: none;">ВСЕ ЖУРНАЛЫ</a></p>
+            </div>
+
             <div class="page-header-main-content">
-                <a href="{{ base_url }}">
-                    <div class="logo-image"></div>
-                </a>
+
                 <span class="adult"> </span>
                 <div class="logo">
-                    <div class="logo-link">
-                        <span class="kiosk-logo-image"></span>
-                        <div class="kiosk-bundle-title">Киоск Плюс</div>
-                    </div>
-
+                    <a href="{{ base_url }}">
+                        <div class="logo-image"></div>
+                    </a>
                 </div>
             </div>
             <div class="page-header-aside-content">
@@ -28,7 +29,7 @@
 
 
 
-        <h2 class="h2-all"><a href="{{ url('bundle') }}">ВСЕ ЖУРНАЛЫ</a></h2>
+        {#<h2 class="h2-all"><a href="{{ url('bundle') }}">ВСЕ ЖУРНАЛЫ</a></h2>#}
         <div class="magazines" style="overflow: hidden; text-align: center;">
 
 
@@ -42,11 +43,7 @@
                             'month' : item.month,
                             'number' : item.number
                         }) }}">
-
-                            <div class="cover" style="
-                                    background-image: url('{{ item.imageMain }}');
-                                    "></div>
-
+                            <div class="cover" style="background-image: url('{{ item.imageMain }}');"></div>
                         </a>
                         <p class="title"><a href="{{ url('detail', {
                                 'title': item.url,
