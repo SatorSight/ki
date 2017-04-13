@@ -168,7 +168,7 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/temp", name="temp")
+     * @Route("/bundle", name="bundle")
      *
      */
     public function tempAction(Request $request)
@@ -236,7 +236,7 @@ class DefaultController extends Controller
 
         $baseurl = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath();
 
-        return $this->render('default/temp.html.twig', [
+        return $this->render('default/bundle.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
             'journals_grouped' => $journals_grouped,
             'j_names' => $new_journals,
