@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block bodyclass %}{{ body_class }}{% endblock %}
+
 {% block title %}
     {{ journal.title }}
     {% if journal.getDoubleMonth == 1 %}
@@ -28,12 +28,8 @@
         <div class="tableOfContents">{{ journal.listing }}</div>
 
         <div class="endOfContentsNotSubscribed">{{ journal.listing + 3 }}</div>
-
     </div>
-
     <div class="container-fluid" id="main">
-
-
         <style>
             *{margin: 0; padding: 0;}
             html {
@@ -77,10 +73,6 @@
 
             #controls div {
                 pointer-events: auto;
-                color: #2c2c2c;
-            }
-            #controls .top_panel, #viewer_menu {
-                background-color: #fcc200;
                 color: #2c2c2c;
             }
 
@@ -215,30 +207,18 @@
                         <div>{{ page }} из {{ pages }}</div>
                     </div>
 
-                    <div id="menu_button"
-                         style="background: url({{ url('homepage') }}/images/menu.png) no-repeat center; background-size: 80%; height: 35px; width: 30px; position: absolute; top: 5px; left: 10px;">
-
-                    </div>
 
                     <div id="bookmarks_button"
                          style=" display: none; background: url({{ url('homepage') }}/images/bookmark.png) no-repeat center; background-size: 80%; height: 35px; width: 30px; position: absolute; top: 5px; right: 10px;">
 
                     </div>
+                    <div id="menu_button">
 
-                    <div id="viewer_menu"
-                         style="display: none; width: 150px; position: absolute; left: 0; top: 45px; z-index: -1; padding: 10px; font-size: 14px; box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.4);">
+                    </div>
 
-                        <div>
-                            <div style="text-align: center; padding: 6px;"><a href="{{ url('homepage') }}" style="text-decoration: none;">Ко всем журналам</a>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div style="text-align: center; padding: 6px;" id="toc_button">
-                                Оглавление выпуска
-                            </div>
-                        </div>
-
+                    <div id="viewer_menu">
+                        <p><a href="{{ url('homepage') }}" style="text-decoration: none;">Ко всем журналам</a></p>
+                        <p id="toc_button">Оглавление выпуска</p>
                     </div>
 
 
@@ -256,7 +236,7 @@
 
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="right arrow">
                     <div>
