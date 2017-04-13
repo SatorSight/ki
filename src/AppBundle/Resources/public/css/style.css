@@ -630,6 +630,10 @@ body.food  #page10 .logo {background-image: url("/images/logo-food.png")}
 #slider .item.slider2 .inner {background: url("/images/subscribe02.jpeg") no-repeat 50% 0; background-size: cover;}
 #slider .item.slider3 .inner {background: url("/images/subscribe03.jpeg") no-repeat 50% 0; background-size: cover;}
 #slider .item.slider4 .inner {background: url("/images/subscribe04.jpeg") no-repeat 50% 0; background-size: cover;}
+body.men #slider .item.slider1 .inner {background: url("/images/men-subscribe01.jpeg") no-repeat 50% 0; background-size: cover;}
+body.men #slider .item.slider2 .inner {background: url("/images/men-subscribe02.jpeg") no-repeat 50% 0; background-size: cover;}
+body.men #slider .item.slider3 .inner {background: url("/images/men-subscribe03.jpeg") no-repeat 50% 0; background-size: cover;}
+body.men #slider .item.slider4 .inner {background: url("/images/men-subscribe04.jpeg") no-repeat 50% 0; background-size: cover;}
 #slider .item {-webkit-animation: load 8s linear infinite; -moz-animation: load 8s linear infinite; -o-animation: load 8s linear infinite; animation: load 8s linear infinite;}
 #slider .item.slider3 {-webkit-animation-delay: 2s; -moz-animation-delay: 2s; -o-animation-delay: 2s; animation-delay: 2s;}
 #slider .item.slider2 {-webkit-animation-delay: 4s; -moz-animation-delay: 4s; -o-animation-delay: 4s; animation-delay: 4s;}
