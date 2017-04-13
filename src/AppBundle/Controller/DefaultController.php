@@ -85,8 +85,8 @@ class DefaultController extends Controller
 
         $journals_count = 3;
 
-        if(self::getBodyClass($request) == 'premium')
-            $journals_count = 2;
+//        if(self::getBodyClass($request) == 'premium')
+//            $journals_count = 2;
 
 
 
@@ -111,7 +111,7 @@ class DefaultController extends Controller
 
 //        SUtils::dump($journals_grouped);
 
-        if(self::getBodyClass($request) == 'premium')
+//        if(self::getBodyClass($request) == 'premium')
             foreach($journals_grouped as $key => $j)
                 if(count($journals_grouped[$key]) > 1)
                     $journals_grouped[$key] = [array_shift($journals_grouped[$key])];
@@ -167,7 +167,8 @@ class DefaultController extends Controller
 
 
 
-        $template = self::getBodyClass($request) == 'premium' ? 'index_premium' : 'index';
+//        $template = self::getBodyClass($request) == 'premium' ? 'index_premium' : 'index';
+        $template = 'index';
 
         return $this->render('default/'.$template.'.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
