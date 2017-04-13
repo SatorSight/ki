@@ -32,9 +32,9 @@
         <div class="magazines" style="overflow: hidden; text-align: center;">
 
 
-            {% for item in journals %}
+            {% for key,item in journals %}
 
-                <div class="magazine" style="width: 49%;">
+                <div class="magazine magazine-{{ key }}" style="width: 49%;">
                     <div class="magazine-inner">
                         <a href="{{ url('detail', {
                             'title': item.url,
