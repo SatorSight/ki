@@ -734,4 +734,4 @@ body.food .page-header, body.food #controls .top_panel, body.food #viewer_menu, 
 
 #menu_button {background: url('/images/menu.png') no-repeat 50% 50%; background-size: 80%; height: 35px; overflow: hidden; width: 30px; position: absolute; top: 5px; left: 10px;}
 #viewer_menu {display: none; text-align: center; max-width: 200px; overflow: hidden;}
-#viewer_menu p {font-size: 14px; margin: 10px; padding: 0 5px;}
+#viewer_menu p {font-size: 14px; margin: 10px; padding: 0 5px; cursor: pointer;}
