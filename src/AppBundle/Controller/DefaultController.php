@@ -171,7 +171,7 @@ class DefaultController extends Controller
      * @Route("/bundle", name="bundle")
      *
      */
-    public function tempAction(Request $request)
+    public function bundleAction(Request $request)
     {
         $host = $request->getHost();
         $men_j = ['Playboy', 'The Rake', 'Quattroruote', 'Maxim'];

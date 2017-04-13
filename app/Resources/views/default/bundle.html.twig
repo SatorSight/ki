@@ -3,7 +3,7 @@
 {% block body %}
 
 
-    <div class="container-fluid main" id="main bundle">
+    <div class="container-fluid main bundle" id="main">
 
         <header class="page-header" role="banner">
             <div class="page-header-main-content">
@@ -28,7 +28,7 @@
 
 
 
-        <h2>Список журналов:</h2>
+        {#<h2>Список журналов:</h2>#}
         <div class="magazines" style="overflow: hidden; text-align: center;">
             {% for key,item in j_names %}
                 <div class="journal-{{ key }} item">
