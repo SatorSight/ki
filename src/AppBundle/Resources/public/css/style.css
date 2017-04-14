@@ -51,7 +51,12 @@ a {
     z-index: 999;
     background-color: #FCFCFC;
 }
-#main .magazine-0 .cover, #main .magazine-1 .cover {background-size:contain; box-shadow: none;}
+#main .magazine-0 .cover, #main .magazine-1 .cover {background-size:contain; box-shadow: none; background-color: #FCFCFC;}
+#main .magazines .item {display: block; width: 100%; text-align: left;}
+#main .magazines .item .magazine {display: inline-block; width: 30%; margin: 1%;}
+#main .j-group-title {font-size: 20px; display: block; margin-top: 4%;}
+
+
 .container-fluid {
     min-width: 320px;
     max-width: 1024px;
