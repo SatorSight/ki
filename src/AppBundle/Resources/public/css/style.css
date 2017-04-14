@@ -52,9 +52,6 @@ a {
     background-color: #FCFCFC;
 }
 
-#main .magazine .magazine-0 .cover, #main .magazine .magazine-1 .cover {overflow: hidden; padding-bottom: 0;}
-#main .magazine .magazine-0 .cover img, #main .magazine .magazine-1 .cover img {width: 100%; float: left;}
-
 .container-fluid {
     min-width: 320px;
     max-width: 1024px;

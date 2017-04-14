@@ -39,9 +39,7 @@
                             'month' : item.month,
                             'number' : item.number
                         }) }}">
-                            <div class="cover" style="background-image: url('{{ item.imageMain }}');">
-                                <img src="{{ item.imageMain }}" alt="" />
-                            </div>
+                            <div class="cover" style="background-image: url('{{ item.imageMain }}');"></div>
                         </a>
                         <p class="title"><a href="{{ url('detail', {
                                 'title': item.url,
