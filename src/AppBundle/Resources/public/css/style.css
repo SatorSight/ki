@@ -58,7 +58,7 @@ a {
 #main .j-group-title {font-size: 20px; display: block; margin-top: 4%;}
 #main.bundle .j-group-title, body.premium #main .j-group-title {display: none;}
 body.premium #main .magazines .item {display: inline-block; width: 30%; margin: 1% text-align: left;}
-body.premium #main .magazines .item .magazine {display: inline-block; width: 22%;}
+body.premium #main .magazines .item .magazine {display: block; width: 100%;}
 body.premium #main.bundle .magazines .item {display: block; width: 100%; text-align: left;}
 body.premium #main.bundle .magazines .item .magazine {display: inline-block; width: 22%;}
 
