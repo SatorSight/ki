@@ -51,10 +51,13 @@ a {
     z-index: 999;
     background-color: #FCFCFC;
 }
+
 #main .magazine-0 .cover, #main .magazine-1 .cover {background-size:contain; box-shadow: none; background-color: #FCFCFC;}
 #main .magazines .item {display: block; width: 100%; text-align: left;}
 #main .magazines .item .magazine {display: inline-block; width: 30%; margin: 1%;}
 #main .j-group-title {font-size: 20px; display: block; margin-top: 4%;}
+#main.bundle .j-group-title, body.premium #main .j-group-title {display: inline-block;}
+body.premium #main .magazines .item {display: inline-block; width: 100%; text-align: left;}
 
 
 .container-fluid {
