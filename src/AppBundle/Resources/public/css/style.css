@@ -56,7 +56,7 @@ a {
 #main .magazines .item {display: block; width: 100%; text-align: left;}
 #main .magazines .item .magazine {display: inline-block; width: 30%; margin: 1%;}
 #main .j-group-title {font-size: 20px; display: block; margin-top: 4%;}
-#main.bundle .j-group-title, body.premium #main .j-group-title {display: inline-block;}
+#main.bundle .j-group-title, body.premium #main .j-group-title {display: none;}
 body.premium #main .magazines .item {display: inline-block; width: 100%; text-align: left;}
 
 
