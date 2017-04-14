@@ -51,7 +51,7 @@ a {
     z-index: 999;
     background-color: #FCFCFC;
 }
-
+#main .magazine-0 .cover, #main .magazine-1 .cover {background-size:contain; box-shadow: none;}
 .container-fluid {
     min-width: 320px;
     max-width: 1024px;
